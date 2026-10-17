@@ -20,9 +20,8 @@ _ = style.SERIES
 
 TABLES = ROOT / "outputs" / "tables"
 
-# Planning multiple. The measured chain ratio is printed beside it.
-# 1.59 is that ratio rounded to two decimals (quantity / orders).
-ITEMS_PER_ORDER = 1.59
+# Items per order are measured in build() from quantity / orders.
+# The truck ticket assumes the truck matches that chain ratio.
 
 # Easy to carry, no hot kitchen. Order here is the menu order, not popularity.
 DRINKS = [
@@ -144,12 +143,9 @@ def build(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         [
             {
                 "metric": "items_per_order",
-                "value": ITEMS_PER_ORDER,
+                "value": measured_items,
                 "kind": "MEASURED",
-                "note": (
-                    f"Chain quantity / orders = {measured_items:.4f}, "
-                    f"rounded to {ITEMS_PER_ORDER:.2f} for the ticket."
-                ),
+                "note": "Chain quantity / orders. Not rounded.",
             },
             {
                 "metric": "weighted_avg_price",
@@ -177,15 +173,15 @@ def build(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
             },
             {
                 "metric": "ticket_per_order",
-                "value": price * ITEMS_PER_ORDER,
+                "value": price * measured_items,
                 "kind": "ESTIMATE",
-                "note": "ASSUMPTION: a truck order contains 1.59 items, same as the chain, at this mix.",
+                "note": "ASSUMPTION: a truck order contains the chain's measured items per order, at this mix.",
             },
             {
                 "metric": "product_profit_per_order",
-                "value": profit * ITEMS_PER_ORDER,
+                "value": profit * measured_items,
                 "kind": "ESTIMATE",
-                "note": "ASSUMPTION: same 1.59 items/order. This is product margin only, before labour and fees.",
+                "note": "ASSUMPTION: same measured items/order. Product margin only, before labour and fees.",
             },
         ]
     )
@@ -210,8 +206,9 @@ def main() -> None:
     print(f"  Cost per item:      ${by_name['weighted_avg_cost']:.2f}")
     print(f"  Profit per item:    ${by_name['weighted_profit_per_item']:.2f}")
     print(f"  Margin:             {by_name['weighted_margin_pct']:.1f}%")
-    print(f"  Ticket / order:     ${by_name['ticket_per_order']:.2f}  (ESTIMATE, x {ITEMS_PER_ORDER})")
-    print(f"  Product profit:     ${by_name['product_profit_per_order']:.2f}  (ESTIMATE, x {ITEMS_PER_ORDER})")
+    print(f"  Items / order:      {by_name['items_per_order']:.2f}  (MEASURED)")
+    print(f"  Ticket / order:     ${by_name['ticket_per_order']:.2f}  (ESTIMATE)")
+    print(f"  Product profit:     ${by_name['product_profit_per_order']:.2f}  (ESTIMATE)")
     print("Excluded (not on the truck):")
     for product, kind, reason in EXCLUDED:
         print(f"  - {product} ({kind}): {reason}")

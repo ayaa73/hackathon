@@ -31,6 +31,21 @@ No URL in this file supports Faraya, Kfardebian, Jounieh, Byblos-as-a-market, Ba
 
 The model takes the **low end** of the Zion ranges where it needs a single number (used trailer $30,000, equipment package $15,000, wrap $2,500, permits $800, opening inventory $3,000, machine $5,500, grinder $1,500). That is optimistic. Lebanon permits, fuel, wages, and municipality fees are not on either page.
 
+## Ma'amoul, and why one pastry covers Eid and Easter
+
+- [L'Orient Today](https://today.lorientlejour.com/cooking-food-lebanon/1334757/for-the-love-of-maamoul-from-gold-coins-to-nutella.html) supports the product, not a price. Ma'amoul fillings in Lebanon are pistachios, walnuts, and dates. The same piece quotes a historian that ma'amoul is the sweet typical of Christian Easter and of Eid al-Fitr and Eid al-Adha, and that it keeps for weeks because it is baked. There is no Stories price for ma'amoul in the transaction file. The model prices it like a pistachio cookie and labels that an estimate.
+
+## 2027 dates for the next test
+
+Lunar holidays move, and the calendars do not agree yet. Both of these are provisional:
+
+- [timeanddate, Lebanon 2027](https://www.timeanddate.com/holidays/lebanon/2027) lists Eid al-Fitr as a tentative public holiday on **10-11 Mar 2027** and Eid al-Adha as a tentative public holiday on **17-18 May 2027**.
+- [PublicHolidays.me](https://publicholidays.me/lebanon/eid-al-fitr/) lists Eid al-Fitr 2027 as **9 Mar**. [Egazat](https://egazat.com/en/eid/2027.html) lists Lebanon's Eid al-Adha 2027 as **16-17 May**.
+
+The validation plan uses the timeanddate window and says to confirm the moon-sighting announcement before pre-orders open. No source here is an official Lebanese decree for 2027.
+
 ## Not a source
 
 A recall that southerners still went home for Eid in earlier wars has **no URL** in the material used here. It is not treated as evidence and it is not a reason to send a truck south in 2026. The sourced 2026 account is the Anadolu piece above.
+
+Google Maps Popular Times for Batroun, Byblos, Saida, and Chtaura/Zahle is a check still to be done. It is not a source until someone saves the screenshots.
