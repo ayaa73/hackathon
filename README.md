@@ -17,7 +17,8 @@ worth, the evidence behind it, and a test to prove it before rollout.
 
 **Gross profit only:** the data has product costs but no labour, rent or energy, so net gains
 will be smaller. **Measured** = computed from the data. **Estimate** = a measured input times
-a stated assumption, written next to it. Ideas we tested and dropped are in
+a stated assumption, written next to it. Ideas we tested and dropped (strikes, exams, expats,
+football, and options inside each project) are in
 [docs/5_rejected_approaches.md](docs/5_rejected_approaches.md).
 
 ## The four projects
@@ -64,7 +65,7 @@ pip install -r requirements.txt
 python run_all.py
 ```
 
-`run_all.py` runs all 21 scripts in order (about a minute) and stops if any fails, including
+`run_all.py` runs all 22 scripts in order (about a minute) and stops if any fails, including
 if the leakage and stability checks in `menu_engineering/validate.py` don't pass. Each script
 can also be run on its own from the repository root, for example
 `python payday/payday_cycle.py`.
@@ -82,6 +83,7 @@ menu_engineering/             Project 1 scripts      → outputs/menu_engineerin
 truck/                        Project 2 scripts      → outputs/truck/{tables,figures}
 morning/                      Project 3 scripts      → outputs/morning/{tables,figures}
 payday/                       Project 4 scripts      → outputs/payday/{tables,figures}
+rejected_approaches/          tests of dropped ideas → outputs/rejected_approaches/tables
 
 docs/1_menu_engineering.md    Project 1 write-up for the CEO
 docs/2_holiday_truck.md       Project 2 write-up
@@ -144,6 +146,15 @@ docs/5_rejected_approaches.md everything we tried and dropped, with the evidence
 |---|---|---|
 | Day-of-month cycle, robustness, value of the dip | `payday_cycle.py` | `payday_by_day_of_month.csv`, `payday_robustness.csv`, `payday_dip_value.csv`, `payday_cycle.png` |
 | Month Pass and comeback reward sized on real members, test design | `month_pass.py` | `month_pass_members.csv`, `month_pass_unit_economics.csv`, `month_pass_option_a.csv`, `comeback_base.csv`, `comeback_option_b.csv`, `payday_offer_tests.csv`, `month_pass_scenarios.png` |
+
+</details>
+
+<details>
+<summary><b>Rejected ideas</b> (<code>outputs/rejected_approaches/</code>)</summary>
+
+| Result | Script | Tables / figures |
+|---|---|---|
+| Strikes, exam periods, expat travel, football nights vs daily sales | `event_tests.py` | `rejected_event_tests.csv` |
 
 </details>
 

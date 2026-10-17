@@ -28,9 +28,12 @@ def main() -> None:
         rows.append({"claim": claim, "value": value, "method": method})
 
     # 1. Anonymous orders
-    tx = df.groupby("Transaction ID").agg(cust=("Customer ID", "first"))
+    tx = df.groupby("Transaction ID").agg(cust=("Customer ID", "first"), Date=("Date", "first"))
     add("Orders without a Customer ID (%)", round(tx.cust.isna().mean() * 100, 1),
         "share of transactions whose Customer ID is empty")
+    by_month = tx.cust.isna().groupby(tx.Date.dt.month).mean() * 100
+    add("Orders without a Customer ID, lowest-highest month (%)", f"{by_month.min():.1f}-{by_month.max():.1f}",
+        "same share per calendar month Jan-Jun; flat = no visitor/expat surge in walk-ins")
 
     # 2. Price and cost level by branch vs Uptown (same items)
     pc = df.groupby(["Product", "Branch"])[["Unit Price (USD)", "Unit Cost (USD)"]].mean().unstack()

@@ -1,5 +1,6 @@
 claim,value,method
 Orders without a Customer ID (%),36.5,share of transactions whose Customer ID is empty
+"Orders without a Customer ID, lowest-highest month (%)",35.9-36.9,same share per calendar month Jan-Jun; flat = no visitor/expat surge in walk-ins
 "Garden price vs Uptown, same items (%)",4.2,mean over 45 items of (branch average / Uptown average) - 1
 "Harbour price vs Uptown, same items (%)",9.4,mean over 45 items of (branch average / Uptown average) - 1
 "Garden unit cost vs Uptown, same items (%)",49.0,mean over 45 items of (branch average / Uptown average) - 1

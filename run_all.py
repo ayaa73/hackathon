@@ -32,6 +32,7 @@ STEPS = [
     ("3. Morning offer", "morning/morning_offer.py"),
     ("4. Payday cycle", "payday/payday_cycle.py"),
     ("4. Payday cycle", "payday/month_pass.py"),
+    ("Rejected ideas", "rejected_approaches/event_tests.py"),
 ]
 
 
