@@ -1,0 +1,9 @@
+metric,value
+Members (customer IDs),3494.0
+Active members per month (average),2237.0
+Median visits per member per month,1.0
+90th percentile visits per member per month,1.5
+Regulars (>= 1.5 visits a month),607.0
+Regulars' average visits per month,1.67
+Members with >= 2 visits a month,79.0
+Gross profit per member order (USD),5.28

@@ -1,0 +1,15 @@
+metric,value
+members per arm (random half each),1747.0
+"visits per member per month (last 3 months, mean)",1.172
+standard deviation,0.624
+smallest detectable difference in visits per member per month (3 months),0.059
+as % of current visits,5.0
+"ALL MEMBERS: expected effect per offered member, Conservative (visits/month)",0.009
+"ALL MEMBERS: expected effect per offered member, Central (visits/month)",0.049
+"ALL MEMBERS: expected effect per offered member, Optimistic (visits/month)",0.113
+REGULARS ONLY: members per arm,303.0
+REGULARS ONLY: visits per member per month (mean),1.91
+REGULARS ONLY: smallest detectable difference (visits/month),0.134
+"REGULARS ONLY: expected effect per offered regular, Conservative (visits/month)",0.05
+"REGULARS ONLY: expected effect per offered regular, Central (visits/month)",0.2
+"REGULARS ONLY: expected effect per offered regular, Optimistic (visits/month)",0.45
