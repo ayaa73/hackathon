@@ -1,4 +1,4 @@
-# Stories Coffee: Two Ways to Grow Profit
+# Stories Coffee: Three Ways to Grow Profit
 
 Hackathon project on Stories Coffee's Jan-Jun 2026 transaction data (3 branches: Garden,
 Harbour, Uptown; 45 menu items; 33,887 orders).
@@ -32,6 +32,15 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    truck only breaks even at Harbour-like demand and **buying one does not pay back within
    two years**. Recommendation: boxes first, then one pop-up; rent a truck only if the pop-up
    proves 80+ orders a day.
+3. **Filling the idle mornings** ([full write-up](docs/morning_offer.md)).
+   Weekday mornings (7-10) run at about **40% of the night pace** with staff already paid for,
+   and **65% of morning hot-coffee orders have no food**. Morning bundles chosen with the
+   morning menu matrix (Vanilla Latte + Butter Croissant; Spanish Latte + Egg Sandwich; an
+   office pack), a breakfast board, a **loyalty card** (pays if just 11% of users are new) and
+   **free delivery only on office packs** (free delivery on a single coffee needs 40% new
+   customers to pay). Every +5 orders per branch per weekday ≈ **$11k gross profit a year**
+   (estimate). The data shows no office pattern in mornings, so it is tested first: 12 weeks
+   at Harbour on a metric checked against history.
 
 **Measured vs estimated:** every number labelled *measured* comes straight from the data.
 Every *estimate* is a measured input times a stated assumption, and the assumption is written
@@ -79,6 +88,17 @@ next to it.
 
 ![Truck profit per day at branch-sized demand](outputs/figures/truck_profit_per_day.png)
 
+## Project 3: Filling the idle mornings
+
+| Output | File |
+|---|---|
+| Orders per hour by branch, morning facts | `outputs/tables/morning_orders_per_hour.csv`, `outputs/tables/morning_facts.csv`, `outputs/figures/morning_idle_hours.png` |
+| Morning menu matrix, bundles and prices | `outputs/tables/morning_menu_matrix.csv`, `outputs/tables/morning_bundles.csv` |
+| Loyalty vs delivery, scenarios, capacity | `outputs/tables/morning_channel_economics.csv`, `outputs/tables/morning_scenarios.csv`, `outputs/tables/morning_upsell_ceiling.csv`, `outputs/figures/morning_offer_economics.png` |
+| Test design checked on history | `outputs/tables/morning_test_design.csv` |
+
+![Weekday orders per hour](outputs/figures/morning_idle_hours.png)
+
 ## How to run
 
 ```bash
@@ -98,6 +118,8 @@ python truck/truck_menu.py                  # Project 2: truck menu economics
 python truck/eid_boxes.py                   # Project 2: Eid boxes + limited edition
 python truck/truck_model.py                 # Project 2: rent/buy at measured demand
 python truck/channel_comparison.py          # Project 2: boxes vs pop-up vs truck
+python morning/morning_demand.py            # Project 3: idle mornings, who buys
+python morning/morning_offer.py             # Project 3: bundles, loyalty vs delivery, test
 ```
 
 All scripts run from the repository root and write to `outputs/`.
@@ -113,5 +135,7 @@ truck/                              Project 2 scripts and inputs
 docs/menu_engineering.md            Project 1 write-up for the CEO
 docs/truck_business_case.md         Project 2 write-up for the CEO
 docs/truck_sources.md               Project 2 sources (holidays, security, costs, ma'amoul)
+morning/                            Project 3 scripts
+docs/morning_offer.md               Project 3 write-up for the CEO
 outputs/tables, outputs/figures     generated results
 ```

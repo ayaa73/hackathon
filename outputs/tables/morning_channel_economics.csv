@@ -1,0 +1,10 @@
+bundle,channel,bundle_profit,channel_cost_per_order,net_profit_per_new_order,min_share_of_orders_that_must_be_new_pct
+Quick morning,Walk-in + loyalty card (6th free),4.99,0.54,4.45,10.8
+Quick morning,"Delivery, first 3 free",4.99,2.0,2.99,40.1
+Quick morning,"Delivery, customer pays the fee",4.99,0.0,4.99,0.0
+Office breakfast,Walk-in + loyalty card (6th free),6.98,0.96,6.02,13.7
+Office breakfast,"Delivery, first 3 free",6.98,2.0,4.98,28.7
+Office breakfast,"Delivery, customer pays the fee",6.98,0.0,6.98,0.0
+Office pack (4+4),Walk-in + loyalty card (6th free),19.22,2.29,16.93,11.9
+Office pack (4+4),"Delivery, first 3 free",19.22,2.0,17.22,10.4
+Office pack (4+4),"Delivery, customer pays the fee",19.22,0.0,19.22,0.0

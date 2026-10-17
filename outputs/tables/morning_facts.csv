@@ -1,0 +1,17 @@
+metric,value,kind,note
+Garden: weekday orders/hour 7-10,2.32,MEASURED,vs 6.02 at 19-23 (38% of night)
+Harbour: weekday orders/hour 7-10,3.59,MEASURED,vs 8.72 at 19-23 (41% of night)
+Uptown: weekday orders/hour 7-10,1.33,MEASURED,vs 3.47 at 19-23 (38% of night)
+Morning share of orders,14.1,MEASURED,"% of all orders, 7-10"
+Morning share of revenue,13.5,MEASURED,% of revenue
+"Morning share, lowest-highest weekday",13.2-14.8,MEASURED,% of a day's orders; same on weekdays and weekends -> no office/workday signal in the data
+"Hot coffee share of items, morning",23.7,MEASURED,% of items sold
+"Takeaway share of orders, morning",54.0,MEASURED,%
+"Hot coffee share of items, night",11.2,MEASURED,% of items sold
+"Takeaway share of orders, night",27.7,MEASURED,%
+"Morning takeaway share, weekday vs weekend",54.0 vs 54.0,MEASURED,% (equal -> no office signal)
+Morning orders containing hot coffee,1560,MEASURED,orders in 6 months
+...of which drinks only (no food),64.7,MEASURED,% -> the bundle's opening
+Morning profit per order,5.12,MEASURED,vs 5.33 at night
+Members with at least one morning visit,57.4,MEASURED,"% of 3,494 members"
+Members with 3+ morning visits,5.2,MEASURED,"% -> mornings are occasional, not a habit"

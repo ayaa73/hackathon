@@ -1,0 +1,10 @@
+branch,bundle,items,price_separate,bundle_price,bundle_cost,bundle_profit,margin_pct
+Garden,Quick morning,Vanilla Latte + Butter Croissant,9.1,8.19,4.09,4.1,50.1
+Garden,Office breakfast,Spanish Latte + Egg Sandwich,14.1,12.69,7.28,5.41,42.6
+Garden,Office pack (4+4),Cappuccino + Flat White + Vanilla Latte + Spanish Latte + Butter Croissant + Butter Croissant + Chocolate Croissant + Cinnamon Roll,36.5,32.85,17.38,15.47,47.1
+Harbour,Quick morning,Vanilla Latte + Butter Croissant,9.55,8.6,2.86,5.74,66.7
+Harbour,Office breakfast,Spanish Latte + Egg Sandwich,14.81,13.33,5.09,8.24,61.8
+Harbour,Office pack (4+4),Cappuccino + Flat White + Vanilla Latte + Spanish Latte + Butter Croissant + Butter Croissant + Chocolate Croissant + Cinnamon Roll,38.32,34.49,12.16,22.33,64.7
+Uptown,Quick morning,Vanilla Latte + Butter Croissant,8.73,7.86,2.74,5.12,65.1
+Uptown,Office breakfast,Spanish Latte + Egg Sandwich,13.53,12.18,4.89,7.29,59.8
+Uptown,Office pack (4+4),Cappuccino + Flat White + Vanilla Latte + Spanish Latte + Butter Croissant + Butter Croissant + Chocolate Croissant + Cinnamon Roll,35.03,31.53,11.67,19.86,63.0
