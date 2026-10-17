@@ -1,169 +1,186 @@
-# Project 2: Holiday truck business case
+# Project 2: Should Stories go to the customer?
 
-**Conclusion.** Rent a truck first and treat the season as a pilot. Buy only if that pilot beats break-even by enough to pay the trailer back within 2 years and the truck can honestly work at least 44 days a year (about 162 orders/day for a used trailer, about 180 for a new one, at 44 days). Never buy a truck for the holiday dates alone: at 18 days a year, even 300 orders/day misses a 2-year payback.
+## 1. Conclusion
 
-> **Measured** = computed from `data/raw/stories_transactions.csv` (Jan-Jun 2026, 51,045 lines and 33,887 orders after 132 duplicate rows were removed).
-> **Estimated** = a measured input times a stated assumption, or a price taken from a US listing. Sources are in [truck_sources.md](truck_sources.md).
+Start with Eid boxes and a limited-edition ma'amoul, then one pop-up stand. Rent a truck only if the pop-up holds about 80 orders a day. Do not buy a truck on this file: at Garden-sized demand it loses money, and even a Harbour-sized season does not pay a trailer back inside two years.
+
+The Eid dip is how the question came up. It is not the size of the prize. Eid al-Fitr cost about **$923** of revenue. A used truck is **$51,300** before it sells anything.
+
+> **Measured** = computed from `data/raw/stories_transactions.csv` (Jan-Jun 2026).
+> **Estimated** = a measured input times a stated assumption, or a US list price. Every URL is in [truck_sources.md](truck_sources.md). Anything without one is marked **ASSUMPTION - verify locally**.
 
 ---
 
-## 1. The problem (measured)
+## 2. The observation
 
-People leaving Beirut is the idea. The file only shows what happened inside the three branches (Garden, Harbour, Uptown).
+Branch sales dip on some holidays. The old write-up compared each Eid day with that weekday's average over all six months. That baseline is wrong: chain revenue grew **52.4%** from January to June, so a late-May day looked strong against a winter-heavy average.
 
-| | Jan-Jun 2026 |
-|---|---|
-| Orders | 33,887 |
-| Revenue | $305,184 |
-| Gross profit | $178,994 |
-| Items per order | 1.59 |
+The corrected baseline is local. For each holiday day, expected revenue is the average of the **same weekday within ±21 days**, and the holiday's own dates are left out of that average. Code: [`truck/holiday_dips.py`](../truck/holiday_dips.py).
 
-Holiday test: each day's chain revenue against the average of the **same weekday** on every other day in the six months.
-
-| Holiday | Chain revenue vs a normal same weekday | What the branches did |
-|---|---|---|
-| Eid al-Fitr, 20-23 Mar | **-$1,030 (-17.2%)** over 4 days | 21 Mar ($911) was the **third-worst day** of the half-year |
-| Eid al-Adha, 27-28 May | **+$440 (+13.5%)** over 2 days | No dip. The branches were not empty |
-
-Fitr is a real hole in branch sales. Adha is not. A truck is not a way to "win back" an Adha loss that does not exist in this file. It is a bet that, on some days, the crowd is outside Beirut.
-
-## 2. Where and when
-
-Full rows: [`truck/holiday_calendar.csv`](../truck/holiday_calendar.csv). Rule for every row: **no stop in a place under an evacuation order or active strikes.** Follow official guidance the week you roll. A ceasefire date is not a permit.
-
-2026 context, sourced:
-
-- War from **2 Mar 2026**. A 10-day cessation of hostilities from **16 Apr 2026**. The 17 Apr Reuters explainer says Israeli forces were not required to leave the South.
-- Anadolu: for Eid al-Adha, families no longer gathered in southern border villages.
-- Annahar (page dated 12 Jun 2026; the English index lists it on 13 Jun): Ehdeniyat skipped 2026, Beiteddine cancelled, Baalbek moving toward postponement, Byblos uncertain, Beirut Holidays moved to **Antelias-Naccache, 16-28 Jul**.
-
-| Window | Days | 2026 call | Include |
-|---|---|---|---|
-| Eid al-Fitr, 20-23 Mar | 4 | Inside the war. High security risk. | No |
-| Easter and Orthodox Easter, 3-6 Apr and 10-13 Apr | 8 | Still before 16 Apr. High security risk. | No |
-| Eid al-Adha, 27-28 May | 2 | Do not go to Nabatieh, Tyre, or Baalbek-Hermel. Anadolu. Safer names in the plan are Saida and Chtaura/Zahle, and those have **no traffic source**. | Only the safer names, and only with official guidance |
-| Ashoura, 26 Jun | 1 | Mourning period. A sales truck is not appropriate. | No |
-| Summer weekends, Jul-Aug Fri-Sun | 27 | Batroun, Byblos, Ehden are assumptions. Ehden's festival is off. | Yes, as a test, low confidence |
-| Beirut Holidays, 16-28 Jul | 13 | Moved to Antelias-Naccache. This is the one festival still on. | Yes |
-| Assumption, 15 Aug | 1 | Mount Lebanon / North is an assumption. | Yes, if that area is not under an order |
-| New Year, Orthodox Christmas, Christmas | 3 | Faraya, Kfardebian, Jounieh, Byblos markets are assumptions. | Yes, if the week is safe |
-
-There is no URL for the idea that southerners still went home for Eid in earlier wars. It is not used as a reason to deploy.
-
-## 3. Truck menu
-
-Sixteen items. No hot kitchen, no freezer, nothing that has to be assembled.
-
-Drinks: Cold Brew, Iced Latte, Iced Matcha, Classic Matcha, Iced Americano, Americano, Cappuccino, Spanish Latte, Lemonade, Peach Iced Tea, Still Water.
-
-Food, pre-packed and ambient: Butter Croissant, Chocolate Cookie, Pistachio Cookie, Brownie, Banana Bread.
-
-Left off, and why: sandwiches, the halloumi wrap, bowls, and soup need a kitchen or a protein cold chain; breakfast items are made to order; cheesecake and tiramisu spoil in a cooler; frozen yoghurt needs a freezer.
-
-Measured mix of these 16 items (units sold in the branches, list price minus list cost, discounts not included):
-
-| | Value | Kind |
-|---|---|---|
-| Price per item | $4.71 | Measured |
-| Unit cost | $1.66 | Measured |
-| Profit per item | $3.05 | Measured |
-| Margin | 64.7% | Measured |
-| Ticket per order | $7.49 | Estimate: price x 1.59 items |
-| Product profit per order | $4.85 | Estimate: profit x 1.59 items |
-
-Detail: [`outputs/tables/truck_menu.csv`](../outputs/tables/truck_menu.csv).
-
-## 4. Supply chain
-
-Load at the nearest branch each morning. Cold brew, lemonade, and peach iced tea are batched at the branch the night before. Pastries come from branch stock, already packed. Milk rides in a cooler box. Use a spare branch espresso machine if operations confirms one exists; if it does not, the pilot needs a $5,500 machine and a $1,500 grinder on top of the $1,500 branding. On a multi-day trip, restock from a branch or from a supplier near Saida or Zahle rather than driving back to Beirut mid-service. That restock point is an assumption until someone names the supplier.
-
-## 5. Costs and returns (estimated)
-
-Product profit per order is $4.85. It does not pay staff, fuel, the site, or the vehicle.
-
-Daily cash cost once the truck is owned: 2 staff x $40 + $40 fuel and generator + $50 site fee + $30 misc = **$200**. Rent adds $150 for the vehicle and $40 for a generator: **$390**.
-
-Upfront, using the **low end** of the US ranges (optimistic; Lebanon is not quoted):
-
-| Option | Upfront | What it is |
-|---|---|---|
-| 1 Rent pilot | $1,500 | Branding and cups. Spare machine assumed at $0. |
-| 1 Rent, no spare machine | $8,500 | Same, plus a $5,500 machine and a $1,500 grinder |
-| 2 Buy used | $51,300 | $30,000 trailer + $15,000 equipment + $2,500 wrap + $800 permits + $3,000 stock |
-| 3 Buy new | $59,299 | HorecaStore 14-ft trailer $49,999 + $3,000 shipping (assumption) + the same wrap, permits, and stock |
-
-Break-even is a daily test. It does not depend on how many days you work.
-
-| Option | Break-even | Low 100 | Mid 200 | High 300 |
+| Holiday | Actual | Expected | Gap | Gross-profit gap |
 |---|---|---|---|---|
-| Rent | **80.5 orders/day** | Clears | Clears | Clears |
-| Buy used | **41.3 orders/day** | Clears | Clears | Clears |
-| Buy new | **41.3 orders/day** | Clears | Clears | Clears |
+| Eid al-Fitr, 20-23 Mar | $4,970 | $5,892 | **-$923 (-15.7%)** | -$533 |
+| Orthodox Easter, 10-13 Apr | $5,893 | $6,045 | -$152 (-2.5%) | -$106 |
+| Eid al-Adha, 27-28 May | $3,701 | $3,822 | **-$122 (-3.2%)** | -$40 |
+| Easter, 3-6 Apr | $6,330 | $5,843 | +$487 (+8.3%) | +$262 |
+| Labour Day, 1 May | $2,232 | $1,831 | +$401 (+21.9%) | +$275 |
 
-![Break-even orders per day](../outputs/figures/truck_breakeven.png)
+21 Mar was the worst Fitr day, **$911**. It is the third-lowest day in the half-year (181 days). The lowest day overall was 17 Jan, at $830, and it was not a holiday.
 
-Clearing break-even is not the buy test. At exactly 41 orders/day the owned truck makes no cash, so it never pays back. Payback at the **mid** case (200 orders/day):
+Adha is a small dip, not a surge. The old "+13.5%, no dip" figure was the six-month weekday average.
 
-| Option | 18 holiday days | 44 days | 80 days |
+![Holiday revenue gap](../outputs/figures/eid_holiday_dips.png)
+
+Chain context, measured: 33,887 orders, $305,184 revenue, $178,994 gross profit, 1.59 items per order, branches Garden, Harbour, and Uptown.
+
+## 3. The question
+
+Customers leave Beirut and spend Eid with family. Fitr shows up in the branches. That raises a bigger question than "how do we patch a $923 hole": **should Stories go to its customers when they are not near a branch?**
+
+Three answers, cheapest first.
+
+## 4. Option 1: Eid boxes and a limited edition
+
+Use pastries the branches already sell and that travel at room temperature. The mix is weighted by measured popularity times measured profit per unit.
+
+**Box of 6:** one each of butter croissant, cinnamon roll, chocolate croissant, chocolate cookie, banana bread, almond croissant.
+
+**Family box of 12:** two each of the first four, plus one banana bread, one almond croissant, one brownie, one pistachio cookie.
+
+Price is the branch's list prices times **0.90** (a 10% box discount, an assumption). Cost is that branch's measured unit cost.
+
+| Assembled at | Box of 6 price | Profit | Margin | Family box profit |
+|---|---|---|---|---|
+| Harbour | $24.09 | **$14.74** | 61.2% | **$28.76** |
+| Uptown | $22.02 | $13.05 | 59.3% | $25.42 |
+| Garden | $22.95 | $9.58 | 41.7% | $18.43 |
+
+Garden's unit cost on these pastries is about **43%** above Harbour's, so a Garden box earns about **35%** less profit. Assemble at Harbour or Uptown.
+
+The Fitr revenue gap is $923 (measured). Apply the chain's measured gross margin (58.7%) and the gross profit in that gap is about **$541** (estimate). Replacing it takes **37 Harbour boxes of 6**, or **19 family boxes**. A one-time **$500** for bags, cards, and a week of posts (assumption) is covered by **34 boxes of 6** or **18 family boxes**. If pre-orders do both, the programme is about **$41** ahead. That is a test, not a profit centre.
+
+Limited edition, not in the file, all estimates, priced by analogy:
+
+| Item | Priced like | Price | Profit |
 |---|---|---|---|
-| Rent | 0.14 years (net $10,424) | 0.06 years (net $25,481) | 0.03 years (net $46,330) |
-| Buy used | **3.71 years** (net $13,844, year-1 cash -$37,456) | **1.52 years** (net $33,841, year-1 cash -$17,459) | 0.83 years (net $61,530) |
-| Buy new | **4.28 years** (net $13,844, year-1 cash -$45,455) | **1.75 years** (net $33,841, year-1 cash -$25,458) | 0.96 years (net $61,530) |
+| Ma'amoul (date, pistachio, or walnut) | Pistachio cookie | $3.51 | $2.17 |
+| Pistachio baklava | Cinnamon roll | $5.24 | $2.73 |
+| Rose-pistachio latte | Spanish latte | $6.06 | $3.81 |
 
-![Payback at 200 orders a day](../outputs/figures/truck_payback.png)
+Ma'amoul is the one product that serves both Eid and Easter. L'Orient Today records it as the Lebanese sweet for Easter and for both Eids. The same box can be offered again at Easter. Baklava and the rose-pistachio latte are seasonal add-ons with no Stories sales history.
 
-If there is no spare machine, the mid-case rent payback is still inside a year: 0.82 years at 18 days, 0.33 at 44, 0.18 at 80. The pilot survives that. The purchase does not survive an 18-day year.
+How it sells: pre-order on WhatsApp or Instagram the week before Eid, pick up at any branch on the last days of Ramadan, and sell the limited edition in the branches during Eid week. Detail: [`outputs/tables/eid_boxes.csv`](../outputs/tables/eid_boxes.csv).
 
-At 44 days, a used trailer needs about **162 orders/day** and a new one about **180** to pay back within 2 years. Both sit above the 41-order break-even and below the 200-order mid case. At 18 days, 300 orders/day still leaves the used trailer at about 2.3 years and the new one slower.
+## 5. Option 2: a pop-up stand
 
-The 80-day year is an assumption, not a count of sourced dates. Do not buy on the strength of that column.
+One event, not a fleet. Beirut Holidays runs **16-28 Jul 2026** at Antelias-Naccache (13 days, from the calendar, sourced to Annahar).
 
-## 6. Recommendation and the pilot
+Assumptions: a stand at **$100 a day**, two staff at **$40** each, a spare branch espresso machine at **$0**. Cash cost **$180 a day**. Break-even is **37 orders a day**, using the truck menu's estimated **$4.85** product profit per order. That is below Uptown's average, so it is a fair test. At Garden's order rate the 13 days net about **$1,550**. At Harbour's rate, about **$3,350**. Upfront is $0 in this model.
 
-Rent. Do not buy off this spreadsheet.
+## 6. Option 3: a truck, at demand Stories has actually seen
 
-Run the pilot on one safe, sourced occasion and one weekend, not a southern Eid convoy:
+The old 100 / 200 / 300 orders a day sit above any branch-day in the file. The scenarios now are measured:
 
-1. Beirut Holidays at Antelias-Naccache (16-28 Jul), or one Jul-Aug weekend in Batroun or Byblos if Google Maps traffic actually shows a crowd.
-2. Eid al-Adha only as a second test, and only in Saida or Chtaura/Zahle, and only if official guidance does not have an evacuation order. Do not use it as the reason to buy. Branch sales did not fall on Adha.
+| What the branches did | Orders per day |
+|---|---|
+| Uptown average | 35 |
+| Garden average | 62 |
+| Harbour average (busiest branch) | 90 |
+| Harbour on Tuesdays | 137 |
+| Best single branch-day in six months | 193 |
 
-Write down, each day: orders, ticket, and cash cost. Compare them with 80.5 orders/day (rent break-even), $7.49 ticket, $4.85 product profit, and $390 cash cost.
+200 and 300 are labelled **STRETCH**. No Stories day has reached them.
 
-Decision after the pilot:
+A trading day, if the vehicle is owned: 2 x $40 staff + $40 fuel + $50 site + $30 misc = **$200**. Rent adds $150 for the vehicle and $40 for a generator: **$390**. Owned trucks also carry, per year, insurance $1,500, maintenance $2,000, storage $1,200, and straight-line depreciation over 5 years. Those four are assumptions. An unpaid travel day (staff + fuel, no sales) is in the model as a flag for trips outside Beirut. The numbers below leave it off.
 
-- Under 80 orders/day: stop. The rent does not cover the day.
-- 80 to about 160, and you cannot see 44 real trading days: rent again next season. Do not buy.
-- About 162 or more, and a calendar you can defend at 44 days or more: a used trailer can pay back inside 2 years at the mid prices above. Get a Lebanon quote before you sign. The $51,300 figure is the bottom of US ranges, and permits alone are listed up to $17k+.
+Ticket **$7.50** and product profit **$4.85** per order are the truck menu (measured prices, times the measured 1.59 items per order).
 
-## 7. Risks
+At **44 trading days**:
 
-- **Security.** The South stays out. Baalbek stays out while the festival itself is postponing. Ehden and Beiteddine are not festival sites in 2026.
-- **Permits.** $800 is the bottom of a US range. A real Lebanese permit stack can erase the buy case.
-- **Weather and staff travel.** Two people at $40 a day is an assumption. A long drive plus a slow day loses the rent.
-- **Cannibalisation.** Low if the customers are people who are not in Beirut that day. The file cannot see them. Adha is a warning: the branches were fine, so "everyone left" was not true in May.
-- **Data limits.** No labour, rent, fuel, or municipality cost in the transaction file. Equipment prices are US web listings. Orders per day (100 / 200 / 300) are scenarios, not a forecast. The 1.59 items per order is the branch habit, applied to a shorter menu.
+| | Rent | Buy used | Buy new |
+|---|---|---|---|
+| Upfront | $1,500 | $51,300 | $59,299 |
+| Break-even, orders/day | **80** | **111** | **119** |
+| Net at Garden (62/day) | **-$3,992** | **-$10,592** | -$12,192 |
+| Net at Harbour (90/day) | **+$2,107** | **-$4,493** | -$6,092 |
+| Cash payback at Harbour | 0.7 years | 8.9 years | 10.3 years |
 
-## 8. Measured vs estimated
+Renting at Garden-like demand loses money. At Harbour-like demand it is a small profit, about $2,100, close to break-even relative to the decision. Buying does not pay back within 2 years at Uptown, Garden, Harbour, or Harbour Tuesday. A used trailer needs about **183 orders a day** for 44 days to pay back in two years on a cash basis. That is above Harbour Tuesday and only just under the single best day the chain has ever had. Repeating that day all season is not a plan.
+
+![Profit per day](../outputs/figures/truck_profit_per_day.png)
+
+![Payback](../outputs/figures/truck_payback.png)
+
+![Break-even](../outputs/figures/truck_breakeven.png)
+
+## 7. The four options side by side
+
+![Channel comparison](../outputs/figures/truck_channel_comparison.png)
+
+| | Upfront | Cost per trading day | Break-even | Net, Garden-like | Net, Harbour-like | Risk | What a pass proves |
+|---|---|---|---|---|---|---|---|
+| Eid boxes | $500 | $0 extra | 34 boxes of 6 | $41 | $41 | Low | People will pre-order before they leave |
+| Pop-up, 13 days | $0 | $180 | 37 orders/day | $1,550 | $3,353 | Medium | Off-site demand can clear a cheap day |
+| Rent a truck, 44 days | $1,500 | $390 | 80 orders/day | -$3,992 | $2,107 | High | A mobile shop can hold Harbour-sized demand |
+| Buy used, 44 days | $51,300 | $307 cash | 111 orders/day | -$10,592 | -$4,493 | Highest | Nothing yet |
+
+The box "net" is the same in both columns on purpose. Boxes are not sold at a branch's orders-per-day. The $41 is what is left if pre-orders replace the Fitr profit gap and then pay the $500.
+
+Ranking, in the order to try them: **boxes, pop-up, rent, buy.**
+
+## 8. Where and when
+
+Full rows: [`truck/holiday_calendar.csv`](../truck/holiday_calendar.csv). Rule on every row: **no stop under an evacuation order or active strikes.** Follow official guidance that week. A ceasefire date is not a permit. Ashoura (26 Jun) stays off the plan. A commercial truck is not appropriate on a mourning day.
+
+2026, sourced:
+
+- War from **2 Mar**. A 10-day cessation of hostilities from **16 Apr**. Reuters' 17 Apr explainer says Israeli forces were not required to leave the South.
+- Anadolu: families no longer gathered in southern border villages for Eid al-Adha.
+- Annahar: Ehdeniyat skipped, Beiteddine cancelled, Baalbek postponing, Byblos uncertain, Beirut Holidays moved to Antelias-Naccache for 16-28 Jul.
+
+Do not send anything to Nabatieh, Tyre, or Baalbek-Hermel. Saida and Chtaura/Zahle are the safer names in the Eid note, and they have **no traffic source**. Batroun, Byblos, Faraya, and the mountain villages are the same: low confidence until someone checks them. There is no URL for the claim that southerners still went home for Eid in earlier wars. It is not a reason to deploy.
+
+## 9. How we know if it works
+
+Each stage runs only if the one before it passed.
+
+**Stage 1. Boxes at the next Eid al-Fitr and Eid al-Adha.** timeanddate's tentative 2027 dates are **10-11 Mar** (Fitr) and **17-18 May** (Adha). Other calendars put Fitr on 9 Mar and Adha on 16 May. Confirm the moon-sighting announcement before opening pre-orders. **Go** if pre-orders cover the profit target: about **37 boxes of 6** (or **19 family boxes**) at Harbour, plus the **34 boxes** that pay back the $500.
+
+**Stage 2. One pop-up.** A 2027 summer event, not a 2026 festival that has already been cancelled. Measure orders per hour and per day. **Go** if the stand holds at least the rent break-even, about **80 orders a day**. Clearing the pop-up's own 37 is not enough to justify a truck.
+
+**Stage 3. Rent a truck for one summer season (44 days).** **Go to a purchase** only if it averages the two-year cash-payback level: about **183 orders a day** for a used trailer, over those 44 days. Harbour Tuesday (137) is not that level.
+
+Before any out-of-Beirut stop, check Google Maps Popular Times and traffic for Batroun, Byblos, Saida, and Chtaura/Zahle on past holiday weekends, and keep the screenshots. Until those exist, those towns stay assumptions.
+
+## 10. Measured vs estimated
 
 | Figure | Kind |
 |---|---|
-| 33,887 orders, $305,184 revenue, $178,994 gross profit, 1.59 items/order | Measured |
-| Eid al-Fitr -$1,030 (-17.2%); 21 Mar third-worst day | Measured |
-| Eid al-Adha +$440 (+13.5%) | Measured |
-| Truck-menu price $4.71, profit $3.05, margin 64.7% | Measured |
-| Ticket $7.49 and product profit $4.85 per order | Estimate (x 1.59) |
-| 100 / 200 / 300 orders per day | Estimate |
-| 18 and 44 days | Counted from the holiday calendar, before dropping unsafe 2026 dates |
-| 80 days | Estimate. Not a sourced count |
-| $200 and $390 daily cost, $40 wages, rent rates | Estimate. Verify locally |
-| $1,500 / $51,300 / $59,299 upfront | Estimate. US list prices, low end, plus a $3,000 shipping assumption |
-| Break-even 80.5 and 41.3 orders/day, and every payback year | Estimate |
+| Fitr -$923 (-15.7%); Adha -$122 (-3.2%); 21 Mar at $911, third-lowest day | Measured |
+| January-to-June revenue growth, 52.4% | Measured |
+| 35 / 62 / 90 / 137 / 193 orders per day | Measured branch rates, not truck rates |
+| Box mixes, branch list prices, branch unit costs, Garden's 43% cost gap | Measured |
+| 10% box discount, $500 packaging, $541 profit in the Fitr gap | Estimate |
+| Ma'amoul, baklava, rose-pistachio latte | Estimate, priced like a measured item |
+| $180 pop-up day, $390 rent day, $200 owned day | Estimate. Verify locally |
+| $1,500 / $51,300 / $59,299 upfront; insurance, maintenance, storage, 5-year depreciation | Estimate. US list prices at the low end, plus assumptions |
+| 18, 44, and 80 trading days | 18 and 44 are counts from the calendar; 80 is not a sourced count |
+| 200 and 300 orders a day | Stretch. Above any recorded Stories day |
 
-## 9. Approaches rejected
+## 11. Risks and what the file does not contain
 
-- Buying a trailer so it can work the holiday list and then sit. At 18 days the payback is 3.7 years (used) or 4.3 years (new) even at 200 orders/day.
-- Sending the truck to Nabatieh, Tyre, or other southern border villages for Eid. Anadolu says families were not gathering there, and the April deal did not pull forces out of the South.
-- Baalbek-Hermel while Baalbek's own festival is postponing.
-- Ehden or Beiteddine as festival stops in 2026. Annahar: Ehdeniyat is absent, Beiteddine cancelled.
-- Trading on Ashoura.
-- Easter 2026. Those dates sit inside the war, before 16 Apr.
+- **Security.** The South and Baalbek stay out. See section 8.
+- **The dip is small.** A bad Fitr is under $1,000 of revenue. It cannot pay for a trailer.
+- **Permits.** $800 is the bottom of a US range that runs past $17,000. A Lebanese permit stack is not in the sources.
+- **Wages, fuel, municipality fees, insurance, storage.** Not in the transaction file.
+- **Cannibalisation.** Low if the customer was not going to a Beirut branch that day. The file cannot see that. Adha is the warning: the branches barely moved.
+- **Travel days.** A trip outside Beirut costs a second day of staff and fuel with no sales. The tables above do not include it. Turn the flag on in `truck/truck_model.py` before pricing a Bekaa or coastal weekend.
+- **Demand transfer.** Applying Harbour's 90 orders to a lay-by is an assumption, not a forecast.
+
+## 12. Approaches rejected
+
+- Buying a truck now.
+- Pitching the truck as the fix for Eid. The hole is $923. The trailer is $51,300.
+- Planning on 100, 200, or 300 orders a day. Stories has not had a branch-day that high. The best day was 193, once.
+- The old six-month weekday baseline. It hid the Adha dip and flattered late spring.
+- Deep-south deployment, Baalbek while its festival is postponing, Ehden or Beiteddine as 2026 festival stops, Easter 2026 (those dates were inside the war), and Ashoura.
