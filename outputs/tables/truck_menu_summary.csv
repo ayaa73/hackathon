@@ -1,0 +1,8 @@
+metric,value,kind,note
+items_per_order,1.5900,MEASURED,"Chain quantity / orders = 1.5922, rounded to 1.59 for the ticket."
+weighted_avg_price,4.7104,MEASURED,"Mean list price of each truck item, weighted by units sold."
+weighted_avg_cost,1.6629,MEASURED,"Mean unit cost of each truck item, weighted by units sold."
+weighted_profit_per_item,3.0476,MEASURED,Weighted list price minus weighted unit cost. Discounts excluded.
+weighted_margin_pct,64.6983,MEASURED,Weighted profit per item / weighted price.
+ticket_per_order,7.4896,ESTIMATE,"ASSUMPTION: a truck order contains 1.59 items, same as the chain, at this mix."
+product_profit_per_order,4.8456,ESTIMATE,"ASSUMPTION: same 1.59 items/order. This is product margin only, before labour and fees."

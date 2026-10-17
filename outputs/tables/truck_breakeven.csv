@@ -1,0 +1,4 @@
+option,option_label,daily_operating_cost,profit_per_order,ticket_per_order,breakeven_orders_per_day,clears_low_100,clears_mid_200,clears_high_300,note
+rent,1 Rent pilot,390,4.8456,7.4896,80.4854,True,True,True,ESTIMATE. Break-even = daily operating cost / product profit per order.
+buy_used,2 Buy used,200,4.8456,7.4896,41.2746,True,True,True,ESTIMATE. Break-even = daily operating cost / product profit per order.
+buy_new,3 Buy new,200,4.8456,7.4896,41.2746,True,True,True,ESTIMATE. Break-even = daily operating cost / product profit per order.

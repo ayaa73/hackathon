@@ -1,0 +1,17 @@
+scope,class,items,profit_usd,profit_share_pct,profit_threshold_usd,popularity_threshold_pct
+chain,STAR,18,95203.68,53.2,3.32,1.56
+chain,PLOWHORSE,19,65039.87,36.3,3.32,1.56
+chain,PUZZLE,5,14178.33,7.9,3.32,1.56
+chain,DOG,3,4572.4,2.6,3.32,1.56
+Garden,STAR,19,25541.0,54.7,2.62,1.56
+Garden,PLOWHORSE,18,16585.28,35.5,2.62,1.56
+Garden,PUZZLE,6,3856.04,8.3,2.62,1.56
+Garden,DOG,2,713.84,1.5,2.62,1.56
+Harbour,STAR,19,53633.17,55.0,3.75,1.56
+Harbour,PLOWHORSE,18,33574.41,34.4,3.75,1.56
+Harbour,PUZZLE,5,7756.34,8.0,3.75,1.56
+Harbour,DOG,3,2539.54,2.6,3.75,1.56
+Uptown,STAR,19,20023.41,57.5,3.43,1.56
+Uptown,PLOWHORSE,18,11395.71,32.8,3.43,1.56
+Uptown,PUZZLE,4,2213.14,6.4,3.43,1.56
+Uptown,DOG,4,1162.4,3.3,3.43,1.56
