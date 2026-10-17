@@ -1,0 +1,9 @@
+lever,assumption_in_estimate,value_used,break_even_value,if_worse_than_break_even
+Plowhorse +$0.20 (Garden),Units sold do not fall,0% fewer units,9.0% fewer units (profit/unit $2.03 -> $2.23),Drop the price rise; keep pairing them with Stars
+Plowhorse +$0.20 (Harbour),Units sold do not fall,0% fewer units,6.6% fewer units (profit/unit $2.84 -> $3.04),Drop the price rise; keep pairing them with Stars
+Plowhorse +$0.20 (Uptown),Units sold do not fall,0% fewer units,7.2% fewer units (profit/unit $2.56 -> $2.76),Drop the price rise; keep pairing them with Stars
+Bundles (5% off),Bundle buyers would otherwise have bought the Star alone,All of them,70%-83% of buyers already buying both (average discount $0.66 vs average extra profit $2.35),Stop the discount; keep the till suggestion without a price cut
+Bowl push (Harbour),+2 bowls a day are extra sales,$7.32 gained per bowl,$1.51 per bowl if every bowl replaces a sandwich ($5.80); still positive,"Smaller gain, same action"
+Bowl push (Uptown),+2 bowls a day are extra sales,$6.45 gained per bowl,$1.33 per bowl if every bowl replaces a sandwich ($5.12); still positive,"Smaller gain, same action"
+Harbour switchback test,Estimated effect at Harbour,+8.8% profit per order (+$0.52),+4.9% is the smallest effect 12 weeks can detect,"If the real effect is under 56% of our estimate, the test shows nothing: stop the till rule, keep the menu layout"
+Garden sourcing,The 43% premium is a supplier price Stories can renegotiate,"$31,775 a year recovered",$0 cash if the premium is overhead or a transfer price loaded into unit cost,Not a saving: report true product cost and re-run Garden's menu matrix on it

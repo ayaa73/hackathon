@@ -184,7 +184,43 @@ keep bundle and card, drop delivery. No change → stop; for Uptown (under 1 ord
 | Test can detect +2 morning orders a day | MEASURED on history | `morning_test_design.csv` |
 | 36.5% of orders anonymous | MEASURED | `evidence_checks.csv` |
 
-## 9. Limits
+## 9. Challenging the conclusion
+
+### Why are mornings quiet? First explanation vs others
+
+| Explanation | Check | Result |
+|---|---|---|
+| Nearby offices don't have a reason to come (first explanation) | Do weekday mornings look different from weekend mornings? | **Not supported.** Mornings are 13.2-14.8% of orders on every day of the week, and takeaway is 54% on weekdays and weekends alike |
+| The branches open late or irregularly | First order of the day | **Ruled out.** All three traded on all 181 days from about 7:00 |
+| Morning demand is simply small in Beirut (an evening café culture) | Can't be tested in this file | **Open.** If true, a bundle discounts existing customers and creates little; that is why value is shown at 30-70% new customers and why the test tracks new loyalty IDs |
+| Customers would buy food but nothing suits them | 65% of morning coffee orders have no food, but bakery sells on 82-98% of mornings | Partly: food is available and bought; the bundle tests whether a price nudge adds it |
+
+### Assumptions that would change the decision
+
+Computed by [`morning/decision_thresholds.py`](../morning/decision_thresholds.py)
+([`decision_thresholds.csv`](../outputs/morning/tables/decision_thresholds.csv)):
+
+| Lever | Assumption in the estimate | Break-even value | If reality is worse |
+|---|---|---|---|
+| Loyalty card | 30-70% of bundle orders are new customers | **11% new** | Drop the card, keep the bundle |
+| Staffing | Today's morning team handles the extra orders | One extra $40 shift needs **+18 orders a day at Harbour** (+126%), +33 at Garden, +21 at Uptown | If the offer needs an extra person, it does not pay: run it with today's team only |
+| Office-pack delivery | Courier $2-6 a trip (sourced) | **$9.61 a trip** makes it need 50% new customers | Above that, no free delivery |
+| Single-bundle delivery | Courier $2-6 a trip | Would need **$1.39 a trip** to pay at 30% new | Stays rejected |
+
+The staffing line is the one that matters most: the offer only works if it uses spare time the
+morning team already has. The file has no staff schedules, so operations must confirm this
+before the test.
+
+### What could go wrong in practice
+
+- **The bundle mostly discounts customers who already buy coffee and a pastry.** The test
+  tracks loyalty redemptions by new vs existing IDs; if most are existing, stop.
+- **Bakery waste rises** if stock is raised for demand that doesn't come. Raise stock only
+  after a week of bundle sales, and track waste per day.
+- **Morning rush slows service** at Harbour. Track orders per hour 7-10; the bundle uses
+  ready-to-sell pastries to keep prep time flat.
+
+## 10. Limits
 
 - **No customer type, location or staff data.** Office demand and spare staff time are not
   measured; the test measures the first, operations must confirm the second.
@@ -192,8 +228,10 @@ keep bundle and card, drop delivery. No change → stop; for Uptown (under 1 ord
 - **Jul-Dec public holidays** are assumed similar to Jan-Jun for the 226 office days.
 - **New vs existing customers** is unknown today, which is why results are shown at 30/50/70%
   and why the loyalty card (which records IDs) is part of the test.
+- **Information Stories could provide:** morning staff schedules (is there spare time?),
+  bakery waste per day, a courier quote, and which branches have offices nearby.
 
-## 10. Approaches rejected
+## 11. Approaches rejected
 
 - **Fixed-item bundles as the main offer:** +5 a day would need 2-5x today's croissant or egg
   sandwich stock at some branches; the flexible bundle needs +16-43%.

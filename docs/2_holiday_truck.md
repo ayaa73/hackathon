@@ -35,7 +35,9 @@ Chain context, measured: 33,887 orders, $305,184 revenue, $178,994 gross profit,
 
 ## 3. The question
 
-Customers leave Beirut and spend Eid with family. Fitr shows up in the branches. That raises a bigger question than "how do we patch a $923 hole": **should Stories go to its customers when they are not near a branch?**
+Our first explanation was that customers leave Beirut to spend Eid with family. The file has no customer location, so that is a hypothesis, not a finding. Section 11 tests the other explanations the file can check: opening hours were normal, and the dip is measured against other wartime days, so the war in general does not explain it. A war escalation in the days before Eid still could.
+
+Either way, the dip raises a bigger question than "how do we patch a $923 hole": **should Stories go to its customers when they are not near a branch?** The options below are worth testing whatever the cause, because each one is judged on its own sales, not on the dip.
 
 Three answers, cheapest first.
 
@@ -167,7 +169,37 @@ Before any out-of-Beirut stop, check Google Maps Popular Times and traffic for B
 | 18, 44, and 80 trading days | 18 and 44 are counts from the calendar; 80 is not a sourced count |
 | 200 and 300 orders a day | Stretch. Above any recorded Stories day |
 
-## 11. Risks and what the file does not contain
+## 11. Challenging the conclusion
+
+### What else could explain the Eid al-Fitr dip
+
+Code: [`truck/fitr_alternatives.py`](../truck/fitr_alternatives.py)
+([`fitr_alternative_checks.csv`](../outputs/truck/tables/fitr_alternative_checks.csv)).
+
+| Explanation | Check | Result |
+|---|---|---|
+| Customers left Beirut for Eid (first explanation) | Not testable: no customer location in the file | Open |
+| Branches opened shorter hours | First and last order of each Eid day vs the baseline days | **Ruled out.** First orders 7:05-8:08, last orders 23:51-23:58, as on normal days |
+| The war (from 2 Mar) depressed everything | How many baseline days were also wartime | **Ruled out as the whole story.** 21 of the 24 comparison days were wartime too, and Eid still ran 15.7% below them |
+| A war escalation just before Eid (strike on central Beirut, 18 Mar) | Separate the two | **Can't be separated** with one Eid in the file. Eid al-Adha, after the ceasefire, dipped only 3.2% |
+| Customers came at different times of day | Share of orders by hour | No real shift (largest change 1.9 points in any hour) |
+
+So the dip is real and not an opening-hours or general-war effect, but **why** customers
+stayed away is not proven. That is one more reason to start with boxes: a pre-order test
+asks customers directly whether they want Stories when they are away from a branch.
+
+### Assumptions that would change the decision
+
+| Assumption | Value used | What changes the decision |
+|---|---|---|
+| Box pre-orders | Need 34 boxes to cover $500, 37 more to replace the Eid gap | Under 34 boxes: stop at boxes; no pop-up |
+| Pop-up demand | Break-even 37 orders a day | Under 37: no truck either |
+| Truck demand | Rent break-even ~80 orders a day | Under 80 at the pop-up: don't rent |
+| Rent cost (US rate) | $150 a day + $40 generator | Each $50 a day cheaper lowers the rent break-even by about 10 orders a day ($50 / $4.85 profit per order) |
+| Product profit per truck order | $4.85 (truck menu, 1.59 items per order as in branches) | If a truck sells only drinks (~1 item), break-evens rise by about 60% |
+| Buying | 2-year payback needs ~183 orders a day | Only the best day on record (193) comes close: no purchase on this file |
+
+## 12. Risks and what the file does not contain
 
 - **Security.** The South and Baalbek stay out. See section 8.
 - **The dip is small.** A bad Fitr is under $1,000 of revenue. It cannot pay for a trailer.
@@ -177,7 +209,7 @@ Before any out-of-Beirut stop, check Google Maps Popular Times and traffic for B
 - **Travel days.** A trip outside Beirut costs a second day of staff and fuel with no sales. The tables above do not include it. Turn the flag on in `truck/truck_model.py` before pricing a Bekaa or coastal weekend.
 - **Demand transfer.** Applying Harbour's 90 orders to a lay-by is an assumption, not a forecast.
 
-## 12. Approaches rejected
+## 13. Approaches rejected
 
 - Buying a truck now.
 - Pitching the truck as the fix for Eid. The hole is $923. The trailer is $51,300.

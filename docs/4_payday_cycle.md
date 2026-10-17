@@ -1,6 +1,6 @@
 # Project 4: The payday cycle, and what it is realistically worth
 
-**Conclusion for the CEO:** Stories' sales follow the monthly pay cycle. Orders run **5% above
+**Conclusion for the CEO:** Stories' sales follow a monthly cycle that lines up with payday. Orders run **5% above
 normal from the 28th to the 7th** and **4% below normal from the 14th to the 27th**, in every
 month, every branch, and for members and walk-ins alike. The dip is worth **about $5.5k gross
 profit a year** at most. What to do:
@@ -165,13 +165,49 @@ most $557.
 | Pass uptake, extra visits, reward uplift, redemption by natural returners | ASSUMPTION (ranges) | `month_pass_option_a.csv`, `comeback_option_b.csv` |
 | Test sees 4.8 pts in 3 cycles; worst-case cost $557 | MEASURED from history | `payday_offer_tests.csv` |
 
-## 7. Limits and approaches rejected
+## 7. Challenging the conclusion
+
+### Is it really a pay cycle?
+
+| Other explanation | Check | Result |
+|---|---|---|
+| Weekday mix (e.g. more Fridays early in the month) | Each day is compared with the same weekday | Ruled out by design |
+| Steady growth over the six months | Baseline is local (±21 days) | Ruled out by design |
+| Public holidays falling at month start | Holidays removed | Ruled out |
+| The war (2 Mar-16 Apr) | Does the cycle hold before and after it? | **Ruled out.** The gap is +5.1 and +16.8 points in Jan-Feb (before the war) and +6.3 and +1.4 in May-Jun (after) |
+| One branch or one customer type | Split by branch and by members vs walk-ins | Ruled out: 6.9-10.6 points in every branch, 9.7 members, 8.1 walk-ins |
+| Luck | 5,000 random reshuffles of the days | p < 0.001 |
+| Month-start marketing by Stories, or other monthly payments (allowances, remittances) | Not in the file | **Open.** Payday is the most likely cause, not a proven one |
+
+**The recommendation does not depend on the cause.** Action 1 (time promotions to the quiet
+weeks) and the comeback test use only *when* visits happen, which is measured.
+
+### Assumptions that would change the decision
+
+| Lever | Assumption | Break-even value | If reality is worse |
+|---|---|---|---|
+| Comeback reward (10% off) | Extra mid-month return, +2 to +10 points | **+4.0 points** if half of natural returners use it, **+8.0** if all do | Stop after the 3-cycle test (worst-case cost $557) |
+| Free-pastry reward | Same | **+8.8 to +17.5 points** | Rejected already |
+| Month Pass | 0-1 extra visits per buyer a month | **0.59 extra visits** per buyer | Rejected: even above break-even it earns under $400 a year |
+| Filling the dip at all | — | The dip is worth at most **$5.5k a year** | Any offer costing more than this cannot pay, however well it works |
+
+### What could go wrong in practice
+
+- **Members learn to wait for the reward** and shift visits from the busy weeks into the quiet
+  ones. That moves profit without adding any. The randomized test catches it: compare total
+  monthly visits, not only mid-month ones, between the two halves.
+- **The cycle fades.** June's gap was the smallest (+1.4 points); re-run `payday_cycle.py`
+  monthly before planning promotions around it.
+
+## 8. Limits and approaches rejected
 
 - **No official pay dates found**: the cycle is measured, the payday explanation is not.
 - **June is the weakest month for the cycle** (+1.4 points); watch whether it fades.
 - **Gross profit only**: no labour or overhead in the data.
 - **Walk-ins (36.5% of orders) can't be targeted**: they have no ID, so they only benefit from
   Action 1.
+- **Information Stories could provide:** its promotion and marketing calendar (to rule out
+  month-start campaigns) and any customer survey on pay dates.
 - **Rejected: Month Pass**, too few regular buyers (section 4). **Unlimited coffee
   subscription**: only 2 members average 3+ drinks a month. **Discounts at the start of the
   month**: they reward visits that happen anyway. **Free-pastry reward**: needs +17.5 points.

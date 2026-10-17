@@ -1,0 +1,7 @@
+lever,assumption_in_estimate,value_used,break_even_value,if_worse_than_break_even
+Loyalty card (6th free),Share of bundle orders from new customers,30% / 50% / 70%,11% new,"Card only rewards existing customers: drop it, keep the bundle price"
+Staffing (Harbour),Today's morning team serves the extra orders,No extra cost,+18 orders a day (+126% on today's mornings) to pay one extra $40 shift,"If the offer needs an extra person, it does not pay at +2 to +10 orders a day: run it only with today's team"
+Staffing (Garden),Today's morning team serves the extra orders,No extra cost,+33 orders a day (+354% on today's mornings) to pay one extra $40 shift,"If the offer needs an extra person, it does not pay at +2 to +10 orders a day: run it only with today's team"
+Staffing (Uptown),Today's morning team serves the extra orders,No extra cost,+21 orders a day (+393% on today's mornings) to pay one extra $40 shift,"If the offer needs an extra person, it does not pay at +2 to +10 orders a day: run it only with today's team"
+Office-pack delivery,Courier cost per trip (sourced $2-6),$2 / $4 / $6,$9.61 a trip makes it need 50% new customers (pack profit $19.22),"Above that, drop free delivery; keep walk-in office packs"
+Single-bundle delivery (rejected),Courier cost per trip,$2 / $4 / $6,$1.39 a trip would be needed to pay at 30% new customers,Stays rejected unless a courier quote is below that

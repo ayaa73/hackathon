@@ -1,0 +1,15 @@
+area,check,result,what_we_did
+Duplicates,Exact duplicate rows (every column identical),"132 rows in 132 orders, all quantity 1; $741 revenue (0.24%)","Removed. The till records 2 of an item as quantity 2, so an identical second line is an export repeat"
+Duplicates,Same product on two lines of one order (not identical),34 cases; lines differ in quantity or discount,"Kept: genuine separate lines (e.g. one discounted, one not)"
+Missing values,Empty cells per column,"Customer ID: 18,691",Customer ID empty = walk-in without a loyalty ID. Kept; analysed as its own group
+Missing values,Orders without a Customer ID,36.5%,Member analyses (Project 4) cover the other 63.5% only
+Replacement IDs,"Does one transaction ID ever span two dates, times, branches, customers or order types?","Date: 0, Time: 0, Branch: 0, Customer ID: 0, Order Type: 0","None do, so an ID is safe to use for grouping lines into one order"
+Replacement IDs,Are IDs in time order?,"In date order (0 breaks) but shuffled within each day: 16,930 of 33,887 IDs come earlier in the day than the ID before them","IDs are replacements: never used for ordering, counting customers or timing. Date and Time are used instead"
+Values,"Quantity, price, cost <= 0; cost above price; negative profit lines","0, 0, 0; 0; 0",Nothing to fix. No refunds or voids are in the file
+Values,Discount rates used,"0%: 47,683 lines, 10%: 2,860 lines, 15%: 502 lines",Revenue is after discount; used as given
+Values,Revenue = qty x price x (1 - discount); gross profit = revenue - qty x cost,Holds on every line (to the cent),Formulas trusted; checked in src/clean.py on every run
+Prices and costs,Branch x item pairs whose list price or unit cost changed Jan-Jun,price: 0 of 135; cost: 0 of 135,"No price ever changed, so customers' reaction to a price change cannot be measured: every price move is tested, not assumed"
+Prices and costs,Each product maps to one category,"0 conflicts, 45 products, 9 categories",Category used as given
+Coverage,Days with sales per branch,"Garden: 181, Harbour: 181, Uptown: 181 of 181 (2026-01-01 to 2026-06-30)","No missing days, so day-level comparisons need no gap filling"
+Coverage,Opening hours seen,7:00 to 23:59,Used for the morning analysis (Project 3)
+Not in the file,"Labour, rent, waste, energy, staff schedules, customer location or type, marketing spend, stock levels",Absent,All profit figures are gross profit; each project lists what it would need

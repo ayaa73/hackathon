@@ -260,7 +260,7 @@ weighted only by how popular each item is** ([`steerability.csv`](../outputs/men
 a pick from what is popular, not a personal habit. Two consequences:
 1. It explains why the purchase-history models above could not beat "suggest what's
    popular": there is no individual pattern for them to learn.
-2. **Demand is steerable.** Customers are not attached to "their" drink, so what the menu
+2. **Demand is likely steerable.** Customers are not attached to "their" drink, so what the menu
    board shows first and what staff suggest has real room to change what they buy. That is
    the mechanism the whole menu-engineering plan relies on, and the A/B test measures it.
 
@@ -457,15 +457,59 @@ Chicken Pesto Sandwich; Garden: drink alone → Butter Croissant).
 
 Re-run the matrix **every quarter per branch**: items move between classes as costs and tastes change.
 
-## 9. Limits and what's missing
+## 9. Challenging the conclusion
+
+### Our first explanations, and what else could explain the same data
+
+| Finding | First explanation | Other explanation we tested | Result |
+|---|---|---|---|
+| Garden earns the least per order | Garden customers buy cheaper items | Compare the **same item** across branches, month by month | Garden's unit cost is +42.6% to +43.9% above Harbour's on all 45 items in every month. It is a cost-price difference, not the product mix. Whether it is a supplier price or overhead loaded into cost is **not** in the file: that is the first question for finance |
+| The pairing model barely beats "suggest what's popular" | The model is too simple | Customers may have no personal habits for any model to learn | Members repeat items 15.1% of the time vs 15.3% for random choice by popularity: the limit is in the customers, not the model |
+| Harbour grew during its 15% promo | The promo drove it | Garden grew without a promo | +18.9% at both: no sign that the discount added demand |
+| Items differ by branch | Noise in six months | Re-classify on Jan-Mar vs Apr-Jun | 95.6-97.8% of items keep their class per branch: the differences are stable |
+| Half of orders are one item | Takeaway customers don't want food | Compare takeaway with dine-in | Single-item share 54.0% vs 53.7%: not a takeaway effect |
+
+None of these comparisons proves that a menu change **will** raise profit. That is what the
+switchback test in section 8 is for.
+
+### Assumptions that would change the decision
+
+Computed by [`menu_engineering/decision_thresholds.py`](../menu_engineering/decision_thresholds.py)
+([`decision_thresholds.csv`](../outputs/menu_engineering/tables/decision_thresholds.csv)):
+
+| Lever | Assumption in the estimate | Break-even value | If reality is worse |
+|---|---|---|---|
+| Plowhorse +$0.20 | Units sold do not fall | **6.6-9.0% fewer units** (Harbour 6.6%, Uptown 7.2%, Garden 9.0%) | Drop the price rise; keep the pairings |
+| Bundles at 5% off | Buyers would otherwise buy the Star alone | **70-83% of bundle buyers** already buying both items | Drop the discount; keep the till suggestion |
+| Bowl push | +2 bowls a day are extra sales | Still +$1.33-$1.51 per bowl if every bowl replaces a sandwich | Smaller gain, same action |
+| Harbour test | Our estimate: **+8.8% profit per order** | The test detects **+4.9%** | If the real effect is under 56% of our estimate, the test shows nothing: stop the till rule |
+| Garden sourcing | The 43% premium is a supplier price | **$0** if it is overhead or a transfer price | Not a saving: report true product costs and re-run Garden's matrix |
+
+The bundle discount is safe (customers would need to be mostly already buying both items for
+it to lose money). The price rise is the fragile lever: losing 7-9% of Plowhorse sales wipes it
+out, and no price changed in the file, so this is tested separately with a guardrail.
+
+### What could go wrong in practice
+
+- **Staff don't use the till script on ON days.** The test then measures nothing. Track the
+  share of ON-day single-item orders that get the suggested item, weekly.
+- **Customers notice ON and OFF days.** Keep the combo card as "today's combos", not a price
+  cut on regular items, and watch the orders-per-day guardrail.
+- **Garden changes before its cost is explained.** A menu built on inflated costs would push
+  the wrong items. Fix or explain sourcing first.
+
+## 10. Limits and missing information
 
 - **Gross profit only.** The data has product costs but no labour, rent, waste or energy
   costs, so net profit gains will be smaller than gross.
-- **Price response is unknown.** No prices changed during Jan-Jun 2026, so we cannot measure
-  how customers react to +$0.20. That is exactly what the guardrails in the test are for.
+- **Price response is unknown.** No prices changed during Jan-Jun 2026 (see
+  [`data_quality_checks.csv`](../outputs/data_quality/data_quality_checks.csv)), so we cannot
+  measure how customers react to +$0.20. That is exactly what the guardrails in the test are for.
 - **Bundles shift some sales**: a customer who would have bought both items anyway now pays
   5% less. The test's profit-per-order metric captures this.
 - **Six months of data** cover winter to early summer only.
+- **Information Stories could provide:** Garden's supplier invoices or cost allocation (to
+  explain the 43%), waste per item, staff schedules, and any past price changes.
 
 ## Approaches we rejected
 
@@ -478,7 +522,7 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
   as Garden without a promo (+18.9% each; $471 of discounts given; see
-  [`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)), so discounts alone did not move demand.
+  [`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)), so there is no sign the discount added demand.
 - **A time-of-day till rule at every branch:** it helped at Harbour but made Garden's
   suggestions worse (-$0.043 per suggestion), so it is used at Harbour only.
 - **Takeaway vs dine-in menus:** profit per order ($5.27 vs $5.29) and single-item share
