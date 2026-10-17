@@ -1,0 +1,10 @@
+option,option_label,days_per_year,daily_operating_cost,annual_cash_fixed,depreciation,breakeven_orders_per_day,note
+rent,1 Rent,18,390,0.0000,0.0000,80.3726,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+rent,1 Rent,44,390,0.0000,0.0000,80.3726,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+rent,1 Rent,80,390,0.0000,0.0000,80.3726,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_used,2 Buy used,18,200,4700.0000,10260.0000,212.4951,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_used,2 Buy used,44,200,4700.0000,10260.0000,111.2851,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_used,2 Buy used,80,200,4700.0000,10260.0000,79.7543,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_new,3 Buy new,18,200,4700.0000,11859.8000,230.8113,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_new,3 Buy new,44,200,4700.0000,11859.8000,118.7781,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."
+buy_new,3 Buy new,80,200,4700.0000,11859.8000,83.8755,"ESTIMATE. (daily cost + insurance, maintenance, storage and depreciation / days) / product profit per order."

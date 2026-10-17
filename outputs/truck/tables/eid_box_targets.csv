@@ -1,0 +1,11 @@
+metric,value,kind,note
+fitr_revenue_gap,-922.5750,MEASURED,Chain Eid al-Fitr revenue minus the local same-weekday baseline. From holiday_dips.py.
+chain_gross_margin,0.5865,MEASURED,"Chain gross profit / chain revenue, all items."
+fitr_gross_profit_lost,541.1024,ESTIMATE,ASSUMPTION: the lost revenue would have earned the chain's measured gross margin.
+packaging_and_promotion,500.0000,ESTIMATE,"ASSUMPTION - verify locally. One-time bags, cards, and a week of posts."
+harbour_Box of 6_profit,14.7430,"MEASURED costs, ESTIMATE 10% discount",Harbour assembly. Garden costs more; see eid_boxes.csv.
+boxes_to_replace_fitr_profit_Box of 6,36.7023,ESTIMATE,"Fitr gross-profit gap / Harbour box profit. A target, not a forecast."
+boxes_to_cover_packaging_Box of 6,33.9144,ESTIMATE,ASSUMPTION $500 packaging / Harbour box profit.
+harbour_Family box of 12_profit,28.7590,"MEASURED costs, ESTIMATE 10% discount",Harbour assembly. Garden costs more; see eid_boxes.csv.
+boxes_to_replace_fitr_profit_Family box of 12,18.8151,ESTIMATE,"Fitr gross-profit gap / Harbour box profit. A target, not a forecast."
+boxes_to_cover_packaging_Family box of 12,17.3859,ESTIMATE,ASSUMPTION $500 packaging / Harbour box profit.

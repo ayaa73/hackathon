@@ -1,6 +1,6 @@
 """Tests for the event-driven ideas we explored and did not continue with.
 
-Ideas tested (see docs/approaches_considered_and_rejected.md):
+Ideas tested (see docs/5_rejected_approaches.md):
   1. Israeli strikes on Beirut vs daily sales
   2. University and high-school exam periods
   3. Lebanese expatriate travel windows
@@ -18,7 +18,7 @@ Method (same for every idea):
   * p-values are Bonferroni-adjusted within each family of tests (K tests in the family).
 
 Run from the repository root:  python rejected_approaches/event_tests.py
-Writes outputs/tables/rejected_event_tests.csv
+Writes outputs/rejected_approaches/tables/rejected_event_tests.csv
 """
 import sys
 from pathlib import Path
@@ -30,11 +30,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.clean import load_clean, REV  # noqa: E402
 
-OUT = ROOT / "outputs" / "tables" / "rejected_event_tests.csv"
+OUT = ROOT / "outputs" / "rejected_approaches" / "tables" / "rejected_event_tests.csv"
 EVENING_FROM = 20  # hour of day; the data peak is 20:00-22:00
 
 # ---------------------------------------------------------------- event calendars
-# Dates and sources are listed in docs/approaches_considered_and_rejected.md.
+# Dates and sources are listed in docs/5_rejected_approaches.md.
 STRIKE_DAYS = ["2026-03-04", "2026-03-08", "2026-03-12", "2026-03-18",
                "2026-04-01", "2026-04-08", "2026-05-06", "2026-06-07"]
 FOOTBALL_NIGHTS = ["2026-04-28", "2026-04-29", "2026-05-05", "2026-05-06", "2026-05-30"]

@@ -1,0 +1,10 @@
+option,pool_members,pool_members_eligible_per_month,uptake_pct,extra_visits_per_buyer_month,buyers_per_month,gp_change_per_buyer_month_usd,gross_profit_per_year_usd
+A. Month Pass,52,26.8,25.0,0.0,6.7,-2.09,-168
+A. Month Pass,52,26.8,50.0,0.0,13.4,-2.09,-337
+A. Month Pass,52,26.8,75.0,0.0,20.1,-2.09,-505
+A. Month Pass,52,26.8,25.0,0.5,6.7,-0.29,-23
+A. Month Pass,52,26.8,50.0,0.5,13.4,-0.29,-47
+A. Month Pass,52,26.8,75.0,0.5,20.1,-0.29,-70
+A. Month Pass,52,26.8,25.0,1.0,6.7,1.51,122
+A. Month Pass,52,26.8,50.0,1.0,13.4,1.51,243
+A. Month Pass,52,26.8,75.0,1.0,20.1,1.51,365

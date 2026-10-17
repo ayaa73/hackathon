@@ -1,0 +1,9 @@
+metric,value
+weekly morning-share gap SD (pts),1.78
+trend in gap per week (pts),0.019
+placebo 8-week before/after tests,10.0
+placebo false alarms,1.0
+false alarm rate %,10.0
+"smallest detectable change in morning share, 8 weeks vs 8 before (pts)",2.49
+"smallest detectable change in morning share, 12 weeks vs 12 before (pts)",2.03
+Harbour morning share now (%),14.4

@@ -1,0 +1,14 @@
+scope,peak_28_7_vs_normal_pct,dip_14_27_vs_normal_pct,peak_minus_dip_pts,note
+"Chain, all months",5.08,-4.11,9.19,permutation p (peak vs rest) = 0.0000; (dip vs rest) = 0.0000
+"Chain, month 1",-1.17,-6.24,5.07,
+"Chain, month 2",10.6,-6.18,16.78,
+"Chain, month 3",9.58,-5.32,14.9,
+"Chain, month 4",4.85,-5.02,9.86,
+"Chain, month 5",3.02,-3.27,6.29,
+"Chain, month 6",3.14,1.73,1.4,
+Branch Garden,4.96,-3.58,8.53,
+Branch Harbour,5.75,-4.8,10.55,
+Branch Uptown,5.05,-1.9,6.94,
+Members only,5.79,-3.92,9.71,
+Walk-ins only,3.95,-4.12,8.07,
+Average ticket (USD) by phase,8.98,9.04,,Kruskal-Wallis p = 0.84: ticket size does not change; the cycle is in visits

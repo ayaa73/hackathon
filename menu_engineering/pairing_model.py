@@ -26,8 +26,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 SPLIT_DATE = pd.Timestamp("2026-05-01")
 TOP_K = 3
 MIN_PAIR_COUNT = 30

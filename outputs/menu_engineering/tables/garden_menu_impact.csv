@@ -1,0 +1,19 @@
+scenario,lever,profit_per_year_usd,note,pct_of_garden_gross_profit
+Conservative,price_changes,3787.0,,4.1
+Conservative,featuring,640.0,,0.7
+Conservative,combos_and_till_upsell,1692.0,,1.8
+Conservative,drop_sparkling_water,-36.0,,-0.0
+Conservative,TOTAL menu v2,6082.0,,6.5
+Conservative,assumptions,,"elasticity -1.0; 3% of Plowhorse units move to Featured; 5% of single-item orders add an item; Sparkling buyers: 40% to Still Water, 10% to Lemonade, rest lost",
+Central,price_changes,5044.0,,5.4
+Central,featuring,1066.0,,1.1
+Central,combos_and_till_upsell,3384.0,,3.6
+Central,drop_sparkling_water,339.0,,0.4
+Central,TOTAL menu v2,9834.0,,10.5
+Central,assumptions,,"elasticity -0.5; 5% of Plowhorse units move to Featured; 10% of single-item orders add an item; Sparkling buyers: 50% to Still Water, 25% to Lemonade, rest lost",
+Optimistic,price_changes,6302.0,,6.7
+Optimistic,featuring,1706.0,,1.8
+Optimistic,combos_and_till_upsell,5076.0,,5.4
+Optimistic,drop_sparkling_water,515.0,,0.6
+Optimistic,TOTAL menu v2,13599.0,,14.6
+Optimistic,assumptions,,"elasticity +0.0; 8% of Plowhorse units move to Featured; 15% of single-item orders add an item; Sparkling buyers: 60% to Still Water, 30% to Lemonade, rest lost",

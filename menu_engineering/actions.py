@@ -17,8 +17,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 BRANCHES = ["Garden", "Harbour", "Uptown"]
 ANNUALIZE = 2  # the data covers 6 months (Jan-Jun 2026)
 

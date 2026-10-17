@@ -1,0 +1,10 @@
+branch,daypart,drink_alone_suggest,food_alone_suggest
+Garden,Morning 7-10,"Egg Sandwich, Butter Croissant, Avocado Toast","Vanilla Latte, Iced Matcha, Flat White"
+Garden,Day 11-18,"Egg Sandwich, Butter Croissant, Chicken Pesto Sandwich","Iced Latte, Iced Matcha, Classic Matcha"
+Garden,Night 19-23,"Tiramisu Cup, Cheesecake Slice, Frozen Yoghurt Cup","Iced Matcha, Iced Latte, Classic Matcha"
+Harbour,Morning 7-10,"Avocado Toast, Butter Croissant, Egg Sandwich","Vanilla Latte, Cappuccino, Iced Matcha"
+Harbour,Day 11-18,"Chicken Pesto Sandwich, Butter Croissant, Avocado Toast","Iced Latte, Iced Matcha, Classic Matcha"
+Harbour,Night 19-23,"Chicken Pesto Sandwich, Butter Croissant, Cheesecake Slice","Iced Matcha, Iced Latte, Classic Matcha"
+Uptown,Morning 7-10,"Egg Sandwich, Avocado Toast, Halloumi Wrap","Iced Matcha, Iced Latte, Caramel Latte"
+Uptown,Day 11-18,"Chicken Pesto Sandwich, Halloumi Wrap, Turkey & Cheese Sandwich","Iced Matcha, Iced Latte, Classic Matcha"
+Uptown,Night 19-23,"Chicken Pesto Sandwich, Halloumi Wrap, Turkey & Cheese Sandwich","Iced Matcha, Iced Latte, Classic Matcha"

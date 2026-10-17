@@ -1,0 +1,81 @@
+holiday,branch,date,actual_revenue,expected_revenue,revenue_gap,revenue_gap_pct,actual_gross_profit,expected_gross_profit,gross_profit_gap,kind,baseline,days
+Eid al-Fitr,Chain,2026-03-20,1375.9200,1744.6100,-368.6900,-21.1331,817.4800,1020.9033,-203.4233,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Chain,2026-03-21,911.4200,1171.8150,-260.3950,-22.2215,534.4200,685.7917,-151.3717,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Chain,2026-03-22,1207.1800,1375.8950,-168.7150,-12.2622,681.2900,805.9167,-124.6267,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Chain,2026-03-23,1475.0000,1599.7750,-124.7750,-7.7995,887.8700,941.6000,-53.7300,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Chain,2026-04-03,2053.9000,1661.4667,392.4333,23.6197,1203.3800,970.6083,232.7717,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Chain,2026-04-04,1080.2400,1200.2583,-120.0183,-9.9994,635.0800,702.8417,-67.7617,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Chain,2026-04-05,1459.0300,1359.1600,99.8700,7.3479,856.6200,793.5983,63.0217,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Chain,2026-04-06,1736.8200,1622.4050,114.4150,7.0522,995.1000,960.7017,34.3983,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Chain,2026-04-10,1601.4500,1800.5400,-199.0900,-11.0572,942.0900,1063.0800,-120.9900,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Chain,2026-04-11,1226.7400,1188.4750,38.2650,3.2197,714.7800,693.4983,21.2817,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Chain,2026-04-12,1362.7400,1403.2883,-40.5483,-2.8895,785.7300,823.4533,-37.7233,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Chain,2026-04-13,1701.8200,1652.6350,49.1850,2.9762,1000.6100,969.4067,31.2033,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Labour Day,Chain,2026-05-01,2231.8200,1831.0450,400.7750,21.8878,1349.6200,1074.9033,274.7167,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Chain,2026-05-27,1876.1800,1964.5433,-88.3633,-4.4979,1129.8100,1149.7450,-19.9350,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Chain,2026-05-28,1824.4600,1857.7233,-33.2633,-1.7905,1078.1700,1098.2783,-20.1083,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Garden,2026-03-20,383.4200,572.3867,-188.9667,-33.0138,178.8200,267.5183,-88.6983,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Garden,2026-03-21,344.4200,392.0633,-47.6433,-12.1519,164.8900,185.0250,-20.1350,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Garden,2026-03-22,450.9800,457.9800,-7.0000,-1.5285,208.6200,215.6383,-7.0183,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Garden,2026-03-23,393.1900,535.5133,-142.3233,-26.5770,188.0200,250.2317,-62.2117,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Garden,2026-04-03,606.2100,559.0250,47.1850,8.4406,273.4200,260.9933,12.4267,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Garden,2026-04-04,420.2900,390.9083,29.3817,7.5163,203.8200,182.6400,21.1800,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Garden,2026-04-05,474.3800,452.6200,21.7600,4.8076,222.0300,212.1300,9.9000,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Garden,2026-04-06,641.8100,491.9700,149.8400,30.4571,295.4000,230.7033,64.6967,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Garden,2026-04-10,524.9000,550.9417,-26.0417,-4.7268,248.5600,258.2900,-9.7300,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Garden,2026-04-11,420.8800,409.1250,11.7550,2.8732,196.6300,191.1167,5.5133,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Garden,2026-04-12,496.1100,450.0900,46.0200,10.2246,230.9000,211.7117,19.1883,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Garden,2026-04-13,508.6000,541.9250,-33.3250,-6.1494,228.5700,252.7017,-24.1317,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Labour Day,Garden,2026-05-01,552.5700,615.8233,-63.2533,-10.2713,264.9400,294.6750,-29.7350,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Garden,2026-05-27,545.3000,624.1650,-78.8650,-12.6353,274.2800,291.8100,-17.5300,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Garden,2026-05-28,605.9100,555.5433,50.3667,9.0662,287.8300,261.7633,26.0667,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Harbour,2026-03-20,687.2400,864.1150,-176.8750,-20.4689,445.3400,561.4617,-116.1217,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Harbour,2026-03-21,427.9100,549.0267,-121.1167,-22.0603,281.9400,355.4767,-73.5367,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Harbour,2026-03-22,487.3000,676.2533,-188.9533,-27.9412,308.1900,438.2700,-130.0800,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Harbour,2026-03-23,835.7900,761.3150,74.4750,9.7824,543.6500,499.0150,44.6350,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Harbour,2026-04-03,1069.3600,811.0350,258.3250,31.8513,694.0500,526.3500,167.7000,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Harbour,2026-04-04,469.4500,582.5400,-113.0900,-19.4133,308.1100,377.8917,-69.7817,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Harbour,2026-04-05,690.4000,650.0083,40.3917,6.2140,451.3900,421.3833,30.0067,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Harbour,2026-04-06,734.0700,838.3267,-104.2567,-12.4363,473.7100,545.8033,-72.0933,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Harbour,2026-04-10,867.6200,929.2400,-61.6200,-6.6312,560.1800,603.6017,-43.4217,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Harbour,2026-04-11,602.7800,546.7667,56.0133,10.2445,391.7000,355.9650,35.7350,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Harbour,2026-04-12,636.2900,677.1300,-40.8400,-6.0313,405.4700,440.7900,-35.3200,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Harbour,2026-04-13,890.5900,818.0483,72.5417,8.8677,578.0500,533.5217,44.5283,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Labour Day,Harbour,2026-05-01,1408.3600,894.4600,513.9000,57.4537,913.7000,580.4283,333.2717,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Harbour,2026-05-27,996.5500,1026.3400,-29.7900,-2.9025,646.7300,664.2217,-17.4917,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Harbour,2026-05-28,849.7100,949.5333,-99.8233,-10.5129,557.1600,615.1667,-58.0067,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Uptown,2026-03-20,305.2600,308.1083,-2.8483,-0.9245,193.3200,191.9233,1.3967,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Uptown,2026-03-21,139.0900,230.7250,-91.6350,-39.7161,87.5900,145.2900,-57.7000,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Uptown,2026-03-22,268.9000,241.6617,27.2383,11.2713,164.4800,152.0083,12.4717,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Uptown,2026-03-23,246.0200,302.9467,-56.9267,-18.7910,156.2000,192.3533,-36.1533,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Uptown,2026-04-03,378.3300,291.4067,86.9233,29.8289,235.9100,183.2650,52.6450,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Uptown,2026-04-04,190.5000,226.8100,-36.3100,-16.0090,123.1500,142.3100,-19.1600,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Uptown,2026-04-05,294.2500,256.5317,37.7183,14.7032,183.2000,160.0850,23.1150,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Easter,Uptown,2026-04-06,360.9400,292.1083,68.8317,23.5637,225.9900,184.1950,41.7950,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Uptown,2026-04-10,208.9300,320.3583,-111.4283,-34.7824,133.3500,201.1883,-67.8383,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Uptown,2026-04-11,203.0800,232.5833,-29.5033,-12.6851,126.4500,146.4167,-19.9667,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Uptown,2026-04-12,230.3400,276.0683,-45.7283,-16.5641,149.3600,170.9517,-21.5917,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Orthodox Easter,Uptown,2026-04-13,302.6300,292.6617,9.9683,3.4061,193.9900,183.1833,10.8067,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Labour Day,Uptown,2026-05-01,270.8900,320.7617,-49.8717,-15.5479,170.9800,199.8000,-28.8200,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Uptown,2026-05-27,334.3300,314.0383,20.2917,6.4615,208.8000,193.7133,15.0867,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Adha,Uptown,2026-05-28,368.8400,352.6467,16.1933,4.5919,233.1800,221.3483,11.8317,MEASURED,"same weekday within +/- 21 days, excluding this holiday",
+Eid al-Fitr,Chain,TOTAL,4969.5200,5892.0950,-922.5750,-15.6578,2921.0600,3454.2117,-533.1517,MEASURED,,4.0000
+Easter,Chain,TOTAL,6329.9900,5843.2900,486.7000,8.3292,3690.1800,3427.7500,262.4300,MEASURED,,4.0000
+Orthodox Easter,Chain,TOTAL,5892.7500,6044.9383,-152.1883,-2.5176,3443.2100,3549.4383,-106.2283,MEASURED,,4.0000
+Labour Day,Chain,TOTAL,2231.8200,1831.0450,400.7750,21.8878,1349.6200,1074.9033,274.7167,MEASURED,,1.0000
+Eid al-Adha,Chain,TOTAL,3700.6400,3822.2667,-121.6267,-3.1821,2207.9800,2248.0233,-40.0433,MEASURED,,2.0000
+Eid al-Fitr,Garden,TOTAL,1572.0100,1957.9433,-385.9333,-19.7112,740.3500,918.4133,-178.0633,MEASURED,,4.0000
+Easter,Garden,TOTAL,2142.6900,1894.5233,248.1667,13.0992,994.6700,886.4667,108.2033,MEASURED,,4.0000
+Orthodox Easter,Garden,TOTAL,1950.4900,1952.0817,-1.5917,-0.0815,904.6600,913.8200,-9.1600,MEASURED,,4.0000
+Labour Day,Garden,TOTAL,552.5700,615.8233,-63.2533,-10.2713,264.9400,294.6750,-29.7350,MEASURED,,1.0000
+Eid al-Adha,Garden,TOTAL,1151.2100,1179.7083,-28.4983,-2.4157,562.1100,553.5733,8.5367,MEASURED,,2.0000
+Eid al-Fitr,Harbour,TOTAL,2438.2400,2850.7100,-412.4700,-14.4690,1579.1200,1854.2233,-275.1033,MEASURED,,4.0000
+Easter,Harbour,TOTAL,2963.2800,2881.9100,81.3700,2.8235,1927.2600,1871.4283,55.8317,MEASURED,,4.0000
+Orthodox Easter,Harbour,TOTAL,2997.2800,2971.1850,26.0950,0.8783,1935.4000,1933.8783,1.5217,MEASURED,,4.0000
+Labour Day,Harbour,TOTAL,1408.3600,894.4600,513.9000,57.4537,913.7000,580.4283,333.2717,MEASURED,,1.0000
+Eid al-Adha,Harbour,TOTAL,1846.2600,1975.8733,-129.6133,-6.5598,1203.8900,1279.3883,-75.4983,MEASURED,,2.0000
+Eid al-Fitr,Uptown,TOTAL,959.2700,1083.4417,-124.1717,-11.4609,601.5900,681.5750,-79.9850,MEASURED,,4.0000
+Easter,Uptown,TOTAL,1224.0200,1066.8567,157.1633,14.7314,768.2500,669.8550,98.3950,MEASURED,,4.0000
+Orthodox Easter,Uptown,TOTAL,944.9800,1121.6717,-176.6917,-15.7525,603.1500,701.7400,-98.5900,MEASURED,,4.0000
+Labour Day,Uptown,TOTAL,270.8900,320.7617,-49.8717,-15.5479,170.9800,199.8000,-28.8200,MEASURED,,1.0000
+Eid al-Adha,Uptown,TOTAL,703.1700,666.6850,36.4850,5.4726,441.9800,415.0617,26.9183,MEASURED,,2.0000

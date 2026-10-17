@@ -1,0 +1,46 @@
+section,Product,Category,class,units,price,new_price,price_change,cost,profit_per_unit,new_profit_per_unit,margin_pct,new_margin_pct,reason
+FEATURED,Halloumi Wrap,Sandwiches,STAR,286.0,9.95,9.95,0.0,5.92,3.98,4.03,40.23,40.5,Star with 40% margin and $3.98 per sale: hero spot
+FEATURED,Egg Sandwich,Breakfast,STAR,346.0,8.15,8.15,0.0,4.45,3.66,3.7,45.15,45.4,Star with 45% margin and $3.66 per sale: hero spot
+FEATURED,Cold Brew,Cold Coffee,STAR,461.0,5.15,5.15,0.0,1.66,3.46,3.49,67.6,67.77,Star with 68% margin and $3.46 per sale: hero spot
+FEATURED,Iced Matcha,Matcha & Tea,STAR,765.0,6.85,6.85,0.0,3.59,3.22,3.26,47.3,47.59,Star with 47% margin and $3.22 per sale: hero spot
+FEATURED,Classic Matcha,Matcha & Tea,STAR,650.0,6.45,6.45,0.0,3.25,3.17,3.2,49.34,49.61,Star with 49% margin and $3.17 per sale: hero spot
+FEATURED,Chai Latte,Matcha & Tea,STAR,382.0,5.25,5.25,0.0,2.12,3.11,3.13,59.45,59.62,Star with 59% margin and $3.11 per sale: hero spot
+SWEETS,Tiramisu Cup,Desserts,PLOWHORSE,451.0,6.55,6.88,0.33,4.08,2.43,2.8,37.32,40.7,Thin margin (37%): Harbour price; sell with a drink
+SWEETS,Cheesecake Slice,Desserts,PLOWHORSE,461.0,6.75,7.09,0.34,4.4,2.31,2.69,34.39,37.94,Thin margin (34%): Harbour price; sell with a drink
+SWEETS,Frozen Yoghurt Cup,Desserts,PLOWHORSE,484.0,6.15,6.46,0.31,3.85,2.27,2.61,37.09,40.4,Thin margin (37%): Harbour price; sell with a drink
+SWEETS,Cinnamon Roll,Bakery,PLOWHORSE,457.0,5.15,5.41,0.26,3.2,1.93,2.21,37.59,40.85,Thin margin (38%): Harbour price; sell with a drink
+SWEETS,Brownie,Desserts,PLOWHORSE,553.0,5.15,5.41,0.26,3.39,1.73,2.02,33.75,37.34,Thin margin (34%): Harbour price; sell with a drink
+LUNCH,Quinoa Bowl,Meals,PUZZLE,172.0,11.65,12.23,0.58,7.04,4.56,5.19,39.29,42.44,Thin margin (39%): Harbour price; sell with a drink
+LUNCH,Chicken Salad Bowl,Meals,PUZZLE,179.0,12.45,13.07,0.62,8.08,4.3,4.99,34.73,38.18,Thin margin (35%): Harbour price; sell with a drink
+LUNCH,Tuna Sandwich,Sandwiches,PUZZLE,210.0,8.85,9.29,0.44,5.33,3.47,3.96,39.43,42.63,Thin margin (39%): Harbour price; sell with a drink
+LUNCH,Soup of the Day,Meals,PUZZLE,149.0,7.15,7.15,0.0,3.99,3.14,3.16,44.01,44.2,"High profit per sale, rarely ordered: photo + lunch section"
+LUNCH,Granola Yoghurt,Breakfast,PUZZLE,187.0,7.85,8.24,0.39,4.75,3.07,3.49,39.23,42.35,Thin margin (39%): Harbour price; sell with a drink
+MAIN,Avocado Toast,Breakfast,STAR,304.0,9.45,9.92,0.47,5.98,3.4,3.94,36.24,39.72,Thin margin (36%): Harbour price; sell with a drink
+MAIN,Chicken Pesto Sandwich,Sandwiches,STAR,353.0,10.75,11.29,0.54,7.39,3.29,3.9,30.79,34.54,Thin margin (31%): Harbour price; sell with a drink
+MAIN,Spanish Latte,Hot Coffee,STAR,411.0,5.95,5.95,0.0,2.83,3.08,3.12,52.13,52.44,Keep
+MAIN,Strawberry Matcha,Matcha & Tea,STAR,478.0,7.65,7.65,0.0,4.55,3.06,3.1,40.24,40.52,Keep
+MAIN,Caramel Latte,Hot Coffee,STAR,369.0,5.75,5.75,0.0,2.67,3.04,3.08,53.21,53.57,Keep
+MAIN,Iced Mocha,Cold Coffee,STAR,362.0,6.25,6.25,0.0,3.19,3.03,3.06,48.7,48.96,Keep
+MAIN,Vanilla Latte,Hot Coffee,STAR,460.0,5.45,5.45,0.0,2.46,2.96,2.99,54.62,54.86,Keep
+MAIN,Lemonade,Cold Drinks,STAR,355.0,4.65,4.65,0.0,1.67,2.96,2.98,63.89,64.09,Keep
+MAIN,Iced Latte,Cold Coffee,STAR,813.0,5.35,5.35,0.0,2.37,2.94,2.98,55.37,55.7,Keep
+MAIN,Coffee Frappe,Cold Coffee,STAR,321.0,6.55,6.55,0.0,3.62,2.91,2.93,44.54,44.73,Keep
+MAIN,Turkey & Cheese Sandwich,Sandwiches,STAR,317.0,9.65,10.13,0.48,6.75,2.84,3.38,29.65,33.37,Thin margin (30%): Harbour price; sell with a drink
+MAIN,Peach Iced Tea,Cold Drinks,STAR,411.0,4.45,4.45,0.0,1.64,2.79,2.81,63.01,63.15,Keep
+MAIN,Fresh Orange Juice,Cold Drinks,STAR,336.0,5.75,5.75,0.0,3.03,2.68,2.72,46.94,47.3,Keep
+MAIN,Iced Americano,Cold Coffee,PLOWHORSE,506.0,3.85,4.04,0.19,1.23,2.6,2.81,67.86,69.55,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Flat White,Hot Coffee,PLOWHORSE,445.0,4.35,4.57,0.22,1.77,2.55,2.8,59.07,61.27,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Cappuccino,Hot Coffee,PLOWHORSE,515.0,4.05,4.25,0.2,1.6,2.43,2.65,60.31,62.35,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Banana Bread,Bakery,PLOWHORSE,416.0,4.45,4.67,0.22,2.25,2.17,2.42,49.12,51.82,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Americano,Hot Coffee,PLOWHORSE,341.0,3.15,3.31,0.16,1.03,2.11,2.28,67.16,68.88,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Almond Croissant,Bakery,PLOWHORSE,376.0,4.85,5.09,0.24,2.73,2.09,2.36,43.39,46.37,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Blueberry Muffin,Bakery,PLOWHORSE,319.0,3.95,4.15,0.2,1.87,2.06,2.28,52.42,54.94,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Butter Croissant,Bakery,PLOWHORSE,684.0,3.65,3.83,0.18,1.63,2.0,2.2,55.13,57.44,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Chocolate Croissant,Bakery,PLOWHORSE,511.0,4.25,4.46,0.21,2.26,1.96,2.2,46.47,49.33,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Chocolate Cookie,Bakery,PLOWHORSE,536.0,3.15,3.31,0.16,1.3,1.84,2.01,58.56,60.73,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Pistachio Cookie,Bakery,PLOWHORSE,417.0,3.45,3.62,0.17,1.69,1.74,1.93,50.75,53.31,"Popular, low profit per sale: Harbour price; pair with a Star"
+MAIN,Espresso,Hot Coffee,DOG,212.0,2.65,2.65,0.0,0.93,1.71,1.72,64.75,64.91,Keep (core coffee); offer a double shot
+MAIN,Still Water,Cold Drinks,PLOWHORSE,367.0,1.95,2.05,0.1,0.93,1.01,1.12,52.03,54.63,"Popular, low profit per sale: Harbour price; pair with a Star"
+CHANGES,Mint Tea,Matcha & Tea,PUZZLE,196.0,3.65,3.65,0.0,0.9,2.72,2.75,75.15,75.34,Merge into one 'Tea selection'; suggest Chai Latte (+$0.40-0.50 profit)
+CHANGES,English Breakfast Tea,Matcha & Tea,DOG,135.0,3.45,3.45,0.0,0.82,2.6,2.63,76.06,76.23,Merge into one 'Tea selection'; suggest Chai Latte (+$0.40-0.50 profit)
+CHANGES,Sparkling Water,Cold Drinks,PLOWHORSE,336.0,2.75,,,1.93,0.8,,29.38,,Drop: earns $0.80 per sale (29% margin) at Garden

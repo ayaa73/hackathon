@@ -1,0 +1,19 @@
+Product,Category,class,units,profit_per_unit,popularity_share_pct,morning_avg_profit_per_unit
+Butter Croissant,Bakery,PLOWHORSE,396,2.402,5.253,3.24
+Chocolate Croissant,Bakery,PLOWHORSE,275,2.502,3.648,3.24
+Chocolate Cookie,Bakery,PLOWHORSE,274,2.161,3.634,3.24
+Cinnamon Roll,Bakery,PLOWHORSE,253,2.744,3.356,3.24
+Pistachio Cookie,Bakery,PLOWHORSE,235,2.169,3.117,3.24
+Almond Croissant,Bakery,PLOWHORSE,216,2.793,2.865,3.24
+Banana Bread,Bakery,PLOWHORSE,210,2.725,2.786,3.24
+Blueberry Muffin,Bakery,PLOWHORSE,176,2.488,2.335,3.24
+Egg Sandwich,Breakfast,STAR,225,4.68,2.984,3.24
+Avocado Toast,Breakfast,STAR,216,4.755,2.865,3.24
+Granola Yoghurt,Breakfast,PUZZLE,108,4.24,1.433,3.24
+Cappuccino,Hot Coffee,PLOWHORSE,353,2.848,4.682,3.24
+Vanilla Latte,Hot Coffee,STAR,303,3.558,4.019,3.24
+Flat White,Hot Coffee,PLOWHORSE,299,2.992,3.966,3.24
+Spanish Latte,Hot Coffee,STAR,239,3.763,3.17,3.24
+Americano,Hot Coffee,PLOWHORSE,228,2.383,3.024,3.24
+Caramel Latte,Hot Coffee,STAR,225,3.711,2.984,3.24
+Espresso,Hot Coffee,PLOWHORSE,140,1.916,1.857,3.24

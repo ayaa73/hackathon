@@ -26,8 +26,8 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
 POPULARITY_FACTOR = 0.70
 CLASSES = ["STAR", "PLOWHORSE", "PUZZLE", "DOG"]
 
