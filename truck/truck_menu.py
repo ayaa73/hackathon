@@ -18,7 +18,7 @@ from src import style  # noqa: E402
 # file uses the same module the brief requires.
 _ = style.SERIES
 
-TABLES = ROOT / "outputs" / "tables"
+TABLES = ROOT / "outputs" / "truck" / "tables"
 
 # Items per order are measured in build() from quantity / orders.
 # The truck ticket assumes the truck matches that chain ratio.

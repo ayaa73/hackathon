@@ -23,8 +23,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 ANNUALIZE = 2
 THIN_MARGIN = 0.40                 # below this margin an item is "thin" at Garden
 ELASTICITIES = [0.0, -0.5, -1.0]   # % change in units for each +1% price (0 = volume holds)

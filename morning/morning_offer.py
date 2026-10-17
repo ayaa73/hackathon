@@ -31,11 +31,13 @@ from src import style  # noqa: E402
 from menu_engineering.menu_matrix import classify  # noqa: E402
 from morning.morning_demand import BRANCHES, DRINKS, add_parts, orders  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "morning" / "tables"
+FIGS = ROOT / "outputs" / "morning" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 
 # ---- Inputs and assumptions --------------------------------------------------------
-# Sources are listed in docs/morning_sources.md. DESIGN = a choice we make, not a fact.
+# Sources are listed in docs/3_morning_sources.md. DESIGN = a choice we make, not a fact.
 BUNDLE_DISCOUNT = 0.10           # DESIGN: bundle 10% below buying the items separately
 # Office days per year: MEASURED from the calendar (Mon-Fri minus HolidayDB weekday
 # public holidays, Jan-Jun 2026, x2); computed by morning_supply.py.
@@ -230,7 +232,7 @@ def plot(sc: pd.DataFrame, ch: pd.DataFrame, path: Path) -> None:
     ax2.set_xlabel("Share of offer orders that must be NEW customers to break even (%)")
     ax2.set_title("Free delivery only pays on office packs", fontsize=11)
     ax2.grid(axis="y", visible=False)
-    fig.text(0.01, -0.03, "ESTIMATE. Office days and delivery costs sourced (docs/morning_sources.md); "
+    fig.text(0.01, -0.03, "ESTIMATE. Office days and delivery costs sourced (docs/3_morning_sources.md); "
              "bundle discount and loyalty reward are design choices; the share of new customers is unknown, so 3 values are shown.",
              fontsize=8, color=style.MUTED)
     fig.tight_layout()

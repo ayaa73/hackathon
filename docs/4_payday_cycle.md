@@ -24,7 +24,7 @@ profit a year** at most. What to do:
 Code: [`payday/payday_cycle.py`](../payday/payday_cycle.py). Each day is compared with the same
 weekday within ±21 days (so weekdays and the growth trend cancel), public holidays excluded.
 
-![Payday cycle](../outputs/figures/payday_cycle.png)
+![Payday cycle](../outputs/payday/figures/payday_cycle.png)
 
 | Part of the month | Orders vs a normal day |
 |---|---|
@@ -32,7 +32,7 @@ weekday within ±21 days (so weekdays and the growth trend cancel), public holid
 | 8th-13th | about normal |
 | **14th-27th** (before payday) | **-4.1%** |
 
-**It holds everywhere** ([`payday_robustness.csv`](../outputs/tables/payday_robustness.csv)):
+**It holds everywhere** ([`payday_robustness.csv`](../outputs/payday/tables/payday_robustness.csv)):
 
 | Scope | Gap between the busy and quiet parts of the month |
 |---|---|
@@ -50,7 +50,7 @@ one. The cycle itself is measured.
 
 **How much money the dip represents:** the 14th-27th days earn **$36.8 less gross profit per
 day** than normal; over a year that is **about $5.5k**
-([`payday_dip_value.csv`](../outputs/tables/payday_dip_value.csv)). No offer can recover more
+([`payday_dip_value.csv`](../outputs/payday/tables/payday_dip_value.csv)). No offer can recover more
 than this from the dip, and any offer also costs money on customers who would come anyway.
 
 ## 2. Action 1: time promotions to the dip (no new cost)
@@ -65,7 +65,7 @@ promotions at the start of the month reward customers who come anyway. So:
 ## 3. Who actually exists to sell to (measured)
 
 Code: [`payday/month_pass.py`](../payday/month_pass.py). Table:
-[`month_pass_members.csv`](../outputs/tables/month_pass_members.csv).
+[`month_pass_members.csv`](../outputs/payday/tables/month_pass_members.csv).
 
 | | |
 |---|---|
@@ -103,8 +103,8 @@ the 28th-7th, free pastry for a mid-month redemption.
 | 1.0 | +$1.51 | **+$122 / +$243 / +$365** |
 
 Break-even: **0.59 extra visits per buyer a month**
-([`month_pass_option_a.csv`](../outputs/tables/month_pass_option_a.csv),
-[`month_pass_unit_economics.csv`](../outputs/tables/month_pass_unit_economics.csv)).
+([`month_pass_option_a.csv`](../outputs/payday/tables/month_pass_option_a.csv),
+[`month_pass_unit_economics.csv`](../outputs/payday/tables/month_pass_unit_economics.csv)).
 
 **Verdict:** even in the best case it earns a few hundred dollars a year, and a pool of 52 is too
 small to test properly. **Drop it.** (The first version of this project assumed 61-264 buyers a
@@ -120,7 +120,7 @@ $0.90 = 10% of the average member ticket of $9.00).
 people who were coming regardless. Each extra returning member brings $5.28 gross profit (MEASURED)
 minus the reward.
 
-![Payday offers](../outputs/figures/month_pass_scenarios.png)
+![Payday offers](../outputs/payday/figures/month_pass_scenarios.png)
 
 | Reward | Natural returners who use it (ASSUMPTION) | Break-even uplift | Gross profit a year at +2 / +5 / +10 points |
 |---|---|---|---|
@@ -129,13 +129,13 @@ minus the reward.
 | **10% off** | all | **+8.0 pts** | -$3.3k / -$1.7k / **+$1.1k** |
 | **10% off** | half | **+4.0 pts** | -$1.1k / +$0.6k / **+$3.3k** |
 
-([`comeback_option_b.csv`](../outputs/tables/comeback_option_b.csv),
-[`comeback_base.csv`](../outputs/tables/comeback_base.csv)).
+([`comeback_option_b.csv`](../outputs/payday/tables/comeback_option_b.csv),
+[`comeback_base.csv`](../outputs/payday/tables/comeback_base.csv)).
 
 **Read:** the free pastry is too expensive. The 10% reward pays only if it lifts the mid-month
 return rate by 4-8 points (from 38.9% to about 43-47%). Nobody knows if it will, so it is tested.
 
-**The test** ([`payday_offer_tests.csv`](../outputs/tables/payday_offer_tests.csv)): members have
+**The test** ([`payday_offer_tests.csv`](../outputs/payday/tables/payday_offer_tests.csv)): members have
 IDs, so give the reward to a **random half** of the 28th-7th visitors and compare who comes back
 on the 14th-27th. Because the split is random, any difference is caused by the reward.
 
@@ -157,7 +157,7 @@ most $557.
 | Holds in all 6 months, 3 branches, members and walk-ins | MEASURED | `payday_robustness.csv` |
 | Ticket size unchanged | MEASURED | `payday_robustness.csv` |
 | Dip worth ~$5.5k gross profit a year | MEASURED | `payday_dip_value.csv` |
-| Holidays excluded | SOURCED | HolidayDB 2026 (see `docs/morning_sources.md`) |
+| Holidays excluded | SOURCED | HolidayDB 2026 (see `docs/3_morning_sources.md`) |
 | 52-member pass pool, 26.8 eligible a month, their drink counts | MEASURED | `month_pass_members.csv`, `month_pass_unit_economics.csv` |
 | Drink price and cost, pastry cost, $5.28 per member visit, $2.41 food profit per visit | MEASURED | `month_pass_unit_economics.csv` |
 | 1,061 post-payday members, 38.9% natural return | MEASURED | `comeback_base.csv` |

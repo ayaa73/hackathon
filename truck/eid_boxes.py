@@ -19,7 +19,7 @@ from src import style  # noqa: E402
 
 _ = style.SERIES  # same palette as the charts; this script writes tables
 
-TABLES = ROOT / "outputs" / "tables"
+TABLES = ROOT / "outputs" / "truck" / "tables"
 DIPS = TABLES / "eid_holiday_dips.csv"
 
 # Ambient pastries already on the menu. No new SKU in the box itself.
@@ -41,7 +41,7 @@ BOX_DISCOUNT = 0.10
 PACKAGING_AND_PROMOTION = 500
 
 # Limited edition is not in the file. Price each like a measured item.
-# Ma'amoul tradition: see docs/truck_sources.md (L'Orient Today).
+# Ma'amoul tradition: see docs/2_truck_sources.md (L'Orient Today).
 LIMITED = [
     ("Ma'amoul (date / pistachio / walnut)", "Pistachio Cookie"),
     ("Pistachio baklava", "Cinnamon Roll"),
@@ -232,8 +232,8 @@ def main() -> None:
     print("Targets:")
     for row in goal.itertuples():
         print(f"  {row.metric}: {row.value:.2f} ({row.kind})")
-    print("Saved -> outputs/tables/eid_boxes.csv")
-    print("Saved -> outputs/tables/eid_box_targets.csv")
+    print("Saved -> outputs/truck/tables/eid_boxes.csv")
+    print("Saved -> outputs/truck/tables/eid_box_targets.csv")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 
 1. Opening and staffing evidence: is every branch trading from 7:00?
 2. Office days: weekdays minus weekday public holidays (HolidayDB 2026, sourced in
-   docs/morning_sources.md), used to annualize the morning scenarios.
+   docs/3_morning_sources.md), used to annualize the morning scenarios.
 3. Bundle items today, per branch: units per day (all day and 7-10), share of days the
    item is sold in the morning, day-to-day variation (standard deviation).
 4. Extra stock the scenarios would need, as a % of today's daily volume of each item.
@@ -24,8 +24,10 @@ import numpy as np  # noqa: E402
 from src.clean import load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "morning" / "tables"
+FIGS = ROOT / "outputs" / "morning" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 BRANCHES = ["Garden", "Harbour", "Uptown"]
 
 # Lebanon public holidays Jan-Jun 2026, HolidayDB (https://holidaydb.com/guides/public-holidays/lebanon/2026)

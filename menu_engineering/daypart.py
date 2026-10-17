@@ -28,8 +28,10 @@ from menu_engineering.menu_matrix import CLASSES, classify  # noqa: E402
 from menu_engineering.branch_combos import (BRANCHES, DRINK_CATEGORIES, SPLIT_DATE, TOP_K,  # noqa: E402
                                             BranchModel)
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 DAYPARTS = ["morning", "day", "night"]
 DAYPART_LABEL = {"morning": "Morning 7-10", "day": "Day 11-18", "night": "Night 19-23"}
 STABILITY_SPLIT = pd.Timestamp("2026-04-01")

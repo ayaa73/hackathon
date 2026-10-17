@@ -7,7 +7,7 @@ Start with Eid boxes and a limited-edition ma'amoul, then one pop-up stand. Rent
 The Eid dip is how the question came up. It is not the size of the prize. Eid al-Fitr cost about **$923** of revenue. A used truck is **$51,300** before it sells anything.
 
 > **Measured** = computed from `data/raw/stories_transactions.csv` (Jan-Jun 2026).
-> **Estimated** = a measured input times a stated assumption, or a US list price. Every URL is in [truck_sources.md](truck_sources.md). Anything without one is marked **ASSUMPTION - verify locally**.
+> **Estimated** = a measured input times a stated assumption, or a US list price. Every URL is in [2_truck_sources.md](2_truck_sources.md). Anything without one is marked **ASSUMPTION - verify locally**.
 
 ---
 
@@ -29,7 +29,7 @@ The corrected baseline is local. For each holiday day, expected revenue is the a
 
 Adha is a small dip, not a surge. The old "+13.5%, no dip" figure was the six-month weekday average.
 
-![Holiday revenue gap](../outputs/figures/eid_holiday_dips.png)
+![Holiday revenue gap](../outputs/truck/figures/eid_holiday_dips.png)
 
 Chain context, measured: 33,887 orders, $305,184 revenue, $178,994 gross profit, 1.59 items per order, branches Garden, Harbour, and Uptown.
 
@@ -69,7 +69,7 @@ Limited edition, not in the file, all estimates, priced by analogy:
 
 Ma'amoul is the one product that serves both Eid and Easter. L'Orient Today records it as the Lebanese sweet for Easter and for both Eids. The same box can be offered again at Easter. Baklava and the rose-pistachio latte are seasonal add-ons with no Stories sales history.
 
-How it sells: pre-order on WhatsApp or Instagram the week before Eid, pick up at any branch on the last days of Ramadan, and sell the limited edition in the branches during Eid week. Detail: [`outputs/tables/eid_boxes.csv`](../outputs/tables/eid_boxes.csv).
+How it sells: pre-order on WhatsApp or Instagram the week before Eid, pick up at any branch on the last days of Ramadan, and sell the limited edition in the branches during Eid week. Detail: [`outputs/truck/tables/eid_boxes.csv`](../outputs/truck/tables/eid_boxes.csv).
 
 ## 5. Option 2: a pop-up stand
 
@@ -107,15 +107,15 @@ At **44 trading days**:
 
 Renting at Garden-like demand loses money. At Harbour-like demand it is a small profit, about $2,100, close to break-even relative to the decision. Buying does not pay back within 2 years at Uptown, Garden, Harbour, or Harbour Tuesday. A used trailer needs about **183 orders a day** for 44 days to pay back in two years on a cash basis. That is above Harbour Tuesday and only just under the single best day the chain has ever had. Repeating that day all season is not a plan.
 
-![Profit per day](../outputs/figures/truck_profit_per_day.png)
+![Profit per day](../outputs/truck/figures/truck_profit_per_day.png)
 
-![Payback](../outputs/figures/truck_payback.png)
+![Payback](../outputs/truck/figures/truck_payback.png)
 
-![Break-even](../outputs/figures/truck_breakeven.png)
+![Break-even](../outputs/truck/figures/truck_breakeven.png)
 
 ## 7. The four options side by side
 
-![Channel comparison](../outputs/figures/truck_channel_comparison.png)
+![Channel comparison](../outputs/truck/figures/truck_channel_comparison.png)
 
 | | Upfront | Cost per trading day | Break-even | Net, Garden-like | Net, Harbour-like | Risk | What a pass proves |
 |---|---|---|---|---|---|---|---|

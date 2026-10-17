@@ -10,14 +10,14 @@ branch per office day ≈ $2.9k-$9.2k gross profit a year** (estimate). The data
 office pattern in mornings, so office demand is something the test must prove.
 
 > Every number below is **MEASURED** (computed from the transaction file), **SOURCED** (see
-> [morning_sources.md](morning_sources.md)), a **DESIGN** choice, or an **ASSUMPTION** shown as
+> [3_morning_sources.md](3_morning_sources.md)), a **DESIGN** choice, or an **ASSUMPTION** shown as
 > a range. The evidence table in section 8 maps each claim to the file that produces it.
 
 ---
 
 ## 1. The problem: open and staffed, but idle (measured)
 
-![Weekday orders per hour](../outputs/figures/morning_idle_hours.png)
+![Weekday orders per hour](../outputs/morning/figures/morning_idle_hours.png)
 
 | Branch | Weekday orders/hour 7-10 | 7-11 pm | Morning as % of night | Morning orders/day now |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@ office pattern in mornings, so office demand is something the test must prove.
 
 **The branches are open in the morning:** all three traded on all 181 days, the first order
 comes at 7:00 at the earliest, median 7:24 (Harbour), 7:32 (Garden), 7:50 (Uptown)
-([`morning_opening_evidence.csv`](../outputs/tables/morning_opening_evidence.csv)). So the
+([`morning_opening_evidence.csv`](../outputs/morning/tables/morning_opening_evidence.csv)). So the
 morning team is already on shift; the data has no staff schedules or wages, so how idle they
 are is not measured.
 
@@ -43,7 +43,7 @@ are is not measured.
 
 Mornings are a grab-and-go hot-coffee moment, two in three coffee orders leave without food,
 and mornings are an occasional habit, which is what a loyalty card is designed to build
-([`morning_facts.csv`](../outputs/tables/morning_facts.csv)).
+([`morning_facts.csv`](../outputs/morning/tables/morning_facts.csv)).
 
 **What the data does not show: an office crowd.** Mornings are 13.2-14.8% of orders on
 every day of the week, weekends included, and morning takeaway is 54.0% on weekdays and
@@ -51,7 +51,7 @@ weekends alike. Offices are a hypothesis for the test, not a finding.
 
 ## 3. The bundles, chosen with the morning menu matrix
 
-Menu matrix on 7-10 am sales only ([`morning_menu_matrix.csv`](../outputs/tables/morning_menu_matrix.csv)):
+Menu matrix on 7-10 am sales only ([`morning_menu_matrix.csv`](../outputs/morning/tables/morning_menu_matrix.csv)):
 morning Stars are **Vanilla Latte, Spanish Latte, Caramel Latte, Egg Sandwich, Avocado
 Toast**; the most popular morning item is **Butter Croissant**; Granola Yoghurt is a
 morning Puzzle. The most-bought morning pair is Flat White + Butter Croissant.
@@ -63,7 +63,7 @@ morning Puzzle. The most-bought morning pair is Flat White + Butter Croissant.
 | Office breakfast | Spanish Latte + Egg Sandwich (two morning Stars) | $13.33, $8.24 | $12.69, $5.41 | $12.18, $7.29 |
 | Office pack (4+4) | 4 hot coffees + 4 pastries | $34.49, $22.33 | $32.85, $15.47 | $31.53, $19.86 |
 
-10% below buying separately (DESIGN) ([`morning_bundles.csv`](../outputs/tables/morning_bundles.csv)).
+10% below buying separately (DESIGN) ([`morning_bundles.csv`](../outputs/morning/tables/morning_bundles.csv)).
 Garden earns less on every bundle because of its 43% product-cost premium (Project 1).
 
 **Breakfast board 7-10 am:** lead with Egg Sandwich, Avocado Toast (morning Stars, $4.68-$4.76
@@ -72,9 +72,9 @@ profit) and Granola Yoghurt (morning Puzzle, $4.24), next to the bundles.
 ## 4. Supply chain: can the branches deliver it? (measured)
 
 Code: [`morning/morning_supply.py`](../morning/morning_supply.py),
-[`morning_supply_check.csv`](../outputs/tables/morning_supply_check.csv).
+[`morning_supply_check.csv`](../outputs/morning/tables/morning_supply_check.csv).
 
-![Supply check](../outputs/figures/morning_supply_check.png)
+![Supply check](../outputs/morning/figures/morning_supply_check.png)
 
 **A fixed-item bundle would strain stock.** The bundle items are small sellers today:
 
@@ -96,7 +96,7 @@ is needed**: every bundle item is already sold at every branch.
 
 | Supply question | Evidence |
 |---|---|
-| Cost predictability | All 135 branch x item unit costs stayed **exactly the same** Jan-Jun (0.0% change) ([`morning_cost_stability.csv`](../outputs/tables/morning_cost_stability.csv)) |
+| Cost predictability | All 135 branch x item unit costs stayed **exactly the same** Jan-Jun (0.0% change) ([`morning_cost_stability.csv`](../outputs/morning/tables/morning_cost_stability.csv)) |
 | Prep | Coffees: espresso bar, made to order. Pastries: ready to sell. Egg Sandwich: assembled; keep it to the Office breakfast and pre-orders |
 | Waste risk | Pastries are sold same day; **office packs are pre-ordered the day before**, so their stock is known in advance |
 | Delivery | No delivery data exists; costs are sourced ranges (section 5) |
@@ -106,7 +106,7 @@ is needed**: every bundle item is already sold at every branch.
 The question per channel: **what share of offer orders must be genuinely new customers for
 it to break even?** (Rewards paid to customers who would have come anyway are the cost.)
 
-![Morning offer economics](../outputs/figures/morning_offer_economics.png)
+![Morning offer economics](../outputs/morning/figures/morning_offer_economics.png)
 
 | Bundle | Channel | Cost per order | Must be new |
 |---|---|---|---|
@@ -117,7 +117,7 @@ it to break even?** (Rewards paid to customers who would have come anyway are th
 | Office pack (4+4) | Delivery app (22% / 30% commission) | $7.25 / $9.89 | 38% / 51% |
 
 Courier cost $2-6 per delivery and app commission 22-30% are sourced (Voxire, May 2026).
-Full table: [`morning_channel_economics.csv`](../outputs/tables/morning_channel_economics.csv).
+Full table: [`morning_channel_economics.csv`](../outputs/morning/tables/morning_channel_economics.csv).
 
 **Rules that follow:** a loyalty card for everyone; free delivery **only on office packs**,
 **only through your own courier**, first 3 orders; no free delivery on single bundles; no
@@ -126,7 +126,7 @@ delivery apps for the morning offer.
 ## 6. What it could be worth (estimate)
 
 Selling the bundle only to today's coffee-only morning customers is small: about **$300-900
-a year** ([`morning_upsell_ceiling.csv`](../outputs/tables/morning_upsell_ceiling.csv)). The value
+a year** ([`morning_upsell_ceiling.csv`](../outputs/morning/tables/morning_upsell_ceiling.csv)). The value
 has to come from **new** morning orders:
 
 | Extra orders per branch per office day | 30% of offer orders new | 50% new | 70% new | Morning orders increase (H / G / U) |
@@ -136,7 +136,7 @@ has to come from **new** morning orders:
 | +10 | $5.8k | $12.1k | $18.3k | +70% / +108% / +188% |
 
 Gross profit per year, 3 branches, coffee + any pastry, loyalty cost included, 226 office
-days (from HolidayDB) ([`morning_scenarios.csv`](../outputs/tables/morning_scenarios.csv)).
+days (from HolidayDB) ([`morning_scenarios.csv`](../outputs/morning/tables/morning_scenarios.csv)).
 +10 a day would push Uptown above its own night pace (3.8 vs 3.5 orders an hour).
 
 **Honest read:** this is a smaller lever than Garden's sourcing (~$32k) or menu engineering
@@ -157,7 +157,7 @@ loyalty card also captures customer IDs (36.5% of orders are anonymous today).
 On Jan-Jun history the weekly morning-share gap has **no drift** (+0.02 pts per week), and a
 before/after test raised 1 false alarm in 10 fake 8-week tests. Over 12 weeks it detects a
 **2.0-point** rise, about **+2 morning orders a day at Harbour**, the smallest scenario above
-([`morning_test_design.csv`](../outputs/tables/morning_test_design.csv)). Only 10 fake tests fit in
+([`morning_test_design.csv`](../outputs/morning/tables/morning_test_design.csv)). Only 10 fake tests fit in
 six months of data, so the false-alarm estimate is rough.
 
 **Decision at week 12:** morning share up 2+ points and most loyalty redemptions from new IDs

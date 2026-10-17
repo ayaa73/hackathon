@@ -6,10 +6,10 @@ Then: is there a day-of-month pattern, is it the same in every month, branch and
 type, and how much gross profit does the mid-month dip represent?
 
 Outputs
-  outputs/tables/payday_by_day_of_month.csv
-  outputs/tables/payday_robustness.csv
-  outputs/tables/payday_dip_value.csv
-  outputs/figures/payday_cycle.png
+  outputs/payday/tables/payday_by_day_of_month.csv
+  outputs/payday/tables/payday_robustness.csv
+  outputs/payday/tables/payday_dip_value.csv
+  outputs/payday/figures/payday_cycle.png
 
 Run from the repo root:  python payday/payday_cycle.py
 """
@@ -27,8 +27,10 @@ from scipy import stats  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "payday" / "tables"
+FIGS = ROOT / "outputs" / "payday" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 BRANCHES = ["Garden", "Harbour", "Uptown"]
 WINDOW = 21
 N_PERM = 5000

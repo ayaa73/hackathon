@@ -23,7 +23,8 @@ from src.clean import check, load_clean  # noqa: E402
 from menu_engineering.menu_matrix import classify  # noqa: E402
 from menu_engineering.pairing_model import SPLIT_DATE, baskets, evaluate  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+TABLES.mkdir(parents=True, exist_ok=True)
 STABILITY_SPLIT = pd.Timestamp("2026-04-01")
 
 

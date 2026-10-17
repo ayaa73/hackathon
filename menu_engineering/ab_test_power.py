@@ -31,7 +31,8 @@ from scipy import stats  # noqa: E402
 
 from src.clean import GP, load_clean  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+TABLES.mkdir(parents=True, exist_ok=True)
 TARGET_EFFECT = 0.05
 Z = 1.96 + 0.84                 # 5% two-sided, 80% power
 N_RANDOM_PLACEBOS = 2000

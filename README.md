@@ -1,172 +1,151 @@
 # Stories Coffee: Four Ways to Grow Profit
 
-Hackathon project on Stories Coffee's Jan-Jun 2026 transaction data (3 branches: Garden,
-Harbour, Uptown; 45 menu items; 33,887 orders).
+Hackathon project on Stories Coffee's Jan-Jun 2026 transaction data: 3 branches (Garden,
+Harbour, Uptown), 45 menu items, 33,887 orders. Every recommendation comes with the money it is
+worth, the evidence behind it, and a test to prove it before rollout.
 
-## Executive summary
+## What we recommend
 
-1. **Menu engineering per branch** ([full write-up](docs/menu_engineering.md)).
-   53.8% of orders contain a single item, and profit per item varies more than 5x across the
-   menu. Classifying every item per branch (Star / Plowhorse / Puzzle / Dog) and acting on it
-   (push Stars, pair Plowhorses with Stars, rebrand Puzzles, merge Dogs) is worth an
-   **estimated ~$32.8k of extra gross profit a year**, with no new customers. Each branch gets
-   its own combos and a till rule built from its own sales (e.g. Uptown: drink alone →
-   suggest a Chicken Pesto Sandwich; Garden: suggest a Butter Croissant), and a menu board
-   that changes with the time of day (12 items change class between morning and night).
-   Members repeat items exactly as often as random choice would (15.1% vs 15.3%), so their
-   choices are not habits and can be steered by the menu and the till. Tested on
-   unseen months, purchase-history models beat simple baselines only slightly, so the changes
-   are proven with a **12-week switchback test at Harbour** (a design we checked on history:
-   5.9% false alarms vs 40% for a simple before/after test).
-   **Garden, the least profitable branch**, pays **43% more than Harbour for the same items**
-   ($15.9k extra in six months, measured). Fixing its sourcing is worth an estimated
-   **~$31.8k a year**; repricing alone can't fix it. A reorganized **Garden menu v2**
-   (featured items that keep their margin, combos, sweets sold with drinks, Harbour-level
-   prices on thin items) adds an estimated **$6.1k-$13.6k a year** on top.
-2. **Should Stories go to the customer?** ([full write-up](docs/truck_business_case.md)).
-   Branch revenue dipped **15.7% over Eid al-Fitr** 2026 (-$923, measured against the same
-   weekday in nearby weeks) as customers spent the holiday with family. That raised a bigger
-   question, tested from cheapest to most expensive: **Eid boxes + a limited-edition ma'amoul**
-   (about 37 boxes of 6 replace the Eid profit gap), a **pop-up stand** at events, and a
-   **truck**. At the demand Stories' own branches achieve (35-90 orders a day), renting a
-   truck only breaks even at Harbour-like demand and **buying one does not pay back within
-   two years**. Recommendation: boxes first, then one pop-up; rent a truck only if the pop-up
-   proves 80+ orders a day.
-3. **Filling the idle mornings** ([full write-up](docs/morning_offer.md), [sources](docs/morning_sources.md)).
-   Every branch trades from 7:00, yet weekday mornings run at about **40% of the night pace**,
-   and **65% of morning hot-coffee orders have no food**. Offer: a **"coffee + any pastry"
-   bundle** (picked with the morning menu matrix) with a **loyalty card** (pays if 11% of users
-   are new), a breakfast board, and free delivery **only on office packs via an own courier**
-   (sourced courier cost $2-6: single-coffee delivery needs 43-130% new customers, i.e. it
-   doesn't pay). Supply is feasible: +5 bundles a day adds 16-43% to bakery volume, within each
-   branch's normal daily swing. Value is modest: **+5 orders per branch per office day ≈
-   $2.9k-$9.2k a year** (estimate, depending on how many are new). The data shows no office
-   pattern, so it is tested first: 12 weeks at Harbour on a metric checked against history.
-4. **The payday cycle** ([full write-up](docs/payday_month_pass.md)).
-   Orders run **+5.1% from the 28th to the 7th** and **-4.1% from the 14th to the 27th**, in all
-   6 months, all 3 branches, members and walk-ins (p < 0.001); ticket size doesn't change. The
-   dip is worth ~$5.5k gross profit a year at most. Action 1: move promotions into the mid-month
-   dip (no cost). A **Month Pass was sized on real members and dropped**: only 52 members buy 3+
-   drinks in half the months, so ~13 buyers a month and -$0.5k to +$0.4k a year. Instead,
-   **test a 10%-off comeback reward** on a random half of the ~1,061 post-payday members for 3
-   cycles (worst-case cost $557): it pays only above +4-8 points of mid-month return (base
-   38.9%), up to ~+$3.3k a year.
+| # | Action | Extra gross profit a year | Basis | Next step |
+|---|---|---|---|---|
+| 1a | **Fix Garden's sourcing**: it pays 43% more than Harbour for the same items | **~$31.8k** | $15.9k overpaid in 6 months (measured) | Renegotiate suppliers now |
+| 1b | **Menu engineering per branch**: push Stars, pair Plowhorses with Stars, per-branch till rule | **~$32.8k** | Estimate on measured item profit | 12-week switchback test at Harbour |
+| 1c | **Garden menu v2**: reorganized board and prices | **$6.1k-$13.6k** | Estimate | Launch after 1a |
+| 2 | **Eid boxes, then one pop-up stand**; rent a truck only if the pop-up proves 80+ orders a day; don't buy one | Boxes ~break-even; pop-up **$1.6k-$3.4k** | Estimate at branch-level demand | Eid box pre-orders |
+| 3 | **Morning "coffee + any pastry" bundle** with a loyalty card | **$2.9k-$9.2k** | Estimate; costs sourced | 12-week test at Harbour |
+| 4 | **Move promotions to the mid-month dip** (14th-27th); test a 10%-off comeback reward | Promotions: no cost; reward: up to **~$3.3k** | Cycle measured; reward estimated | 3-month randomized test (max cost $557) |
 
-**Measured vs estimated:** every number labelled *measured* comes straight from the data.
-Every *estimate* is a measured input times a stated assumption, and the assumption is written
-next to it.
+**Gross profit only:** the data has product costs but no labour, rent or energy, so net gains
+will be smaller. **Measured** = computed from the data. **Estimate** = a measured input times
+a stated assumption, written next to it. Ideas we tested and dropped are in
+[docs/5_rejected_approaches.md](docs/5_rejected_approaches.md).
 
-## Data quality notes
+## The four projects
 
-- 132 exact duplicate rows removed (51,177 to 51,045 rows).
+1. **Menu engineering per branch** ([write-up](docs/1_menu_engineering.md)).
+   53.8% of orders contain a single item, and profit per item varies more than 5x. Every item
+   is classified per branch (Star / Plowhorse / Puzzle / Dog); 8 items change class between
+   branches and 12 between morning and night. Each branch gets its own combos and till rule
+   (Uptown: drink alone → suggest a Chicken Pesto Sandwich; Garden: a Butter Croissant).
+   Members repeat items no more often than chance (15.1% vs 15.3%), so their choices can be
+   steered. On unseen months, purchase-history models beat simple baselines only slightly
+   (15.5% vs 13.4% hit rate), so changes are proven with a **switchback test** (checked on
+   history: 5.9% false alarms vs 40% for before/after). **Garden** pays 43% more than Harbour
+   for the same items; repricing alone can't fix that, sourcing can.
+2. **Reaching customers outside the branches** ([write-up](docs/2_holiday_truck.md),
+   [sources](docs/2_truck_sources.md)). Revenue dipped **15.7% over Eid al-Fitr** (-$923 vs the
+   same weekday in nearby weeks). Options are compared from cheapest to dearest: Eid boxes with
+   a limited-edition ma'amoul, a pop-up stand, renting a truck, buying one. At the demand
+   Stories' branches actually reach (35-90 orders a day, best day ever 193), renting only
+   breaks even at Harbour-like demand and **buying does not pay back within two years**.
+3. **Filling the idle mornings** ([write-up](docs/3_morning_offer.md),
+   [sources](docs/3_morning_sources.md)). Every branch opens at 7:00, yet weekday mornings run
+   at about **40% of the night pace**, and **65% of morning hot-coffee orders have no food**.
+   A flexible "coffee + any pastry" bundle needs only +16-43% bakery stock (a fixed croissant
+   bundle would need +78-231%). A loyalty card pays if 11% of users are new; free delivery
+   only works for office packs via an own courier ($2-6 a trip, sourced).
+4. **The payday cycle** ([write-up](docs/4_payday_cycle.md)). Orders run **+5.1% from the
+   28th to the 7th** and **-4.1% from the 14th to the 27th**, in all 6 months, all 3 branches,
+   members and walk-ins (p < 0.001); ticket size doesn't change. A Month Pass was sized on real
+   members and **dropped**: only 52 members buy 3+ drinks in half the months, so about 13
+   buyers a month and -$0.5k to +$0.4k a year.
+
+## Data quality
+
+- 132 exact duplicate rows removed (51,177 → 51,045 rows).
 - Revenue and gross-profit formulas verified on every row (`src/clean.py`).
-- 36.5% of orders have no Customer ID (walk-ins).
-- The file contains product costs only: no labour, rent, waste or energy costs, so all profit
-  figures are **gross** profit.
-
-## Project 1: Menu engineering
-
-| Output | File |
-|---|---|
-| Menu matrix per branch + chain | `outputs/tables/menu_matrix_*.csv`, `outputs/figures/matrix_*.png` |
-| Items that change class between branches | `outputs/tables/class_differences.csv` |
-| Action for every item at every branch | `outputs/tables/menu_actions.csv` |
-| Four designed pairings with prices | `outputs/tables/designed_pairings.csv` |
-| Money estimates with assumptions | `outputs/tables/money_estimates.csv`, `outputs/figures/money_estimates.png` |
-| Pairing lift + model vs baseline | `outputs/tables/pair_lift_*.csv`, `outputs/tables/pairing_model_results.csv`, `outputs/figures/pairing_model.png` |
-| Per-branch combos + till suggestions (from purchase history), tested on May-Jun | `outputs/tables/branch_combos.csv`, `outputs/tables/till_suggestions_by_branch.csv`, `outputs/tables/branch_combos_validation.csv`, `outputs/figures/branch_combos_validation.png` |
-| Garden menu v2: reorganized board, new prices, impact in 3 scenarios | `outputs/figures/garden_menu_v2.png`, `outputs/tables/garden_menu_v2.csv`, `outputs/tables/garden_menu_impact.csv` |
-| Time-of-day menu (12 items change class), time-of-day till rules tested on May-Jun, steerability test (members choose like random-by-popularity) | `outputs/tables/daypart_*.csv`, `outputs/tables/steerability.csv`, `outputs/figures/daypart_class_changes.png` |
-| Garden case: cost leak, item actions, sourcing and repricing scenarios | `outputs/tables/garden_items.csv`, `outputs/tables/garden_scenarios.csv`, `outputs/tables/branch_kpis.csv`, `outputs/figures/garden_cost_leak.png`, `outputs/figures/garden_scenarios.png` |
-| Test design checked on history (false alarms, detectable effect) | `outputs/tables/ab_test_power.csv`, `outputs/tables/ab_test_placebo.csv` |
-| Evidence checks for every supporting fact quoted in the docs | `outputs/tables/evidence_checks.csv` |
-| Leakage + stability validation | `menu_engineering/validate.py`, `outputs/tables/matrix_stability.csv` |
-
-![Harbour menu matrix](outputs/figures/matrix_harbour.png)
-![Garden cost leak](outputs/figures/garden_cost_leak.png)
-![Money estimates](outputs/figures/money_estimates.png)
-
-## Project 2: Reaching customers outside the branches
-
-| Output | File |
-|---|---|
-| Holiday dips vs a local same-weekday baseline | `outputs/tables/eid_holiday_dips.csv`, `outputs/figures/eid_holiday_dips.png` |
-| Eid boxes, limited edition, profit targets | `outputs/tables/eid_boxes.csv`, `outputs/tables/eid_box_targets.csv` |
-| Truck menu economics | `outputs/tables/truck_menu.csv`, `outputs/tables/truck_menu_summary.csv` |
-| Truck rent/buy scenarios at measured branch demand | `outputs/tables/truck_scenarios.csv`, `outputs/tables/truck_breakeven.csv`, `outputs/figures/truck_profit_per_day.png` |
-| Boxes vs pop-up vs rent vs buy | `outputs/tables/truck_channel_comparison.csv`, `outputs/figures/truck_channel_comparison.png` |
-| Holiday calendar, security notes, sources | `truck/holiday_calendar.csv`, `docs/truck_sources.md` |
-
-![Truck profit per day at branch-sized demand](outputs/figures/truck_profit_per_day.png)
-
-## Project 3: Filling the idle mornings
-
-| Output | File |
-|---|---|
-| Orders per hour by branch, morning facts | `outputs/tables/morning_orders_per_hour.csv`, `outputs/tables/morning_facts.csv`, `outputs/figures/morning_idle_hours.png` |
-| Morning menu matrix, bundles and prices | `outputs/tables/morning_menu_matrix.csv`, `outputs/tables/morning_bundles.csv` |
-| Loyalty vs delivery, scenarios, capacity | `outputs/tables/morning_channel_economics.csv`, `outputs/tables/morning_scenarios.csv`, `outputs/tables/morning_upsell_ceiling.csv`, `outputs/figures/morning_offer_economics.png` |
-| Supply check: opening times, office days, stock needed, cost stability | `outputs/tables/morning_supply_check.csv`, `outputs/tables/morning_opening_evidence.csv`, `outputs/tables/morning_office_days.csv`, `outputs/tables/morning_cost_stability.csv`, `outputs/figures/morning_supply_check.png` |
-| Test design checked on history | `outputs/tables/morning_test_design.csv` |
-
-![Weekday orders per hour](outputs/figures/morning_idle_hours.png)
-
-## Project 4: The payday cycle
-
-| Output | File |
-|---|---|
-| Day-of-month cycle, robustness, value of the dip | `outputs/tables/payday_by_day_of_month.csv`, `outputs/tables/payday_robustness.csv`, `outputs/tables/payday_dip_value.csv`, `outputs/figures/payday_cycle.png` |
-| Who exists to sell to, unit economics | `outputs/tables/month_pass_members.csv`, `outputs/tables/month_pass_unit_economics.csv` |
-| Month Pass sized on the 52-member pool | `outputs/tables/month_pass_option_a.csv` |
-| Comeback reward: base, natural return, scenarios | `outputs/tables/comeback_base.csv`, `outputs/tables/comeback_option_b.csv`, `outputs/figures/month_pass_scenarios.png` |
-| Randomized test design and worst-case cost | `outputs/tables/payday_offer_tests.csv` |
-
-![Payday cycle](outputs/figures/payday_cycle.png)
+- 36.5% of orders have no Customer ID (walk-ins), steady at 35.9-36.9% every month.
+- Product costs only: no labour, rent, waste or energy, so all profit figures are **gross**.
 
 ## How to run
 
 ```bash
 pip install -r requirements.txt
-python src/clean.py                         # clean data + integrity checks
-python menu_engineering/menu_matrix.py      # Project 1: classify items per branch
-python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
-python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
-python menu_engineering/branch_combos.py    # Project 1: per-branch combos + till suggestions + test
-python menu_engineering/daypart.py          # Project 1: time-of-day menu + steerability test
-python menu_engineering/garden_case.py      # Project 1: Garden cost leak + options
-python menu_engineering/garden_menu.py      # Project 1: Garden menu v2 (board, prices, impact)
-python menu_engineering/ab_test_power.py    # Project 1: test design checked on history
-python menu_engineering/evidence_checks.py  # Project 1: computes every supporting fact quoted in the docs
-python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
-python truck/holiday_dips.py                # Project 2: holiday dips (local baseline)
-python truck/truck_menu.py                  # Project 2: truck menu economics
-python truck/eid_boxes.py                   # Project 2: Eid boxes + limited edition
-python truck/truck_model.py                 # Project 2: rent/buy at measured demand
-python truck/channel_comparison.py          # Project 2: boxes vs pop-up vs truck
-python morning/morning_demand.py            # Project 3: idle mornings, who buys
-python morning/morning_supply.py            # Project 3: opening times, office days, supply check
-python morning/morning_offer.py             # Project 3: bundles, loyalty vs delivery, test
-python payday/payday_cycle.py               # Project 4: day-of-month cycle
-python payday/month_pass.py                 # Project 4: Month Pass + comeback reward sized on real members
+python run_all.py
 ```
 
-All scripts run from the repository root and write to `outputs/`.
+`run_all.py` runs all 21 scripts in order (about a minute) and stops if any fails, including
+if the leakage and stability checks in `menu_engineering/validate.py` don't pass. Each script
+can also be run on its own from the repository root, for example
+`python payday/payday_cycle.py`.
 
 ## Repository structure
 
 ```
-data/raw/stories_transactions.csv   raw export (private repo)
-src/clean.py                        load_clean(): shared cleaning for both projects
-src/style.py                        shared chart style
-menu_engineering/                   Project 1 scripts
-truck/                              Project 2 scripts and inputs
-docs/menu_engineering.md            Project 1 write-up for the CEO
-docs/truck_business_case.md         Project 2 write-up for the CEO
-docs/truck_sources.md               Project 2 sources (holidays, security, costs, ma'amoul)
-morning/                            Project 3 scripts
-docs/morning_offer.md               Project 3 write-up for the CEO
-docs/morning_sources.md             Project 3 sources (holidays, delivery costs, loyalty)
-payday/                             Project 4 scripts
-docs/payday_month_pass.md           Project 4 write-up for the CEO
-outputs/tables, outputs/figures     generated results
+README.md                     start here
+run_all.py                    rebuilds every table and chart
+requirements.txt
+data/raw/                     stories_transactions.csv (raw export)
+src/                          clean.py (shared cleaning + checks), style.py (shared chart style)
+
+menu_engineering/             Project 1 scripts      → outputs/menu_engineering/{tables,figures}
+truck/                        Project 2 scripts      → outputs/truck/{tables,figures}
+morning/                      Project 3 scripts      → outputs/morning/{tables,figures}
+payday/                       Project 4 scripts      → outputs/payday/{tables,figures}
+
+docs/1_menu_engineering.md    Project 1 write-up for the CEO
+docs/2_holiday_truck.md       Project 2 write-up
+docs/2_truck_sources.md       Project 2 sources (holidays, security, costs, ma'amoul)
+docs/3_morning_offer.md       Project 3 write-up
+docs/3_morning_sources.md     Project 3 sources (opening hours, office days, delivery costs)
+docs/4_payday_cycle.md        Project 4 write-up
+docs/5_rejected_approaches.md everything we tried and dropped, with the evidence
 ```
+
+## Where each result lives
+
+<details>
+<summary><b>Project 1: Menu engineering</b> (<code>outputs/menu_engineering/</code>)</summary>
+
+| Result | Script | Tables / figures |
+|---|---|---|
+| Menu matrix per branch and chain | `menu_matrix.py` | `menu_matrix_{chain,garden,harbour,uptown}.csv`, `menu_matrix_summary.csv`, `class_differences.csv`, `matrix_*.png` |
+| Action per item, designed pairings, money estimates | `actions.py` | `menu_actions.csv`, `designed_pairings.csv`, `money_estimates.csv`, `money_estimates.png` |
+| Pairing lift, model vs baseline on unseen months | `pairing_model.py` | `pair_lift_categories.csv`, `pair_lift_products.csv`, `pairing_model_results.csv`, `pairing_model.png` |
+| Per-branch combos and till rule, tested on May-Jun | `branch_combos.py` | `branch_combos.csv`, `till_suggestions_by_branch.csv`, `branch_combos_validation.csv`, `branch_combos_validation.png` |
+| Time-of-day menu and steerability | `daypart.py` | `daypart_classes.csv`, `daypart_till_rules.csv`, `daypart_rule_validation.csv`, `daypart_stability.csv`, `steerability.csv`, `daypart_class_changes.png` |
+| Garden cost leak and options | `garden_case.py` | `garden_items.csv`, `garden_scenarios.csv`, `branch_kpis.csv`, `garden_cost_leak.png`, `garden_scenarios.png` |
+| Garden menu v2 | `garden_menu.py` | `garden_menu_v2.csv`, `garden_menu_impact.csv`, `garden_menu_v2.png` |
+| Test design checked on history | `ab_test_power.py` | `ab_test_power.csv`, `ab_test_placebo.csv` |
+| Every supporting fact quoted in the docs | `evidence_checks.py` | `evidence_checks.csv` |
+| Leakage and stability validation | `validate.py` | `matrix_stability.csv` |
+
+</details>
+
+<details>
+<summary><b>Project 2: Holiday truck</b> (<code>outputs/truck/</code>)</summary>
+
+| Result | Script | Tables / figures |
+|---|---|---|
+| Holiday dips vs a local same-weekday baseline | `holiday_dips.py` | `eid_holiday_dips.csv`, `eid_holiday_dips.png` |
+| Truck menu economics | `truck_menu.py` | `truck_menu.csv`, `truck_menu_summary.csv` |
+| Eid boxes, limited edition, targets | `eid_boxes.py` | `eid_boxes.csv`, `eid_box_targets.csv` |
+| Rent / buy at measured branch demand | `truck_model.py` | `truck_scenarios.csv`, `truck_breakeven.csv`, `truck_profit_per_day.png`, `truck_breakeven.png`, `truck_payback.png` |
+| Boxes vs pop-up vs rent vs buy | `channel_comparison.py` | `truck_channel_comparison.csv`, `truck_channel_comparison.png` |
+| Holiday calendar input | `truck/holiday_calendar.csv` | |
+
+</details>
+
+<details>
+<summary><b>Project 3: Morning offer</b> (<code>outputs/morning/</code>)</summary>
+
+| Result | Script | Tables / figures |
+|---|---|---|
+| Orders per hour, morning facts | `morning_demand.py` | `morning_orders_per_hour.csv`, `morning_facts.csv`, `morning_idle_hours.png` |
+| Opening times, office days, stock needed, cost stability | `morning_supply.py` | `morning_opening_evidence.csv`, `morning_office_days.csv`, `morning_supply_check.csv`, `morning_cost_stability.csv`, `morning_supply_check.png` |
+| Morning menu, bundles, loyalty vs delivery, scenarios, test | `morning_offer.py` | `morning_menu_matrix.csv`, `morning_bundles.csv`, `morning_channel_economics.csv`, `morning_scenarios.csv`, `morning_upsell_ceiling.csv`, `morning_test_design.csv`, `morning_offer_economics.png` |
+
+</details>
+
+<details>
+<summary><b>Project 4: Payday cycle</b> (<code>outputs/payday/</code>)</summary>
+
+| Result | Script | Tables / figures |
+|---|---|---|
+| Day-of-month cycle, robustness, value of the dip | `payday_cycle.py` | `payday_by_day_of_month.csv`, `payday_robustness.csv`, `payday_dip_value.csv`, `payday_cycle.png` |
+| Month Pass and comeback reward sized on real members, test design | `month_pass.py` | `month_pass_members.csv`, `month_pass_unit_economics.csv`, `month_pass_option_a.csv`, `comeback_base.csv`, `comeback_option_b.csv`, `payday_offer_tests.csv`, `month_pass_scenarios.png` |
+
+</details>
+
+![Garden cost leak](outputs/menu_engineering/figures/garden_cost_leak.png)
+![Payday cycle](outputs/payday/figures/payday_cycle.png)

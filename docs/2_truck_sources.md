@@ -1,6 +1,6 @@
 # Truck business case: sources
 
-Every URL used in `truck/holiday_calendar.csv`, `truck/truck_model.py`, and `docs/truck_business_case.md`. If a destination or a Lebanon price has no URL, the calendar marks it `confidence = low` and the model tags it `ASSUMPTION - verify locally`. Nothing below is a made-up link.
+Every URL used in `truck/holiday_calendar.csv`, `truck/truck_model.py`, and `docs/2_holiday_truck.md`. If a destination or a Lebanon price has no URL, the calendar marks it `confidence = low` and the model tags it `ASSUMPTION - verify locally`. Nothing below is a made-up link.
 
 Measured sales figures are not from a webpage. They come from `data/raw/stories_transactions.csv` (Jan-Jun 2026), after `src/clean.py` drops 132 exact duplicate rows.
 

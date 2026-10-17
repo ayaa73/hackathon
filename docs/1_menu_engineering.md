@@ -59,12 +59,12 @@ Code: [`menu_engineering/menu_matrix.py`](../menu_engineering/menu_matrix.py).
 | 🧩 Puzzles | 8.3% (6) | 8.0% (5) | 6.4% (4) |
 | 🐕 Dogs | 1.5% (2) | 2.6% (3) | 3.3% (4) |
 
-![Harbour matrix](../outputs/figures/matrix_harbour.png)
-![Garden matrix](../outputs/figures/matrix_garden.png)
-![Uptown matrix](../outputs/figures/matrix_uptown.png)
+![Harbour matrix](../outputs/menu_engineering/figures/matrix_harbour.png)
+![Garden matrix](../outputs/menu_engineering/figures/matrix_garden.png)
+![Uptown matrix](../outputs/menu_engineering/figures/matrix_uptown.png)
 
 **8 items change class between branches**, so one chain-wide decision would be wrong
-somewhere ([`class_differences.csv`](../outputs/tables/class_differences.csv)):
+somewhere ([`class_differences.csv`](../outputs/menu_engineering/tables/class_differences.csv)):
 
 | Item | Garden | Harbour | Uptown |
 |---|---|---|---|
@@ -80,11 +80,11 @@ somewhere ([`class_differences.csv`](../outputs/tables/class_differences.csv)):
 Why: Garden's product costs are ~49% above Uptown's for the same items while its prices are
 only ~4% higher, which pushes its desserts down into Plowhorses. Uptown sells
 sandwiches and wraps 1.3-1.5x more than the chain average, which lifts Tuna Sandwich into a Star
-([`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)).
+([`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)).
 
 ## 4. Actions
 
-Full list per branch and item: [`outputs/tables/menu_actions.csv`](../outputs/tables/menu_actions.csv).
+Full list per branch and item: [`outputs/menu_engineering/tables/menu_actions.csv`](../outputs/menu_engineering/tables/menu_actions.csv).
 
 **⭐ Push the Stars (all branches):** Iced Matcha, Iced Latte, Classic Matcha, Cold Brew,
 Strawberry Matcha, sandwiches and wraps. Top of the menu board, lead every pairing, never discount.
@@ -116,7 +116,7 @@ menu space, not money):
 | Chicken Pesto Sandwich + Peach Iced Tea | $15.16 | $8.84 | +$2.72 |
 | Quinoa Bowl + Iced Matcha (lunch) | $18.45 | $11.02 | +$3.71 |
 
-All three branches: [`designed_pairings.csv`](../outputs/tables/designed_pairings.csv).
+All three branches: [`designed_pairings.csv`](../outputs/menu_engineering/tables/designed_pairings.csv).
 
 ### Per-branch combos and till suggestions, from each branch's purchase history
 
@@ -134,7 +134,7 @@ together (drink + food), and from each item's profit **at that branch**.
 
 Uptown is different because it is the sandwich branch: sandwiches sell 1.3-1.5x the chain
 average there and earn $5.31 profit each. Full table, every item and its top-3 suggestions
-per branch: [`till_suggestions_by_branch.csv`](../outputs/tables/till_suggestions_by_branch.csv).
+per branch: [`till_suggestions_by_branch.csv`](../outputs/menu_engineering/tables/till_suggestions_by_branch.csv).
 
 **Menu combos per branch** (pairs this branch's customers have already bought together at
 least 15 times in six months, ranked by the profit they unlock from single-item orders;
@@ -152,7 +152,7 @@ priced 5% below buying both):
 | Uptown | Butter Croissant + Iced Matcha | 22 | $9.58 | $6.08 | +$3.68 |
 | Uptown | Banana Bread + Classic Matcha | 16 | $9.94 | $6.25 | +$3.51 |
 
-All combos (up to 6 per branch): [`branch_combos.csv`](../outputs/tables/branch_combos.csv).
+All combos (up to 6 per branch): [`branch_combos.csv`](../outputs/menu_engineering/tables/branch_combos.csv).
 
 **How the till rule was chosen (tested, not assumed).** For each branch we learned from
 Jan-Apr and tested on May-Jun drink + food orders (Garden 1,082, Harbour 1,615, Uptown 598).
@@ -165,13 +165,13 @@ the suggestions capture?
 | Harbour | $0.86 | $0.83 | $0.88 | **$0.88** |
 | Uptown | $0.77 | $0.74 | $0.81 | **$0.83** |
 
-![Till suggestion validation](../outputs/figures/branch_combos_validation.png)
+![Till suggestion validation](../outputs/menu_engineering/figures/branch_combos_validation.png)
 
 What this shows, honestly:
 - **Item-to-item history does not beat "suggest what's popular"** at branch level: there
   are too few orders per branch for pair-specific patterns to be reliable (every 95%
   interval of the gain includes zero; see
-  [`branch_combos_validation.csv`](../outputs/tables/branch_combos_validation.csv)).
+  [`branch_combos_validation.csv`](../outputs/menu_engineering/tables/branch_combos_validation.csv)).
 - **Weighting by profit captures slightly more profit per suggestion** (+$0.02 to +$0.07),
   even though customers accept it slightly less often. The gain is not yet statistically
   certain, so we use the **simplest method that did best: "popular at this branch x profit
@@ -183,11 +183,11 @@ What this shows, honestly:
 Code: [`menu_engineering/daypart.py`](../menu_engineering/daypart.py). The same matrix, run
 separately for morning (7-10), day (11-18) and night (19-23):
 
-![Items that change class by time of day](../outputs/figures/daypart_class_changes.png)
+![Items that change class by time of day](../outputs/menu_engineering/figures/daypart_class_changes.png)
 
 **12 items change class with the time of day** (measured), and the result is stable:
 86.7% (morning), 93.3% (day) and 95.6% (night) of items keep the same class between
-Jan-Mar and Apr-Jun ([`daypart_stability.csv`](../outputs/tables/daypart_stability.csv)).
+Jan-Mar and Apr-Jun ([`daypart_stability.csv`](../outputs/menu_engineering/tables/daypart_stability.csv)).
 
 | Menu board | Feature (Stars at that time) | Move down (weak at that time) |
 |---|---|---|
@@ -200,7 +200,7 @@ Cost: a second board (or a screen) that switches at 11:00 and 19:00. This is the
 
 **Should the till rule also change by time of day? Only at Harbour.** Tested on May-Jun
 drink + food orders, a branch x time-of-day rule versus the branch rule
-([`daypart_rule_validation.csv`](../outputs/tables/daypart_rule_validation.csv)):
+([`daypart_rule_validation.csv`](../outputs/menu_engineering/tables/daypart_rule_validation.csv)):
 
 | Branch | Branch rule | Branch x time-of-day rule | Gain per suggestion (95% interval) |
 |---|---|---|---|
@@ -213,7 +213,7 @@ do not, and splitting their data makes the suggestions worse. So: **Harbour uses
 time-of-day till rule** (drink alone → Avocado Toast in the morning, Chicken Pesto Sandwich
 from 11:00; food alone → Vanilla Latte in the morning, Iced Latte by day, Iced Matcha at night);
 **Garden and Uptown keep the branch rule.** Full list:
-[`daypart_till_rules.csv`](../outputs/tables/daypart_till_rules.csv).
+[`daypart_till_rules.csv`](../outputs/menu_engineering/tables/daypart_till_rules.csv).
 
 ## 5. Can the data pick the pairings for us? (model vs baseline)
 
@@ -236,7 +236,7 @@ predictions from 2-item orders). Given one item, is the other in our top-3 sugge
 Intervals are bootstrapped **by order** (5,625 test orders), so the two predictions from the
 same order are never treated as independent.
 
-![Pairing model](../outputs/figures/pairing_model.png)
+![Pairing model](../outputs/menu_engineering/figures/pairing_model.png)
 
 **Conclusion:** the model beats the baseline (+16% relative; the gain's interval stays above zero), but
 the absolute gain is small. Customers do not yet have strong pairing habits, so **the data
@@ -249,7 +249,7 @@ till-suggestion fallback for items not in a designed pairing.
 We tested whether members have habits. Each member's visits (3,494 members, median 6
 visits, median **8 different items**) were checked for how often a visit includes an item
 that member bought before. Then we simulated the same visits with items picked **at random,
-weighted only by how popular each item is** ([`steerability.csv`](../outputs/tables/steerability.csv)):
+weighted only by how popular each item is** ([`steerability.csv`](../outputs/menu_engineering/tables/steerability.csv)):
 
 | | Visits that repeat an earlier item |
 |---|---|
@@ -298,7 +298,7 @@ is the in-store A/B test in section 8.
 | Plowhorse +$0.20 | 24,448 Plowhorse units in 6 months | sales volume unchanged | **$9,779** |
 | **Total** | | | **$32,830** |
 
-![Money estimates](../outputs/figures/money_estimates.png)
+![Money estimates](../outputs/menu_engineering/figures/money_estimates.png)
 
 Assumptions can be changed at the top of [`menu_engineering/actions.py`](../menu_engineering/actions.py).
 Sensitivity: at a 5% upsell conversion the total drops to ~$26k; at 15% it rises to ~$39k.
@@ -327,13 +327,13 @@ Code: [`menu_engineering/garden_case.py`](../menu_engineering/garden_case.py).
   Garden's unit costs.** Only Stories' finance team can say which; that is the first question to ask.
 - Garden's prices are actually **~5% below Harbour's**, so Garden pays more *and* charges less.
 
-![Garden cost leak](../outputs/figures/garden_cost_leak.png)
+![Garden cost leak](../outputs/menu_engineering/figures/garden_cost_leak.png)
 
 **Why it matters for the menu:** the premium is a percentage, so it hits **expensive-to-make
 items hardest**. Sandwiches (34% margin), desserts (36%) and meals (38%) fall into thin
 margins, while coffees (57%), cold drinks (53%) and matcha (50%) keep healthy margins. And
 Garden's customers love desserts: they sell **1.2-1.3x the chain average** there
-([`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)).
+([`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)).
 
 **Options for Garden (estimated, per year):**
 
@@ -344,7 +344,7 @@ Garden's customers love desserts: they sell **1.2-1.3x the chain average** there
 | C. Reprice everything to Harbour's prices (+~5%) | Garden ~5% below Harbour | volume holds / -0.5% / -1% per +1% price | $10,006 / $7,395 / $4,784 |
 | D. Reprice only the 13 thin-margin items | 13 items under 40% margin | volume holds / -1% per +1% price | $3,254 / $1,937 |
 
-![Garden scenarios](../outputs/figures/garden_scenarios.png)
+![Garden scenarios](../outputs/menu_engineering/figures/garden_scenarios.png)
 
 **Repricing cannot fix Garden on its own.** Bringing the thin items back to a 50% margin would
 need price rises of **+20% to +40%**, which customers would notice. The real fix is sourcing.
@@ -366,14 +366,14 @@ need price rises of **+20% to +40%**, which customers would notice. The real fix
 6. **Sparkling Water** earns only $0.80 at Garden (29% margin): reprice to Harbour's price
    or drop it and let customers switch to Still Water or Lemonade.
 
-Full per-item list with Garden actions: [`garden_items.csv`](../outputs/tables/garden_items.csv).
+Full per-item list with Garden actions: [`garden_items.csv`](../outputs/menu_engineering/tables/garden_items.csv).
 
 ### Garden menu v2: the reorganized board
 
 Code: [`menu_engineering/garden_menu.py`](../menu_engineering/garden_menu.py). Built only from
 Garden's own classes, unit costs and combos.
 
-![Garden menu v2](../outputs/figures/garden_menu_v2.png)
+![Garden menu v2](../outputs/menu_engineering/figures/garden_menu_v2.png)
 
 | Section | What goes there | Why |
 |---|---|---|
@@ -385,7 +385,7 @@ Garden's own classes, unit costs and combos.
 | **Changes** | Mint + English Breakfast Tea → "Tea selection"; Sparkling Water removed; Espresso kept | Sparkling Water earns $0.80 at Garden (29% margin) |
 
 Per-item prices, old vs new profit per sale, and the reason for every move:
-[`garden_menu_v2.csv`](../outputs/tables/garden_menu_v2.csv).
+[`garden_menu_v2.csv`](../outputs/menu_engineering/tables/garden_menu_v2.csv).
 
 **Estimated impact of the new menu (per year, Garden only):**
 
@@ -398,7 +398,7 @@ Per-item prices, old vs new profit per sale, and the reason for every move:
 | **Total menu v2** | **$6,082** | **$9,834** | **$13,599** |
 | Share of Garden's gross profit today | +6.5% | +10.5% | +14.6% |
 
-Assumptions ([`garden_menu_impact.csv`](../outputs/tables/garden_menu_impact.csv)):
+Assumptions ([`garden_menu_impact.csv`](../outputs/menu_engineering/tables/garden_menu_impact.csv)):
 conservative = each +1% price loses 1% of units, 3% of Plowhorse units move to Featured
 items, 5% of single-item orders add an item; central = -0.5%, 5%, 10%; optimistic = no
 volume loss, 8%, 15%. The featuring shift is plausible because members choose like
@@ -428,8 +428,8 @@ The simple before-vs-after test is **not trustworthy**: Harbour was already pull
 the other branches by about +0.2% a week, and Eid week hit Harbour differently, so it would
 "prove" effects that do not exist. The switchback design compares ON and OFF days inside the
 same weeks, so trends and holidays cancel out. Its false-alarm rate matches the expected 5%.
-See [`ab_test_power.csv`](../outputs/tables/ab_test_power.csv) and
-[`ab_test_placebo.csv`](../outputs/tables/ab_test_placebo.csv).
+See [`ab_test_power.csv`](../outputs/menu_engineering/tables/ab_test_power.csv) and
+[`ab_test_placebo.csv`](../outputs/menu_engineering/tables/ab_test_placebo.csv).
 
 | | |
 |---|---|
@@ -478,7 +478,7 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
   as Garden without a promo (+18.9% each; $471 of discounts given; see
-  [`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)), so discounts alone did not move demand.
+  [`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)), so discounts alone did not move demand.
 - **A time-of-day till rule at every branch:** it helped at Harbour but made Garden's
   suggestions worse (-$0.043 per suggestion), so it is used at Harbour only.
 - **Takeaway vs dine-in menus:** profit per order ($5.27 vs $5.29) and single-item share

@@ -35,8 +35,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 BRANCHES = ["Garden", "Harbour", "Uptown"]
 DRINK_CATEGORIES = {"Hot Coffee", "Cold Coffee", "Matcha & Tea", "Cold Drinks"}
 ALPHA = 50               # smoothing strength (pseudo-orders pulled toward the branch average)
@@ -90,7 +92,7 @@ class BranchModel:
         return sorted(cands, key=key, reverse=True)
 
 
-TILL_METHOD = "Popular x profit"  # chosen by the May-Jun validation (see docs/menu_engineering.md)
+TILL_METHOD = "Popular x profit"  # chosen by the May-Jun validation (see docs/1_menu_engineering.md)
 
 
 def till_suggestions(m: BranchModel, branch: str) -> pd.DataFrame:

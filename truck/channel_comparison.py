@@ -21,8 +21,8 @@ from src import style  # noqa: E402
 sys.path.insert(0, str(ROOT / "truck"))
 import truck_model as model  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "truck" / "tables"
+FIGS = ROOT / "outputs" / "truck" / "figures"
 
 # Pop-up. ASSUMPTION - verify locally. Beirut Holidays is 13 days in the calendar.
 POPUP_STAND_PER_DAY = 100
@@ -151,8 +151,8 @@ def main() -> None:
     plot(table)
     print(table[["channel", "upfront_cost", "cost_per_trading_day", "breakeven_orders_per_day",
                  "net_profit_garden_demand", "net_profit_harbour_demand"]].to_string(index=False))
-    print("Saved -> outputs/tables/truck_channel_comparison.csv")
-    print("Saved -> outputs/figures/truck_channel_comparison.png")
+    print("Saved -> outputs/truck/tables/truck_channel_comparison.csv")
+    print("Saved -> outputs/truck/figures/truck_channel_comparison.png")
 
 
 def plot(table: pd.DataFrame) -> None:
@@ -167,13 +167,22 @@ def plot(table: pd.DataFrame) -> None:
     b2 = ax.bar(x + width / 2, harbour, width, color=style.SERIES[1], label="Harbour-like demand", zorder=3)
     ax.axhline(0, color=style.INK, lw=0.8, zorder=2)
     span = max(np.abs(garden).max(), np.abs(harbour).max())
+
+    def money(v: float) -> str:
+        return f"-${abs(v):,.0f}" if v < 0 else f"${v:,.0f}"
+
     for bars in (b1, b2):
-        for bar in bars:
+        for i, bar in enumerate(bars):
+            if i == 0:  # Eid boxes: same small figure in both columns, labelled once below
+                continue
             value = bar.get_height()
             offset = span * 0.03
             y = value + offset if value >= 0 else value - offset
             va = "bottom" if value >= 0 else "top"
-            ax.text(bar.get_x() + bar.get_width() / 2, y, f"${value:,.0f}", ha="center", va=va, fontsize=7, color=style.INK)
+            ax.text(bar.get_x() + bar.get_width() / 2, y, money(value), ha="center", va=va, fontsize=8, color=style.INK)
+    ax.text(0, span * 0.06, f"{money(garden[0])}\n(same at both demand levels:\nsales just cover the $500 cost)",
+            ha="center", va="bottom", fontsize=8, color=style.INK)
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: money(v)))
     ax.set_ylim(-span * 1.35, span * 1.35)
     ax.set_xticks(x)
     ax.set_xticklabels(["Eid boxes", "Pop-up\n13 days", "Rent truck\n44 days", "Buy used\n44 days"])

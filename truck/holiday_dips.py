@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "truck" / "tables"
+FIGS = ROOT / "outputs" / "truck" / "figures"
 
 # Dates only. HolidayDB lists these for 2026. The window length is the method.
 WINDOW_DAYS = 21
@@ -181,8 +181,8 @@ def main() -> None:
             f" -> ${row.revenue_gap:,.0f} ({row.revenue_gap_pct:.1f}%),"
             f" gross-profit gap ${row.gross_profit_gap:,.0f}"
         )
-    print("Saved -> outputs/tables/eid_holiday_dips.csv")
-    print("Saved -> outputs/figures/eid_holiday_dips.png")
+    print("Saved -> outputs/truck/tables/eid_holiday_dips.csv")
+    print("Saved -> outputs/truck/figures/eid_holiday_dips.png")
 
 
 if __name__ == "__main__":

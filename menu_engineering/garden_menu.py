@@ -5,7 +5,7 @@ Built only from Garden's own measured numbers (its classes, its unit costs, its 
 Board rules
   FEATURED   Garden Stars whose margin survives Garden's cost premium (>= 40%), top 6 by
              gross profit per sale. These get the hero spots on the board.
-  COMBOS     Garden's history-backed combos (outputs/tables/branch_combos.csv).
+  COMBOS     Garden's history-backed combos (outputs/menu_engineering/tables/branch_combos.csv).
   SWEETS     Thin-margin desserts and pastries (< 40% margin): placed next to the combos
              ("best with a drink"), priced up to Harbour's price.
   LUNCH      High-profit Puzzles (bowls, Tuna Sandwich, Soup, Granola): own section with
@@ -40,8 +40,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+FIGS = ROOT / "outputs" / "menu_engineering" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 ANNUALIZE = 2
 THIN_MARGIN_PCT = 40
 N_FEATURED = 6

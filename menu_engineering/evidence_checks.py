@@ -1,7 +1,7 @@
 """Evidence checks: every supporting fact quoted in the write-ups that is not already an
 output of another script is computed here, so no number in the docs comes from nowhere.
 
-Writes outputs/tables/evidence_checks.csv (claim, value, how it was computed).
+Writes outputs/menu_engineering/tables/evidence_checks.csv (claim, value, how it was computed).
 
 Run from the repo root:  python menu_engineering/evidence_checks.py
 """
@@ -15,7 +15,8 @@ import pandas as pd  # noqa: E402
 
 from src.clean import GP, load_clean  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
+TABLES = ROOT / "outputs" / "menu_engineering" / "tables"
+TABLES.mkdir(parents=True, exist_ok=True)
 PROMO_START, PROMO_END = pd.Timestamp("2026-03-12"), pd.Timestamp("2026-05-19")
 
 

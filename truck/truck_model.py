@@ -21,8 +21,8 @@ from matplotlib.lines import Line2D  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "truck" / "tables"
+FIGS = ROOT / "outputs" / "truck" / "figures"
 SUMMARY = TABLES / "truck_menu_summary.csv"
 
 # --- Costs. None of these are in the transaction file. ---
@@ -399,11 +399,11 @@ def main() -> None:
     plot_payback(grid)
     plot_breakeven(breaks, demand)
     print_summary(grid, profit_per_order, demand)
-    print("Saved -> outputs/tables/truck_scenarios.csv")
-    print("Saved -> outputs/tables/truck_breakeven.csv")
-    print("Saved -> outputs/figures/truck_profit_per_day.png")
-    print("Saved -> outputs/figures/truck_payback.png")
-    print("Saved -> outputs/figures/truck_breakeven.png")
+    print("Saved -> outputs/truck/tables/truck_scenarios.csv")
+    print("Saved -> outputs/truck/tables/truck_breakeven.csv")
+    print("Saved -> outputs/truck/figures/truck_profit_per_day.png")
+    print("Saved -> outputs/truck/figures/truck_payback.png")
+    print("Saved -> outputs/truck/figures/truck_breakeven.png")
 
 
 if __name__ == "__main__":

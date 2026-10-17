@@ -1,9 +1,9 @@
 """Mornings at Stories: how idle are they, and who buys? (all MEASURED)
 
 Outputs
-  outputs/tables/morning_orders_per_hour.csv   orders per hour by branch, hour, weekday/weekend
-  outputs/tables/morning_facts.csv             the facts the morning offer rests on
-  outputs/figures/morning_idle_hours.png       weekday orders per hour by branch
+  outputs/morning/tables/morning_orders_per_hour.csv   orders per hour by branch, hour, weekday/weekend
+  outputs/morning/tables/morning_facts.csv             the facts the morning offer rests on
+  outputs/morning/figures/morning_idle_hours.png       weekday orders per hour by branch
 
 Run from the repo root:  python morning/morning_demand.py
 """
@@ -20,8 +20,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from src.clean import GP, REV, load_clean  # noqa: E402
 from src import style  # noqa: E402
 
-TABLES = ROOT / "outputs" / "tables"
-FIGS = ROOT / "outputs" / "figures"
+TABLES = ROOT / "outputs" / "morning" / "tables"
+FIGS = ROOT / "outputs" / "morning" / "figures"
+TABLES.mkdir(parents=True, exist_ok=True)
+FIGS.mkdir(parents=True, exist_ok=True)
 BRANCHES = ["Garden", "Harbour", "Uptown"]
 DRINKS = {"Hot Coffee", "Cold Coffee", "Matcha & Tea", "Cold Drinks"}
 
