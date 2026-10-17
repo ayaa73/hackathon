@@ -31,15 +31,21 @@ Adha is a small dip, not a surge. The old "+13.5%, no dip" figure was the six-mo
 
 ![Holiday revenue gap](../outputs/truck/figures/eid_holiday_dips.png)
 
+The Fitr gap is missing orders, not a smaller basket. Against the same local baseline, orders were **-14.7%** (560 vs 656), items **-16.3%**, and revenue **-15.7%**. The ticket moved **-1.2%** ($8.87 vs $8.98) and items per order **-1.9%** (1.57 vs 1.60). Code: [`truck/dip_mechanism.py`](../truck/dip_mechanism.py).
+
+![What the Fitr gap is made of](../outputs/truck/figures/eid_dip_mechanism.png)
+
+Named customers do not prove that people left the city. Of identified customers in the prior 21 days, **10.0%** also bought on Fitr, against **11.5%** on the normal Friday-to-Monday of 6-9 March. And **36.5%** of lines have no customer id, so that check only covers the rest. The measured fact is fewer transactions. "They spent Eid in the villages" is still the hypothesis the boxes and the pop-up are there to test.
+
 Chain context, measured: 33,887 orders, $305,184 revenue, $178,994 gross profit, 1.59 items per order, branches Garden, Harbour, and Uptown.
 
 ## 3. The question
 
-Our first explanation was that customers leave Beirut to spend Eid with family. The file has no customer location, so that is a hypothesis, not a finding. Section 11 tests the other explanations the file can check: opening hours were normal, and the dip is measured against other wartime days, so the war in general does not explain it. A war escalation in the days before Eid still could.
+Fitr is a measured dip of $923. The file does not say why. One hypothesis is that customers spend Eid away from the branches. The same dates also sit inside the war that started on 2 Mar, and they are the first days after Ramadan. Section 2 already rules out a smaller basket: orders fell 14.7%, the ticket fell 1.2%, and named customers came back at about the same rate as a normal weekend. That pattern fits people being away. It also fits a quieter weekend. Section 11 checks the other explanations the file can test (opening hours, the war in general). The boxes and the pop-up are how Stories tells the rest apart.
 
-Either way, the dip raises a bigger question than "how do we patch a $923 hole": **should Stories go to its customers when they are not near a branch?** The options below are worth testing whatever the cause, because each one is judged on its own sales, not on the dip.
+The question that is still worth answering either way: **should Stories go to its customers when they are not near a branch?**
 
-Three answers, cheapest first.
+Three answers, cheapest first. A pass on boxes proves people will pre-order. It does not prove they left the city.
 
 ## 4. Option 1: Eid boxes and a limited edition
 
@@ -59,7 +65,7 @@ Price is the branch's list prices times **0.90** (a 10% box discount, an assumpt
 
 Garden's unit cost on these pastries is about **43%** above Harbour's, so a Garden box earns about **35%** less profit. Assemble at Harbour or Uptown.
 
-The Fitr revenue gap is $923 (measured). Apply the chain's measured gross margin (58.7%) and the gross profit in that gap is about **$541** (estimate). Replacing it takes **37 Harbour boxes of 6**, or **19 family boxes**. A one-time **$500** for bags, cards, and a week of posts (assumption) is covered by **34 boxes of 6** or **18 family boxes**. If pre-orders do both, the programme is about **$41** ahead. That is a test, not a profit centre.
+The Fitr revenue gap is $923 (measured). Apply the chain's measured gross margin (58.7%) and the gross profit in that gap is about **$541** (estimate). Replacing it takes **37 Harbour boxes of 6**, or **19 family boxes**. A one-time **$500** for bags, cards, and a week of posts (assumption) needs **34 boxes of 6** or **18 family boxes** on its own. The go number is the higher of those two bars: **37 boxes of 6**, or **19 family boxes**. Those 37 already cover the $500 and leave about **$41**. The bar is 37, not 37 plus 34. That is a test, not a profit centre.
 
 Limited edition, not in the file, all estimates, priced by analogy:
 
@@ -71,13 +77,15 @@ Limited edition, not in the file, all estimates, priced by analogy:
 
 Ma'amoul is the one product that serves both Eid and Easter. L'Orient Today records it as the Lebanese sweet for Easter and for both Eids. The same box can be offered again at Easter. Baklava and the rose-pistachio latte are seasonal add-ons with no Stories sales history.
 
+A retail check, not a Stories cost: Hallab's international shop lists a box of 12 large pieces at **$36 pistachio ($3.00 each)**, **$28 walnut**, and **$24 date**. The $3.51 analogy sits next to a large pistachio piece. It is not the small Eid piece. Beirut.com's March 2024 phone survey put Hallab at **$22 / $17 / $15 per kilo** for pistachio, walnut, and date. Per-kilo prices are a different product size. Pick one size before printing a price.
+
 How it sells: pre-order on WhatsApp or Instagram the week before Eid, pick up at any branch on the last days of Ramadan, and sell the limited edition in the branches during Eid week. Detail: [`outputs/truck/tables/eid_boxes.csv`](../outputs/truck/tables/eid_boxes.csv).
 
 ## 5. Option 2: a pop-up stand
 
 One event, not a fleet. Beirut Holidays runs **16-28 Jul 2026** at Antelias-Naccache (13 days, from the calendar, sourced to Annahar).
 
-Assumptions: a stand at **$100 a day**, two staff at **$40** each, a spare branch espresso machine at **$0**. Cash cost **$180 a day**. Break-even is **37 orders a day**, using the truck menu's estimated **$4.85** product profit per order. That is below Uptown's average, so it is a fair test. At Garden's order rate the 13 days net about **$1,550**. At Harbour's rate, about **$3,350**. Upfront is $0 in this model.
+Assumptions: a stand at **$100 a day**, two staff at **$40** each, a spare branch espresso machine at **$0**. Cash cost **$180 a day**. Break-even is **37 orders a day**, using the truck menu's estimated **$4.85** product profit per order. Uptown averages **35**, so a stand that only matches Uptown misses break-even by a little. Garden averages 62 and Harbour averages 90. If a stand did a whole branch's day, 13 days would net about **$1,550** at Garden's rate and **$3,350** at Harbour's. A festival stand is not a branch. Those two figures are a ceiling, not the forecast. Upfront is $0 in this model. Section 5 names the 2026 listing. The test to run is a 2027 date (section 9).
 
 ## 6. Option 3: a truck, at demand Stories has actually seen
 
@@ -109,6 +117,12 @@ At **44 trading days**:
 
 Renting at Garden-like demand loses money. At Harbour-like demand it is a small profit, about $2,100, close to break-even relative to the decision. Buying does not pay back within 2 years at Uptown, Garden, Harbour, or Harbour Tuesday. A used trailer needs about **183 orders a day** for 44 days to pay back in two years on a cash basis. That is above Harbour Tuesday and only just under the single best day the chain has ever had. Repeating that day all season is not a plan.
 
+**What an 8-hour shift can hold.** Harbour averages **5.5 orders per open hour**. Its typical busiest hour is **12 orders**. The busiest hour in the whole file is **27 orders** (Harbour, 3 Mar, 21:00). An 8-hour shift is an assumption. At Harbour's average pace that shift is **44 orders**. At the typical peak, held all day, it is **96**. At the record hour, held all day, it is **216**, and that is a ceiling rather than a rota. The rent test (80) sits between the average pace and a peak-all-day. The buy test (183) sits above a peak-all-day and below the record-all-day. A truck with one machine has not been timed. These Harbour rates are the fastest the branches have already gone.
+
+![Shift versus the tests](../outputs/truck/figures/truck_capacity.png)
+
+**Permits.** The model uses **$800**, the bottom of Zion's range. At the **$17,000** top of that same range the used trailer costs **$67,500** upfront. Harbour-like cash profit still takes **11.7 years** to repay. Even a season of best-days (193 orders) slips to **2.4 years** and misses the two-year test. A Lebanon quote can retire the buy option on its own. Staff at $40, truck hire at $150, and a stand at $100 are still assumptions.
+
 ![Profit per day](../outputs/truck/figures/truck_profit_per_day.png)
 
 ![Payback](../outputs/truck/figures/truck_payback.png)
@@ -121,12 +135,12 @@ Renting at Garden-like demand loses money. At Harbour-like demand it is a small 
 
 | | Upfront | Cost per trading day | Break-even | Net, Garden-like | Net, Harbour-like | Risk | What a pass proves |
 |---|---|---|---|---|---|---|---|
-| Eid boxes | $500 | $0 extra | 34 boxes of 6 | $41 | $41 | Low | People will pre-order before they leave |
+| Eid boxes | $500 | $0 extra | 37 boxes of 6 | $41 | $41 | Low | People will pre-order a box |
 | Pop-up, 13 days | $0 | $180 | 37 orders/day | $1,550 | $3,353 | Medium | Off-site demand can clear a cheap day |
 | Rent a truck, 44 days | $1,500 | $390 | 80 orders/day | -$3,992 | $2,107 | High | A mobile shop can hold Harbour-sized demand |
 | Buy used, 44 days | $51,300 | $307 cash | 111 orders/day | -$10,592 | -$4,493 | Highest | Nothing yet |
 
-The box "net" is the same in both columns on purpose. Boxes are not sold at a branch's orders-per-day. The $41 is what is left if pre-orders replace the Fitr profit gap and then pay the $500.
+The box "net" is the same in both columns on purpose. Boxes are not sold at a branch's orders-per-day. The $41 is what 37 Harbour boxes leave after they replace the Fitr profit gap and cover the $500. The pop-up nets are the ceiling from section 5: a stand that sells as many orders as a whole branch.
 
 Ranking, in the order to try them: **boxes, pop-up, rent, buy.**
 
@@ -146,11 +160,13 @@ Do not send anything to Nabatieh, Tyre, or Baalbek-Hermel. Saida and Chtaura/Zah
 
 Each stage runs only if the one before it passed.
 
-**Stage 1. Boxes at the next Eid al-Fitr and Eid al-Adha.** timeanddate's tentative 2027 dates are **10-11 Mar** (Fitr) and **17-18 May** (Adha). Other calendars put Fitr on 9 Mar and Adha on 16 May. Confirm the moon-sighting announcement before opening pre-orders. **Go** if pre-orders cover the profit target: about **37 boxes of 6** (or **19 family boxes**) at Harbour, plus the **34 boxes** that pay back the $500.
+**Stage 1. Boxes at the next Eid al-Fitr and Eid al-Adha.** timeanddate's tentative 2027 dates are **10-11 Mar** (Fitr) and **17-18 May** (Adha). Other calendars put Fitr on 9 Mar and Adha on 16 May. Confirm the moon-sighting announcement before opening pre-orders. **Go** at **37 Harbour boxes of 6**, or **19 family boxes**. Packaging alone needs 34, and 37 already includes it. This file contains one Fitr, so another cut of March 2026 cannot confirm the result. A 2027 pass is the confirmation.
 
 **Stage 2. One pop-up.** A 2027 summer event, not a 2026 festival that has already been cancelled. Measure orders per hour and per day. **Go** if the stand holds at least the rent break-even, about **80 orders a day**. Clearing the pop-up's own 37 is not enough to justify a truck.
 
 **Stage 3. Rent a truck for one summer season (44 days).** **Go to a purchase** only if it averages the two-year cash-payback level: about **183 orders a day** for a used trailer, over those 44 days. Harbour Tuesday (137) is not that level.
+
+Log every test day in [`truck/pilot_log.csv`](../truck/pilot_log.csv) (date, channel, orders, boxes, cash cost, waste). Then run `python truck/score_pilot.py`. The log is empty until the pilot. A family box counts as two boxes of 6, because its Harbour profit is about double.
 
 Before any out-of-Beirut stop, check Google Maps Popular Times and traffic for Batroun, Byblos, Saida, and Chtaura/Zahle on past holiday weekends, and keep the screenshots. Until those exist, those towns stay assumptions.
 
@@ -159,6 +175,11 @@ Before any out-of-Beirut stop, check Google Maps Popular Times and traffic for B
 | Figure | Kind |
 |---|---|
 | Fitr -$923 (-15.7%); Adha -$122 (-3.2%); 21 Mar at $911, third-lowest day | Measured |
+| Fitr orders -14.7%, ticket -1.2%; named-customer return 10.0% vs 11.5% on 6-9 Mar | Measured |
+| Harbour 5.5 orders per open hour; typical peak hour 12; record hour 27 | Measured |
+| 8-hour caps: 44 at Harbour's pace, 96 at a typical peak, 216 at the record hour | Estimate. The 8-hour shift is an assumption |
+| Permit ceiling $17,000: used trailer $67,500, Harbour payback 11.7 years, best-day season 2.4 years | Estimate, using Zion's published top of range |
+| Hallab large box $36 / $28 / $24; 2024 kilo prices $22 / $17 / $15 | Retail benchmark, not a Stories cost |
 | January-to-June revenue growth, 52.4% | Measured |
 | 35 / 62 / 90 / 137 / 193 orders per day | Measured branch rates, not truck rates |
 | Box mixes, branch list prices, branch unit costs, Garden's 43% cost gap | Measured |
@@ -183,26 +204,31 @@ Code: [`truck/fitr_alternatives.py`](../truck/fitr_alternatives.py)
 | The war (from 2 Mar) depressed everything | How many baseline days were also wartime | **Ruled out as the whole story.** 21 of the 24 comparison days were wartime too, and Eid still ran 15.7% below them |
 | A war escalation just before Eid (strike on central Beirut, 18 Mar) | Separate the two | **Can't be separated** with one Eid in the file. Eid al-Adha, after the ceasefire, dipped only 3.2% |
 | Customers came at different times of day | Share of orders by hour | No real shift (largest change 1.9 points in any hour) |
+| Customers came but bought less | Orders vs basket ([`eid_dip_mechanism.csv`](../outputs/truck/tables/eid_dip_mechanism.csv)) | **Ruled out.** Orders -14.7%, ticket only -1.2%: the gap is fewer orders |
+| Regular customers stopped coming | Named customers from the prior 21 days who also bought on Eid | **Not supported.** 10.0% on Eid vs 11.5% on a normal Fri-Mon (6-9 Mar); covers the 63.5% of lines with an ID only |
 
-So the dip is real and not an opening-hours or general-war effect, but **why** customers
-stayed away is not proven. That is one more reason to start with boxes: a pre-order test
+So the dip is real: fewer orders, not smaller baskets, and not an opening-hours or
+general-war effect. **Why** there were fewer orders is not proven. That is one more reason to start with boxes: a pre-order test
 asks customers directly whether they want Stories when they are away from a branch.
 
 ### Assumptions that would change the decision
 
 | Assumption | Value used | What changes the decision |
 |---|---|---|
-| Box pre-orders | Need 34 boxes to cover $500, 37 more to replace the Eid gap | Under 34 boxes: stop at boxes; no pop-up |
+| Box pre-orders | Go at 37 Harbour boxes of 6 (they replace the Eid gap and cover the $500) | Under 37 boxes: stop at boxes; no pop-up |
 | Pop-up demand | Break-even 37 orders a day | Under 37: no truck either |
 | Truck demand | Rent break-even ~80 orders a day | Under 80 at the pop-up: don't rent |
 | Rent cost (US rate) | $150 a day + $40 generator | Each $50 a day cheaper lowers the rent break-even by about 10 orders a day ($50 / $4.85 profit per order) |
 | Product profit per truck order | $4.85 (truck menu, 1.59 items per order as in branches) | If a truck sells only drinks (~1 item), break-evens rise by about 60% |
-| Buying | 2-year payback needs ~183 orders a day | Only the best day on record (193) comes close: no purchase on this file |
+| Buying | 2-year payback needs ~183 orders a day; permits at $800 | Only the best day on record (193) comes close. At a $17,000 permit even a season of best days takes 2.4 years: no purchase on this file |
+| Staff cost | $40 a person a day | Higher wages push the rent break-even (80) toward the 96 orders an 8-hour peak can hold: then stop after the pop-up |
 
 ## 12. Risks and what the file does not contain
 
 - **Security.** The South and Baalbek stay out. See section 8.
-- **The dip is small.** A bad Fitr is under $1,000 of revenue. It cannot pay for a trailer.
+- **The dip is small, and the cause is untested.** A bad Fitr is under $1,000 of revenue. It cannot pay for a trailer. The missing money is fewer orders. Tickets barely moved, and identified customers came back at about the same rate as a normal weekend. The war from 2 Mar and the end of Ramadan fall on the same dates. This file has one Fitr, so the dip cannot be checked on a second holiday inside it.
+- **What flips the action.** A permit quote near $17,000 makes buying miss two years even at a season of best days (2.4 years). If two staff cost more than $40 each, rent break-even rises from 80 and can pass the 96-order peak-all-day cap. Then stop after the pop-up. If the pop-up stays under 80 orders a day, do not rent.
+- **A truck has not been timed.** The 8-hour caps use Harbour's hours. One machine and two people may be slower.
 - **Permits.** $800 is the bottom of a US range that runs past $17,000. A Lebanese permit stack is not in the sources.
 - **Wages, fuel, municipality fees, insurance, storage.** Not in the transaction file.
 - **Cannibalisation.** Low if the customer was not going to a Beirut branch that day. The file cannot see that. Adha is the warning: the branches barely moved.
@@ -213,6 +239,8 @@ asks customers directly whether they want Stories when they are away from a bran
 
 - Buying a truck now.
 - Pitching the truck as the fix for Eid. The hole is $923. The trailer is $51,300.
+- Treating "customers left Beirut" as a measured cause. The file shows fewer orders.
+- Adding the 37-box profit bar to the 34-box packaging bar. The go number is 37.
 - Planning on 100, 200, or 300 orders a day. Stories has not had a branch-day that high. The best day was 193, once.
 - The old six-month weekday baseline. It hid the Adha dip and flattered late spring.
 - Deep-south deployment, Baalbek while its festival is postponing, Ehden or Beiteddine as 2026 festival stops, Easter 2026 (those dates were inside the war), and Ashoura.

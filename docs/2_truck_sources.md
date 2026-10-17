@@ -34,6 +34,8 @@ The model takes the **low end** of the Zion ranges where it needs a single numbe
 ## Ma'amoul, and why one pastry covers Eid and Easter
 
 - [L'Orient Today](https://today.lorientlejour.com/cooking-food-lebanon/1334757/for-the-love-of-maamoul-from-gold-coins-to-nutella.html) supports the product, not a price. Ma'amoul fillings in Lebanon are pistachios, walnuts, and dates. The same piece quotes a historian that ma'amoul is the sweet typical of Christian Easter and of Eid al-Fitr and Eid al-Adha, and that it keeps for weeks because it is baked. There is no Stories price for ma'amoul in the transaction file. The model prices it like a pistachio cookie and labels that an estimate.
+- [Hallab international shop](https://intl.hallab.com.lb/shop?search=Maamoul) lists a box of 12 large pieces at $36 pistachio, $28 walnut, and $24 date. That is a retail benchmark for a large piece. It is not a Beirut counter quote and it is not Stories' cost.
+- [Beirut.com, 28 Mar 2024](https://www.beirut.com/en/717989/heres-how-much-a-kilo-of-maamoul-costs-in-lebanon-2/) phoned Hallab and recorded pistachio $22, walnut $17, and date $15 per kilo. Those are 2024 kilo prices, a different size from the cookie analogy.
 
 ## 2027 dates for the next test
 

@@ -9,10 +9,10 @@ assumptions that would change the decision, and a test Stories can run before wi
 
 | # | Action | Extra gross profit a year | Basis | The decision changes if | Next step |
 |---|---|---|---|---|---|
-| 1a | **Fix Garden's sourcing**: it pays 43% more than Harbour for the same items, on all 45 | **~$31.8k** | $15.9k extra cost in 6 months (measured) | The premium is overhead loaded into unit cost, not a supplier price: then $0 cash | Ask finance which it is, this week |
-| 1b | **Menu engineering per branch**: push Stars, pair Plowhorses with Stars, per-branch till rule | **~$32.8k** | Estimate on measured item profit | Plowhorse sales fall 7-9% after the +$0.20 rise; the test shows under +4.9% | 12-week switchback test at Harbour |
+| 1a | **Fix Garden's sourcing**: it pays 43% more than Harbour for the same items, on all 45 | **~$31.8k** | $15.9k extra cost in 6 months (measured) | The premium is a markup in the export or overhead, not a supplier price: then $0 cash | Compare one Garden and one Harbour invoice for the same item, this week |
+| 1b | **Menu engineering per branch**: push Stars, pair Plowhorses with Stars, per-branch till rule | **~$32.8k** if the three levers don't overlap | Estimate on measured item profit | Plowhorse sales fall 7-9% after the +$0.20 rise; the test shows under +4.9% | 12-week switchback test at Harbour |
 | 1c | **Garden menu v2**: reorganized board and prices | **$6.1k-$13.6k** | Estimate | Same as 1b | After 1a is answered |
-| 2 | **Eid boxes, then one pop-up stand**; rent a truck only if the pop-up proves 80+ orders a day; don't buy one | Boxes ~break-even; pop-up **$1.6k-$3.4k** | Estimate at branch-level demand | Fewer than 34 box pre-orders; pop-up under 37 orders a day | Eid box pre-orders |
+| 2 | **Eid boxes, then one pop-up stand**; rent a truck only if the pop-up proves 80+ orders a day; don't buy one | Boxes ~break-even; pop-up **$1.6k-$3.4k** | Estimate at branch-level demand | Fewer than 37 box pre-orders; pop-up under 80 orders a day (no truck) | Eid box pre-orders |
 | 3 | **Morning "coffee + any pastry" bundle** with a loyalty card | **$2.9k-$9.2k** (at +5 orders a day per branch) | Estimate; costs sourced | It needs an extra staff shift (+18 orders a day to pay one); under 11% of users are new | 12-week test at Harbour with today's team |
 | 4 | **Move promotions to the mid-month dip** (14th-27th); test a 10%-off comeback reward | Promotions: no cost; reward: up to **~$3.3k** | Cycle measured; reward estimated | The reward lifts mid-month return by less than 4-8 points | 3-month randomized test (max cost $557) |
 
@@ -52,10 +52,13 @@ football, and options inside each project) are in
    for the same items; repricing alone can't fix that, sourcing can.
 2. **Reaching customers outside the branches** ([write-up](docs/2_holiday_truck.md),
    [sources](docs/2_truck_sources.md)). Revenue dipped **15.7% over Eid al-Fitr** (-$923 vs the
-   same weekday in nearby weeks). Options are compared from cheapest to dearest: Eid boxes with
+   same weekday in nearby weeks): fewer orders, not smaller baskets, and not proof that customers
+   left Beirut. Options are compared from cheapest to dearest: Eid boxes with
    a limited-edition ma'amoul, a pop-up stand, renting a truck, buying one. At the demand
    Stories' branches actually reach (35-90 orders a day, best day ever 193), renting only
-   breaks even at Harbour-like demand and **buying does not pay back within two years**.
+   breaks even at Harbour-like demand and **buying does not pay back within two years**, even
+   less if Lebanese permits cost near the $17,000 top of the US range. Test days are logged in
+   `truck/pilot_log.csv` and scored by `truck/score_pilot.py`.
 3. **Filling the idle mornings** ([write-up](docs/3_morning_offer.md),
    [sources](docs/3_morning_sources.md)). Every branch opens at 7:00, yet weekday mornings run
    at about **40% of the night pace**, and **65% of morning hot-coffee orders have no food**.
@@ -96,7 +99,7 @@ python run_all.py
 
 Tested with Python 3.13 (pandas 3.0, numpy 2.5, scipy 1.18, matplotlib 3.11).
 
-`run_all.py` runs all 26 scripts in order (about a minute) and stops if any fails, including
+`run_all.py` runs all 29 scripts in order (about a minute) and stops if any fails, including
 if the leakage and stability checks in `menu_engineering/validate.py` don't pass. Each script
 can also be run on its own from the repository root, for example
 `python payday/payday_cycle.py`.
@@ -156,7 +159,10 @@ docs/5_rejected_approaches.md everything we tried and dropped, with the evidence
 | Truck menu economics | `truck_menu.py` | `truck_menu.csv`, `truck_menu_summary.csv` |
 | Eid boxes, limited edition, targets | `eid_boxes.py` | `eid_boxes.csv`, `eid_box_targets.csv` |
 | Rent / buy at measured branch demand | `truck_model.py` | `truck_scenarios.csv`, `truck_breakeven.csv`, `truck_profit_per_day.png`, `truck_breakeven.png`, `truck_payback.png` |
+| What the Fitr gap is made of (orders vs basket, named customers) | `dip_mechanism.py` | `eid_dip_mechanism.csv`, `eid_dip_mechanism.png` |
+| What an 8-hour shift can hold; permit stress test | `service_capacity.py` | `truck_capacity.csv`, `truck_permit_stress.csv`, `truck_capacity.png` |
 | Boxes vs pop-up vs rent vs buy | `channel_comparison.py` | `truck_channel_comparison.csv`, `truck_channel_comparison.png` |
+| Score a real pilot against the go numbers | `score_pilot.py` | reads `truck/pilot_log.csv` (empty until a test) |
 | Holiday calendar input | `truck/holiday_calendar.csv` | |
 
 </details>

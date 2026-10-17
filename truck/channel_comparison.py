@@ -180,7 +180,7 @@ def plot(table: pd.DataFrame) -> None:
             y = value + offset if value >= 0 else value - offset
             va = "bottom" if value >= 0 else "top"
             ax.text(bar.get_x() + bar.get_width() / 2, y, money(value), ha="center", va=va, fontsize=8, color=style.INK)
-    ax.text(0, span * 0.06, f"{money(garden[0])}\n(same at both demand levels:\nsales just cover the $500 cost)",
+    ax.text(0, span * 0.06, f"{money(garden[0])}\n(same at both demand levels:\n37 boxes replace the Eid gap\nand cover the $500)",
             ha="center", va="bottom", fontsize=8, color=style.INK)
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: money(v)))
     ax.set_ylim(-span * 1.35, span * 1.35)

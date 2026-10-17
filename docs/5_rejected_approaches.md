@@ -203,6 +203,8 @@ Full detail: [`2_holiday_truck.md`](2_holiday_truck.md).
 |---|---|---|
 | Buying a truck now | -$4.5k to -$10.6k a year at demand the branches have actually seen | [`truck_channel_comparison.csv`](../outputs/truck/tables/truck_channel_comparison.csv) |
 | Pitching the truck as the fix for Eid | The Fitr hole is $923; a trailer costs $51,300 | [`eid_holiday_dips.csv`](../outputs/truck/tables/eid_holiday_dips.csv) |
+| Treating "customers left Beirut" as a measured cause | The file shows fewer orders (-14.7%, ticket -1.2%) and named customers returning at a normal rate; where they were is not in the file | [`eid_dip_mechanism.csv`](../outputs/truck/tables/eid_dip_mechanism.csv) |
+| Adding the 37-box profit bar to the 34-box packaging bar | The 37 boxes already cover the $500; the go number is 37 | [`eid_box_targets.csv`](../outputs/truck/tables/eid_box_targets.csv) |
 | Planning on 100-300 orders a day | No branch-day has been that high; the best was 193, once | [`truck_scenarios.csv`](../outputs/truck/tables/truck_scenarios.csv) |
 | The old six-month weekday baseline | It hid the Adha dip and flattered late spring | [`eid_holiday_dips.csv`](../outputs/truck/tables/eid_holiday_dips.csv) |
 | Deep-south and Baalbek stops, Ehden and Beiteddine festivals, Easter 2026, Ashoura | Security, postponed festivals, or dates that fell inside the war | [`2_truck_sources.md`](2_truck_sources.md) |

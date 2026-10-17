@@ -3,8 +3,11 @@
 **Conclusion for the CEO:** run menu engineering *per branch*, not chain-wide. Push the Stars,
 pair the low-profit best-sellers with them, rebrand the high-profit items nobody orders, and
 merge the dead weight. Give every branch its own combos and its own till rule, built from
-what that branch's customers buy. Estimated extra gross profit: **about $32,800 a year**,
-with no new customers needed. Fix Garden's 43% cost premium (~$31.8k a year on its own), and prove the menu changes with a 12-week switchback test at Harbour.
+what that branch's customers buy. If the three money levers each land on their own, estimated
+extra gross profit is **about $32,800 a year**. They can hit the same order, and the bowl push
+may need new lunch traffic, so that figure is not the forecast for one combined programme.
+Confirm Garden's 43% cost premium with an invoice before treating it as a ~$31.8k saving, and
+prove the menu changes with a 12-week switchback test at Harbour.
 
 > **Measured** = computed directly from the Jan-Jun 2026 transaction file (51,045 lines,
 > 33,887 orders after removing 132 duplicate rows).
@@ -82,6 +85,14 @@ only ~4% higher, which pushes its desserts down into Plowhorses. Uptown sells
 sandwiches and wraps 1.3-1.5x more than the chain average, which lifts Tuna Sandwich into a Star
 ([`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)).
 
+The cost gap is a data-quality question before it is a sourcing project. Each branch-item has
+**one** unit cost for the whole half-year (135 branch-items, none with a second cost). Garden's
+cost is **1.48 to 1.50 times** Uptown's on all 45 items (median 1.49), while its price is about
+**1.04 times** Uptown's. A ratio that flat is what a markup in the export looks like, and it is
+also what a standing supplier contract looks like. Ask finance for one Garden invoice and one
+Uptown invoice on the same item. The Garden dessert classes, and the ~$31.8k Garden figure in
+section 7, stand only if the invoice matches the file.
+
 ## 4. Actions
 
 Full list per branch and item: [`outputs/menu_engineering/tables/menu_actions.csv`](../outputs/menu_engineering/tables/menu_actions.csv).
@@ -105,7 +116,7 @@ menu space, not money):
 **Branch-specific moves:**
 - **Harbour & Uptown:** push Tiramisu and Cheesecake (Stars there).
 - **Uptown:** sandwich-first menu board; Tuna Sandwich is a Star there.
-- **Garden:** push Lemonade and Peach Iced Tea. **Fix sourcing before repricing desserts.**
+- **Garden:** push Lemonade and Peach Iced Tea. Confirm the cost field with an invoice before repricing desserts or opening a sourcing project.
 
 ### Four designed pairings (Star + Plowhorse, priced 5% below buying both)
 
@@ -303,7 +314,13 @@ is the in-store A/B test in section 8.
 Assumptions can be changed at the top of [`menu_engineering/actions.py`](../menu_engineering/actions.py).
 Sensitivity: at a 5% upsell conversion the total drops to ~$26k; at 15% it rises to ~$39k.
 
-Not included: fixing Garden's product costs, a separate and larger lever (section 7).
+The **$32,830** adds the three rows. A guest who takes a pairing and also pays +$0.20 is in two
+of them. The bowl row is extra items, and those bowls may be new lunch traffic, so the "no new
+customers" claim does not cover the bowls. If the price rise cuts volume, drop the **$9,779**.
+What remains is still an estimate, and it still waits on the test.
+
+Not included: closing Garden's cost gap, a separate lever worth ~$31.8k a year only if the cost
+field matches an invoice (sections 3 and 7).
 
 ## 7. The Garden case: the least profitable branch
 
@@ -351,7 +368,8 @@ need price rises of **+20% to +40%**, which customers would notice. The real fix
 
 **The Garden plan:**
 1. **This week, ask finance why Garden's unit costs are 43% higher than Harbour's** for
-   identical items. If it is a supplier price list, move Garden onto Harbour's suppliers.
+   identical items, and compare one Garden and one Harbour invoice for the same item. If it is
+   a supplier price list, move Garden onto Harbour's suppliers.
    If it is overhead loaded into unit cost, report it separately so menu decisions use true
    product costs.
 2. **Steer the menu toward items that survive the premium.** Push Cold Brew (68% margin,
@@ -410,8 +428,8 @@ fixing the 43% cost premium is worth about $32k. Do both: sourcing first, menu a
 Once sourcing is fixed, re-run the Garden matrix. Desserts will likely become Stars again
 and the "Sweets" section can move back to the main menu.
 
-**Garden total:** sourcing fix (~$31.8k) + Garden menu v2 (central ~$9.8k, below) ≈
-**$41.6k a year**, more than any other single branch action.
+**Garden total:** sourcing fix (~$31.8k, only if the invoice confirms the cost field) + Garden
+menu v2 (central ~$9.8k) ≈ **$41.6k a year**, more than any other single branch action.
 
 ## 8. How to prove it: a test design checked against history
 
@@ -450,9 +468,11 @@ together." For a pastry ordered alone at night: "An iced matcha goes great with 
 both." When rolling out, Garden and Uptown use their branch rules (Uptown: drink alone →
 Chicken Pesto Sandwich; Garden: drink alone → Butter Croissant).
 
-**Decision at week 12:**
+**Decision at week 12.** The result says whether the ON-day package (combos card + till
+script) worked; it does not say which of the two did the work. The menu layout is always on and
+the price rise is tested separately, so neither is credited by this test.
 - Profit per order up on ON days, orders steady: **roll out** the combos and till rule to
-  Uptown (sandwich-first version), then Garden (after its sourcing is fixed).
+  Uptown (sandwich-first version), then Garden (after its cost field is confirmed).
 - No difference: stop the till rule; keep the menu layout. The cost of trying is close to zero.
 
 Re-run the matrix **every quarter per branch**: items move between classes as costs and tastes change.
@@ -483,7 +503,7 @@ Computed by [`menu_engineering/decision_thresholds.py`](../menu_engineering/deci
 | Bundles at 5% off | Buyers would otherwise buy the Star alone | **70-83% of bundle buyers** already buying both items | Drop the discount; keep the till suggestion |
 | Bowl push | +2 bowls a day are extra sales | Still +$1.33-$1.51 per bowl if every bowl replaces a sandwich | Smaller gain, same action |
 | Harbour test | Our estimate: **+8.8% profit per order** | The test detects **+4.9%** | If the real effect is under 56% of our estimate, the test shows nothing: stop the till rule |
-| Garden sourcing | The 43% premium is a supplier price | **$0** if it is overhead or a transfer price | Not a saving: report true product costs and re-run Garden's matrix |
+| Garden sourcing | The 43% premium is a supplier price | **$0** if it is a markup in the export, overhead or a transfer price (check one invoice) | Not a saving: report true product costs and re-run Garden's matrix |
 
 The bundle discount is safe (customers would need to be mostly already buying both items for
 it to lose money). The price rise is the fragile lever: losing 7-9% of Plowhorse sales wipes it
@@ -508,6 +528,10 @@ out, and no price changed in the file, so this is tested separately with a guard
 - **Bundles shift some sales**: a customer who would have bought both items anyway now pays
   5% less. The test's profit-per-order metric captures this.
 - **Six months of data** cover winter to early summer only.
+- **Changes move together.** The switchback separates ON-day changes from normal days, but not
+  the combos card from the till script, and the always-on menu layout has no control at Harbour.
+- **Garden's costs may be a field, not a supplier.** One unit cost per item, 48-50% above
+  Uptown on every item. Confirm with an invoice before anyone chases the ~$31.8k.
 - **Information Stories could provide:** Garden's supplier invoices or cost allocation (to
   explain the 43%), waste per item, staff schedules, and any past price changes.
 
@@ -520,9 +544,11 @@ out, and no price changed in the file, so this is tested separately with a guard
   a bigger model would not beat a designed, tested pairing.
 - **Item-to-item history recommendations per branch:** tested on May-Jun, they did not beat
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
-- **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
-  as Garden without a promo (+18.9% each; $471 of discounts given; see
-  [`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)), so there is no sign the discount added demand.
+- **Discount-led pairing promos:** Harbour ran a 15% promo from 12 Mar to 19 May, and its
+  orders grew about as much as Garden's, which had no promo (+18.9% each; $471 of discounts
+  given; see [`evidence_checks.csv`](../outputs/menu_engineering/tables/evidence_checks.csv)).
+  That is one uncontrolled comparison: a reason to try designed pairings before another
+  discount, not proof that discounts do nothing.
 - **A time-of-day till rule at every branch:** it helped at Harbour but made Garden's
   suggestions worse (-$0.043 per suggestion), so it is used at Harbour only.
 - **Takeaway vs dine-in menus:** profit per order ($5.27 vs $5.29) and single-item share
