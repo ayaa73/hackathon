@@ -48,6 +48,11 @@ next to it.
 
 See [docs/truck_business_case.md](docs/truck_business_case.md) and the `truck/` folder.
 
+## Approaches considered and rejected
+
+See [docs/approaches_considered_and_rejected.md](docs/approaches_considered_and_rejected.md)
+(section to be filled in by the team).
+
 ## How to run
 
 ```bash
@@ -72,5 +77,6 @@ menu_engineering/                   Project 1 scripts
 truck/                              Project 2 scripts and inputs
 docs/menu_engineering.md            Project 1 write-up for the CEO
 docs/truck_business_case.md         Project 2 write-up for the CEO
+docs/approaches_considered_and_rejected.md  approaches we tried or considered and dropped
 outputs/tables, outputs/figures     generated results
 ```
