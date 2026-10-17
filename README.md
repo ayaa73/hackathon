@@ -18,10 +18,15 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    **Garden, the least profitable branch**, pays **43% more than Harbour for the same items**
    ($15.9k extra in six months, measured). Fixing its sourcing is worth an estimated
    **~$31.8k a year**; repricing alone can't fix it.
-2. **Holiday truck** ([full write-up](docs/truck_business_case.md)).
-   Eid al-Fitr 2026 cut branch revenue by 14% for four days as customers left Beirut. A Stories
-   truck that follows the holiday crowd, built on a menu of easy-to-transport best-sellers.
-   *(Section owned by teammate B.)*
+2. **Should Stories go to the customer?** ([full write-up](docs/truck_business_case.md)).
+   Branch revenue dipped **15.7% over Eid al-Fitr** 2026 (-$923, measured against the same
+   weekday in nearby weeks) as customers spent the holiday with family. That raised a bigger
+   question, tested from cheapest to most expensive: **Eid boxes + a limited-edition ma'amoul**
+   (about 37 boxes of 6 replace the Eid profit gap), a **pop-up stand** at events, and a
+   **truck**. At the demand Stories' own branches achieve (35-90 orders a day), renting a
+   truck only breaks even at Harbour-like demand and **buying one does not pay back within
+   two years**. Recommendation: boxes first, then one pop-up; rent a truck only if the pop-up
+   proves 80+ orders a day.
 
 **Measured vs estimated:** every number labelled *measured* comes straight from the data.
 Every *estimate* is a measured input times a stated assumption, and the assumption is written
@@ -54,9 +59,18 @@ next to it.
 ![Garden cost leak](outputs/figures/garden_cost_leak.png)
 ![Money estimates](outputs/figures/money_estimates.png)
 
-## Project 2: Holiday truck
+## Project 2: Reaching customers outside the branches
 
-See [docs/truck_business_case.md](docs/truck_business_case.md) and the `truck/` folder.
+| Output | File |
+|---|---|
+| Holiday dips vs a local same-weekday baseline | `outputs/tables/eid_holiday_dips.csv`, `outputs/figures/eid_holiday_dips.png` |
+| Eid boxes, limited edition, profit targets | `outputs/tables/eid_boxes.csv`, `outputs/tables/eid_box_targets.csv` |
+| Truck menu economics | `outputs/tables/truck_menu.csv`, `outputs/tables/truck_menu_summary.csv` |
+| Truck rent/buy scenarios at measured branch demand | `outputs/tables/truck_scenarios.csv`, `outputs/tables/truck_breakeven.csv`, `outputs/figures/truck_profit_per_day.png` |
+| Boxes vs pop-up vs rent vs buy | `outputs/tables/truck_channel_comparison.csv`, `outputs/figures/truck_channel_comparison.png` |
+| Holiday calendar, security notes, sources | `truck/holiday_calendar.csv`, `docs/truck_sources.md` |
+
+![Truck profit per day at branch-sized demand](outputs/figures/truck_profit_per_day.png)
 
 ## How to run
 
@@ -70,7 +84,11 @@ python menu_engineering/branch_combos.py    # Project 1: per-branch combos + til
 python menu_engineering/garden_case.py      # Project 1: Garden cost leak + options
 python menu_engineering/ab_test_power.py    # Project 1: test design checked on history
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
-# Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
+python truck/holiday_dips.py                # Project 2: holiday dips (local baseline)
+python truck/truck_menu.py                  # Project 2: truck menu economics
+python truck/eid_boxes.py                   # Project 2: Eid boxes + limited edition
+python truck/truck_model.py                 # Project 2: rent/buy at measured demand
+python truck/channel_comparison.py          # Project 2: boxes vs pop-up vs truck
 ```
 
 All scripts run from the repository root and write to `outputs/`.
@@ -85,5 +103,6 @@ menu_engineering/                   Project 1 scripts
 truck/                              Project 2 scripts and inputs
 docs/menu_engineering.md            Project 1 write-up for the CEO
 docs/truck_business_case.md         Project 2 write-up for the CEO
+docs/truck_sources.md               Project 2 sources (holidays, security, costs, ma'amoul)
 outputs/tables, outputs/figures     generated results
 ```
