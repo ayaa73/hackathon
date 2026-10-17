@@ -177,6 +177,43 @@ What this shows, honestly:
   at this branch"**, and let the A/B test (section 8) confirm it.
 - The result is a rule simple enough for staff to remember, and different per branch.
 
+### Time of day: a different menu board for morning and evening
+
+Code: [`menu_engineering/daypart.py`](../menu_engineering/daypart.py). The same matrix, run
+separately for morning (7-10), day (11-18) and night (19-23):
+
+![Items that change class by time of day](../outputs/figures/daypart_class_changes.png)
+
+**12 items change class with the time of day** (measured), and the result is stable:
+86.7% (morning), 93.3% (day) and 95.6% (night) of items keep the same class between
+Jan-Mar and Apr-Jun ([`daypart_stability.csv`](../outputs/tables/daypart_stability.csv)).
+
+| Menu board | Feature (Stars at that time) | Move down (weak at that time) |
+|---|---|---|
+| **Morning 7-10** | Egg Sandwich, Avocado Toast, Caramel Latte | Brownie, Frozen Yoghurt (Dogs in the morning) |
+| **Day 11-18** | Halloumi Wrap, Chai Latte, Coffee Frappe | Espresso |
+| **Night 19-23** | Halloumi Wrap, Chai Latte, Coffee Frappe; desserts in combos | Egg Sandwich, Avocado Toast, Americano |
+
+Cost: a second board (or a screen) that switches at 11:00 and 19:00. This is the
+"menu layout" change in the A/B test, now split by time of day.
+
+**Should the till rule also change by time of day? Only at Harbour.** Tested on May-Jun
+drink + food orders, a branch x time-of-day rule versus the branch rule
+([`daypart_rule_validation.csv`](../outputs/tables/daypart_rule_validation.csv)):
+
+| Branch | Branch rule | Branch x time-of-day rule | Gain per suggestion (95% interval) |
+|---|---|---|---|
+| Harbour | $0.877 | **$0.920** | **+$0.043** (+$0.002 to +$0.081) |
+| Garden | **$0.654** | $0.611 | -$0.043 (-$0.074 to -$0.010) |
+| Uptown | $0.833 | $0.814 | -$0.019 (-$0.067 to +$0.031) |
+
+Harbour has enough orders in each time slot for the finer rule to help; Garden and Uptown
+do not, and splitting their data makes the suggestions worse. So: **Harbour uses the
+time-of-day till rule** (drink alone → Avocado Toast in the morning, Chicken Pesto Sandwich
+from 11:00; food alone → Vanilla Latte in the morning, Iced Latte by day, Iced Matcha at night);
+**Garden and Uptown keep the branch rule.** Full list:
+[`daypart_till_rules.csv`](../outputs/tables/daypart_till_rules.csv).
+
 ## 5. Can the data pick the pairings for us? (model vs baseline)
 
 We checked before guessing. Code: [`menu_engineering/pairing_model.py`](../menu_engineering/pairing_model.py).
@@ -205,6 +242,29 @@ the absolute gain is small. Customers do not yet have strong pairing habits, so 
 cannot pick winning pairings on its own.** Pairings must be **designed for profit** and
 **proven with an in-store A/B test** (section 8). The model is still useful as a
 till-suggestion fallback for items not in a designed pairing.
+
+### Why history can't beat popularity: customers have no "usual" order
+
+We tested whether members have habits. Each member's visits (3,494 members, median 6
+visits, median **8 different items**) were checked for how often a visit includes an item
+that member bought before. Then we simulated the same visits with items picked **at random,
+weighted only by how popular each item is** ([`steerability.csv`](../outputs/tables/steerability.csv)):
+
+| | Visits that repeat an earlier item |
+|---|---|
+| Real members (measured) | **15.1%** |
+| Random choice by popularity (20 simulations) | 15.3% (range 15.0-15.8%) |
+
+**Members repeat items exactly as often as random choice would.** Their choices behave like
+a pick from what is popular, not a personal habit. Two consequences:
+1. It explains why the purchase-history models above could not beat "suggest what's
+   popular": there is no individual pattern for them to learn.
+2. **Demand is steerable.** Customers are not attached to "their" drink, so what the menu
+   board shows first and what staff suggest has real room to change what they buy. That is
+   the mechanism the whole menu-engineering plan relies on, and the A/B test measures it.
+
+Caution: this shows choices are not habit-driven, not that a given suggestion will be
+accepted. Acceptance is exactly what the switchback test measures.
 
 ### Validation: no data leakage, stable results
 
@@ -331,18 +391,20 @@ See [`ab_test_power.csv`](../outputs/tables/ab_test_power.csv) and
 |---|---|
 | **Where** | Harbour (largest branch, most orders per day) |
 | **Design** | Switchback: each day randomly ON or OFF, half of each weekday ON |
-| **ON days** | "Today's combos" card with Harbour's combos; staff follow Harbour's till rule on every single-item order (drink alone → Butter Croissant; food alone → Iced Matcha) |
+| **ON days** | "Today's combos" card with Harbour's combos; staff follow Harbour's time-of-day till rule on every single-item order (section 4; e.g. after 11:00, drink alone → Chicken Pesto Sandwich) |
 | **OFF days** | Normal service |
-| **Always on** | New menu layout (Stars first, bowl photos), since a printed menu can't switch daily |
+| **Always on** | New menu layout by time of day (morning and day/night boards, Stars first, bowl photos), since a printed menu can't switch daily |
 | **Duration** | **12 weeks** to reliably detect +5% in profit per order (8 weeks only detects +6% or more) |
 | **Main metric** | Gross profit per order, ON vs OFF days, relative to Garden + Uptown (Harbour now **$5.97**) |
 | **Secondary** | Single-item order share (now 53.9%), bowls per day |
 | **Guardrails** | Orders per day on ON days not more than 3% below OFF days |
 | **Price changes** | Tested **separately** (prices can't switch daily): Plowhorse +$0.20 at one branch for 12 weeks, read with caution, since branch-level before/after comparisons drift |
 
-**Staff script (Harbour, ON days):** "Would you like a butter croissant with that? It's a combo
-price together." For a pastry ordered alone: "An iced matcha goes great with it, $10.47 for both."
-When rolling out to Uptown, swap in its rule (drink alone → Chicken Pesto Sandwich).
+**Staff script (Harbour, ON days):** morning: "Would you like an avocado toast with your
+coffee?"; after 11:00: "Would you like a chicken pesto sandwich with that? It's a combo price
+together." For a pastry ordered alone at night: "An iced matcha goes great with it, $10.47 for
+both." When rolling out, Garden and Uptown use their branch rules (Uptown: drink alone →
+Chicken Pesto Sandwich; Garden: drink alone → Butter Croissant).
 
 **Decision at week 12:**
 - Profit per order up on ON days, orders steady: **roll out** the combos and till rule to
@@ -372,6 +434,12 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
   as Garden without a promo (+18.9% each), so discounts alone did not move demand.
+- **A time-of-day till rule at every branch:** it helped at Harbour but made Garden's
+  suggestions worse (-$0.043 per suggestion), so it is used at Harbour only.
+- **Takeaway vs dine-in menus:** profit per order ($5.27 vs $5.29) and single-item share
+  (54.0% vs 53.7%) are the same, so no separate menu.
+- **Chasing item trends:** the item mix did not change significantly between Jan-Feb and
+  May-Jun (p = 0.17), so we do not claim any item is rising or falling.
 - **A simple before-vs-after test:** on untouched history it raised false alarms 40% of the
   time; replaced by the switchback design (5.9%).
 - **Fixing Garden by repricing alone:** thin items would need +20% to +40% price rises; the
