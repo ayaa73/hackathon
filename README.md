@@ -20,7 +20,9 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    5.9% false alarms vs 40% for a simple before/after test).
    **Garden, the least profitable branch**, pays **43% more than Harbour for the same items**
    ($15.9k extra in six months, measured). Fixing its sourcing is worth an estimated
-   **~$31.8k a year**; repricing alone can't fix it.
+   **~$31.8k a year**; repricing alone can't fix it. A reorganized **Garden menu v2**
+   (featured items that keep their margin, combos, sweets sold with drinks, Harbour-level
+   prices on thin items) adds an estimated **$6.1k-$13.6k a year** on top.
 2. **Should Stories go to the customer?** ([full write-up](docs/truck_business_case.md)).
    Branch revenue dipped **15.7% over Eid al-Fitr** 2026 (-$923, measured against the same
    weekday in nearby weeks) as customers spent the holiday with family. That raised a bigger
@@ -54,6 +56,7 @@ next to it.
 | Money estimates with assumptions | `outputs/tables/money_estimates.csv`, `outputs/figures/money_estimates.png` |
 | Pairing lift + model vs baseline | `outputs/tables/pair_lift_*.csv`, `outputs/tables/pairing_model_results.csv`, `outputs/figures/pairing_model.png` |
 | Per-branch combos + till suggestions (from purchase history), tested on May-Jun | `outputs/tables/branch_combos.csv`, `outputs/tables/till_suggestions_by_branch.csv`, `outputs/tables/branch_combos_validation.csv`, `outputs/figures/branch_combos_validation.png` |
+| Garden menu v2: reorganized board, new prices, impact in 3 scenarios | `outputs/figures/garden_menu_v2.png`, `outputs/tables/garden_menu_v2.csv`, `outputs/tables/garden_menu_impact.csv` |
 | Time-of-day menu (12 items change class), time-of-day till rules tested on May-Jun, steerability test (members choose like random-by-popularity) | `outputs/tables/daypart_*.csv`, `outputs/tables/steerability.csv`, `outputs/figures/daypart_class_changes.png` |
 | Garden case: cost leak, item actions, sourcing and repricing scenarios | `outputs/tables/garden_items.csv`, `outputs/tables/garden_scenarios.csv`, `outputs/tables/branch_kpis.csv`, `outputs/figures/garden_cost_leak.png`, `outputs/figures/garden_scenarios.png` |
 | Test design checked on history (false alarms, detectable effect) | `outputs/tables/ab_test_power.csv`, `outputs/tables/ab_test_placebo.csv` |
@@ -87,6 +90,7 @@ python menu_engineering/pairing_model.py    # Project 1: lift + model vs baselin
 python menu_engineering/branch_combos.py    # Project 1: per-branch combos + till suggestions + test
 python menu_engineering/daypart.py          # Project 1: time-of-day menu + steerability test
 python menu_engineering/garden_case.py      # Project 1: Garden cost leak + options
+python menu_engineering/garden_menu.py      # Project 1: Garden menu v2 (board, prices, impact)
 python menu_engineering/ab_test_power.py    # Project 1: test design checked on history
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
 python truck/holiday_dips.py                # Project 2: holiday dips (local baseline)

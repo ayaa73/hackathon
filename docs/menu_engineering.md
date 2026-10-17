@@ -366,8 +366,50 @@ need price rises of **+20% to +40%**, which customers would notice. The real fix
 
 Full per-item list with Garden actions: [`garden_items.csv`](../outputs/tables/garden_items.csv).
 
-**Garden total:** sourcing fix (~$31.8k) + Garden's share of the menu levers (upsell $3.4k +
-Plowhorse pricing $3.3k) ≈ **$38k a year**, more than any other single branch action.
+### Garden menu v2: the reorganized board
+
+Code: [`menu_engineering/garden_menu.py`](../menu_engineering/garden_menu.py). Built only from
+Garden's own classes, unit costs and combos.
+
+![Garden menu v2](../outputs/figures/garden_menu_v2.png)
+
+| Section | What goes there | Why |
+|---|---|---|
+| **Featured** (hero spots) | Halloumi Wrap, Egg Sandwich, Cold Brew, Iced Matcha, Classic Matcha, Chai Latte | Garden Stars that keep ≥40% margin despite the cost premium, top 6 by profit per sale ($3.13-$4.03) |
+| **Garden combos** | Butter Croissant + Iced Latte, Brownie + Iced Latte, Pistachio Cookie + Iced Matcha, Chocolate Cookie + Classic Matcha | Garden's history-backed combos, $4.21-$4.57 profit each |
+| **Sweets: best with a drink** | Tiramisu, Cheesecake, Frozen Yoghurt, Cinnamon Roll, Brownie | Thin margins (34-38%) at Garden: placed next to the combos, priced up to Harbour's level |
+| **Lunch: bowls & more** | Quinoa Bowl, Chicken Salad Bowl, Tuna Sandwich, Soup, Granola Yoghurt | High profit per sale but rarely ordered: own section with photos |
+| **Main menu** | Other drinks and food | Plowhorses priced up to Harbour's level (about +$0.15-0.25); Stars unchanged |
+| **Changes** | Mint + English Breakfast Tea → "Tea selection"; Sparkling Water removed; Espresso kept | Sparkling Water earns $0.80 at Garden (29% margin) |
+
+Per-item prices, old vs new profit per sale, and the reason for every move:
+[`garden_menu_v2.csv`](../outputs/tables/garden_menu_v2.csv).
+
+**Estimated impact of the new menu (per year, Garden only):**
+
+| Lever | Conservative | Central | Optimistic |
+|---|---|---|---|
+| Price moves (to Harbour's level) | $3,787 | $5,044 | $6,302 |
+| Featuring (Plowhorse buyers moving to Featured items) | $640 | $1,066 | $1,706 |
+| Combos + till upsell | $1,692 | $3,384 | $5,076 |
+| Drop Sparkling Water | -$36 | $339 | $515 |
+| **Total menu v2** | **$6,082** | **$9,834** | **$13,599** |
+| Share of Garden's gross profit today | +6.5% | +10.5% | +14.6% |
+
+Assumptions ([`garden_menu_impact.csv`](../outputs/tables/garden_menu_impact.csv)):
+conservative = each +1% price loses 1% of units, 3% of Plowhorse units move to Featured
+items, 5% of single-item orders add an item; central = -0.5%, 5%, 10%; optimistic = no
+volume loss, 8%, 15%. The featuring shift is plausible because members choose like
+random-by-popularity (section 5), so placement on the board matters; its size is an
+assumption the test will measure.
+
+**Menu v2 is not a substitute for fixing sourcing.** The menu earns about $10k a year;
+fixing the 43% cost premium is worth about $32k. Do both: sourcing first, menu alongside.
+Once sourcing is fixed, re-run the Garden matrix. Desserts will likely become Stars again
+and the "Sweets" section can move back to the main menu.
+
+**Garden total:** sourcing fix (~$31.8k) + Garden menu v2 (central ~$9.8k, below) ≈
+**$41.6k a year**, more than any other single branch action.
 
 ## 8. How to prove it: a test design checked against history
 
