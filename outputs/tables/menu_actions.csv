@@ -1,0 +1,136 @@
+branch,product,category,class,units_6mo,profit_per_unit,margin_pct,action
+Garden,Iced Matcha,Matcha & Tea,STAR,765,3.222,47.3,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Iced Latte,Cold Coffee,STAR,813,2.941,55.4,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Classic Matcha,Matcha & Tea,STAR,650,3.166,49.3,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Cold Brew,Cold Coffee,STAR,461,3.463,67.6,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Strawberry Matcha,Matcha & Tea,STAR,478,3.063,40.2,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Vanilla Latte,Hot Coffee,STAR,460,2.961,54.6,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Egg Sandwich,Breakfast,STAR,346,3.662,45.1,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Spanish Latte,Hot Coffee,STAR,411,3.081,52.1,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Chai Latte,Matcha & Tea,STAR,382,3.108,59.5,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Chicken Pesto Sandwich,Sandwiches,STAR,353,3.287,30.8,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Peach Iced Tea,Cold Drinks,STAR,411,2.794,63.0,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Halloumi Wrap,Sandwiches,STAR,286,3.985,40.2,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Caramel Latte,Hot Coffee,STAR,369,3.037,53.2,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Iced Mocha,Cold Coffee,STAR,362,3.029,48.7,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Lemonade,Cold Drinks,STAR,355,2.955,63.9,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Avocado Toast,Breakfast,STAR,304,3.398,36.2,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Coffee Frappe,Cold Coffee,STAR,321,2.908,44.5,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Turkey & Cheese Sandwich,Sandwiches,STAR,317,2.845,29.7,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Fresh Orange Juice,Cold Drinks,STAR,336,2.681,46.9,"PUSH: top of menu, lead every pairing, never discount"
+Garden,Butter Croissant,Bakery,PLOWHORSE,684,2.003,55.1,PAIR with a Star + test +$0.20 price
+Garden,Iced Americano,Cold Coffee,PLOWHORSE,506,2.597,67.9,PAIR with a Star + test +$0.20 price
+Garden,Cappuccino,Hot Coffee,PLOWHORSE,515,2.431,60.3,PAIR with a Star + test +$0.20 price
+Garden,Flat White,Hot Coffee,PLOWHORSE,445,2.554,59.1,PAIR with a Star + test +$0.20 price
+Garden,Frozen Yoghurt Cup,Desserts,PLOWHORSE,484,2.27,37.1,PAIR with a Star + test +$0.20 price | Garden: fix +49% sourcing cost before repricing desserts
+Garden,Tiramisu Cup,Desserts,PLOWHORSE,451,2.43,37.3,PAIR with a Star + test +$0.20 price | Garden: fix +49% sourcing cost before repricing desserts
+Garden,Cheesecake Slice,Desserts,PLOWHORSE,461,2.306,34.4,PAIR with a Star + test +$0.20 price | Garden: fix +49% sourcing cost before repricing desserts
+Garden,Chocolate Croissant,Bakery,PLOWHORSE,511,1.962,46.5,PAIR with a Star + test +$0.20 price
+Garden,Chocolate Cookie,Bakery,PLOWHORSE,536,1.837,58.6,PAIR with a Star + test +$0.20 price
+Garden,Brownie,Desserts,PLOWHORSE,553,1.727,33.7,PAIR with a Star + test +$0.20 price | Garden: fix +49% sourcing cost before repricing desserts
+Garden,Banana Bread,Bakery,PLOWHORSE,416,2.172,49.1,PAIR with a Star + test +$0.20 price
+Garden,Cinnamon Roll,Bakery,PLOWHORSE,457,1.928,37.6,PAIR with a Star + test +$0.20 price
+Garden,Almond Croissant,Bakery,PLOWHORSE,376,2.093,43.4,PAIR with a Star + test +$0.20 price
+Garden,Pistachio Cookie,Bakery,PLOWHORSE,417,1.741,50.7,PAIR with a Star + test +$0.20 price
+Garden,Americano,Hot Coffee,PLOWHORSE,341,2.106,67.2,PAIR with a Star + test +$0.20 price
+Garden,Blueberry Muffin,Bakery,PLOWHORSE,319,2.06,52.4,PAIR with a Star + test +$0.20 price
+Garden,Still Water,Cold Drinks,PLOWHORSE,367,1.009,52.0,PAIR with a Star + test +$0.20 price
+Garden,Sparkling Water,Cold Drinks,PLOWHORSE,336,0.803,29.4,PAIR with a Star + test +$0.20 price
+Garden,Quinoa Bowl,Meals,PUZZLE,172,4.556,39.3,"REBRAND: photo, better menu spot, lunch combo"
+Garden,Chicken Salad Bowl,Meals,PUZZLE,179,4.3,34.7,"REBRAND: photo, better menu spot, lunch combo"
+Garden,Tuna Sandwich,Sandwiches,PUZZLE,210,3.469,39.4,"REBRAND: photo, better menu spot, lunch combo"
+Garden,Granola Yoghurt,Breakfast,PUZZLE,187,3.066,39.2,"REBRAND: photo, better menu spot, lunch combo"
+Garden,Mint Tea,Matcha & Tea,PUZZLE,196,2.722,75.2,MERGE with English Breakfast Tea into one 'Tea selection'; suggest Chai Latte
+Garden,Soup of the Day,Meals,PUZZLE,149,3.136,44.0,"REBRAND: photo, better menu spot, lunch combo"
+Garden,Espresso,Hot Coffee,DOG,212,1.709,64.8,KEEP (core coffee item): add a double-shot upsell instead of removing
+Garden,English Breakfast Tea,Matcha & Tea,DOG,135,2.605,76.1,MERGE with Mint Tea into one 'Tea selection'; suggest Chai Latte
+Harbour,Iced Matcha,Matcha & Tea,STAR,1115,4.637,64.9,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Iced Latte,Cold Coffee,STAR,1339,3.85,69.9,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Classic Matcha,Matcha & Tea,STAR,959,4.46,66.3,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Strawberry Matcha,Matcha & Tea,STAR,723,4.801,60.2,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Cold Brew,Cold Coffee,STAR,769,4.155,78.2,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Chicken Pesto Sandwich,Sandwiches,STAR,489,6.065,54.0,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Vanilla Latte,Hot Coffee,STAR,690,3.962,69.7,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Spanish Latte,Hot Coffee,STAR,612,4.234,68.1,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Halloumi Wrap,Sandwiches,STAR,407,6.258,60.2,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Turkey & Cheese Sandwich,Sandwiches,STAR,476,5.34,53.1,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Egg Sandwich,Breakfast,STAR,465,5.402,63.5,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Avocado Toast,Breakfast,STAR,424,5.689,57.6,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Iced Mocha,Cold Coffee,STAR,534,4.212,65.4,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Cheesecake Slice,Desserts,STAR,559,3.865,55.7,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Caramel Latte,Hot Coffee,STAR,514,4.134,68.9,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Chai Latte,Matcha & Tea,STAR,517,3.989,72.9,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Coffee Frappe,Cold Coffee,STAR,457,4.246,62.7,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Fresh Orange Juice,Cold Drinks,STAR,486,3.884,64.7,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Tiramisu Cup,Desserts,STAR,418,3.914,57.9,"PUSH: top of menu, lead every pairing, never discount"
+Harbour,Butter Croissant,Bakery,PLOWHORSE,1154,2.666,70.0,PAIR with a Star + test +$0.20 price
+Harbour,Cappuccino,Hot Coffee,PLOWHORSE,839,3.109,73.5,PAIR with a Star + test +$0.20 price
+Harbour,Cinnamon Roll,Bakery,PLOWHORSE,774,3.144,58.4,PAIR with a Star + test +$0.20 price
+Harbour,Iced Americano,Cold Coffee,PLOWHORSE,766,3.101,78.3,PAIR with a Star + test +$0.20 price
+Harbour,Flat White,Hot Coffee,PLOWHORSE,654,3.296,72.7,PAIR with a Star + test +$0.20 price
+Harbour,Chocolate Croissant,Bakery,PLOWHORSE,754,2.852,64.3,PAIR with a Star + test +$0.20 price
+Harbour,Almond Croissant,Bakery,PLOWHORSE,613,3.158,62.3,PAIR with a Star + test +$0.20 price
+Harbour,Banana Bread,Bakery,PLOWHORSE,623,3.077,66.2,PAIR with a Star + test +$0.20 price
+Harbour,Chocolate Cookie,Bakery,PLOWHORSE,800,2.384,72.4,PAIR with a Star + test +$0.20 price
+Harbour,Peach Iced Tea,Cold Drinks,PLOWHORSE,541,3.503,75.3,PAIR with a Star + test +$0.20 price
+Harbour,Lemonade,Cold Drinks,PLOWHORSE,501,3.684,75.9,PAIR with a Star + test +$0.20 price
+Harbour,Brownie,Desserts,PLOWHORSE,585,2.935,55.3,PAIR with a Star + test +$0.20 price
+Harbour,Frozen Yoghurt Cup,Desserts,PLOWHORSE,454,3.641,57.5,PAIR with a Star + test +$0.20 price
+Harbour,Pistachio Cookie,Bakery,PLOWHORSE,651,2.416,67.2,PAIR with a Star + test +$0.20 price
+Harbour,Americano,Hot Coffee,PLOWHORSE,565,2.565,78.1,PAIR with a Star + test +$0.20 price
+Harbour,Blueberry Muffin,Bakery,PLOWHORSE,459,2.818,68.3,PAIR with a Star + test +$0.20 price
+Harbour,Still Water,Cold Drinks,PLOWHORSE,575,1.39,68.1,PAIR with a Star + test +$0.20 price
+Harbour,Sparkling Water,Cold Drinks,PLOWHORSE,520,1.518,52.9,PAIR with a Star + test +$0.20 price
+Harbour,Chicken Salad Bowl,Meals,PUZZLE,262,7.335,56.5,"REBRAND: photo, better menu spot, lunch combo"
+Harbour,Tuna Sandwich,Sandwiches,PUZZLE,329,5.518,59.7,"REBRAND: photo, better menu spot, lunch combo"
+Harbour,Quinoa Bowl,Meals,PUZZLE,218,7.293,59.7,"REBRAND: photo, better menu spot, lunch combo"
+Harbour,Granola Yoghurt,Breakfast,PUZZLE,281,4.882,59.5,"REBRAND: photo, better menu spot, lunch combo"
+Harbour,Soup of the Day,Meals,PUZZLE,225,4.7,62.8,"REBRAND: photo, better menu spot, lunch combo"
+Harbour,Mint Tea,Matcha & Tea,DOG,321,3.175,83.4,MERGE with English Breakfast Tea into one 'Tea selection'; suggest Chai Latte
+Harbour,English Breakfast Tea,Matcha & Tea,DOG,258,3.035,84.2,MERGE with Mint Tea into one 'Tea selection'; suggest Chai Latte
+Harbour,Espresso,Hot Coffee,DOG,350,2.107,76.4,KEEP (core coffee item): add a double-shot upsell instead of removing
+Uptown,Iced Matcha,Matcha & Tea,STAR,434,4.127,63.1,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Iced Latte,Cold Coffee,STAR,465,3.513,68.8,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Chicken Pesto Sandwich,Sandwiches,STAR,303,5.306,51.7,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Halloumi Wrap,Sandwiches,STAR,274,5.535,58.2,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Classic Matcha,Matcha & Tea,STAR,347,3.972,64.6,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Turkey & Cheese Sandwich,Sandwiches,STAR,274,4.659,50.7,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Strawberry Matcha,Matcha & Tea,STAR,280,4.259,58.3,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Cold Brew,Cold Coffee,STAR,264,3.802,77.4,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Tuna Sandwich,Sandwiches,STAR,181,4.897,57.8,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Egg Sandwich,Breakfast,STAR,183,4.783,61.5,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Avocado Toast,Breakfast,STAR,175,4.972,55.4,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Vanilla Latte,Hot Coffee,STAR,244,3.552,68.3,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Iced Mocha,Cold Coffee,STAR,217,3.81,64.0,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Chai Latte,Matcha & Tea,STAR,223,3.593,71.7,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Caramel Latte,Hot Coffee,STAR,214,3.71,67.3,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Spanish Latte,Hot Coffee,STAR,209,3.785,66.6,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Coffee Frappe,Cold Coffee,STAR,178,3.81,61.1,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Cheesecake Slice,Desserts,STAR,189,3.489,54.1,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Tiramisu Cup,Desserts,STAR,163,3.523,56.3,"PUSH: top of menu, lead every pairing, never discount"
+Uptown,Butter Croissant,Bakery,PLOWHORSE,392,2.392,68.7,PAIR with a Star + test +$0.20 price
+Uptown,Cappuccino,Hot Coffee,PLOWHORSE,324,2.776,72.0,PAIR with a Star + test +$0.20 price
+Uptown,Flat White,Hot Coffee,PLOWHORSE,271,2.979,71.5,PAIR with a Star + test +$0.20 price
+Uptown,Cinnamon Roll,Bakery,PLOWHORSE,280,2.748,56.1,PAIR with a Star + test +$0.20 price
+Uptown,Iced Americano,Cold Coffee,PLOWHORSE,270,2.833,77.3,PAIR with a Star + test +$0.20 price
+Uptown,Peach Iced Tea,Cold Drinks,PLOWHORSE,234,3.148,74.1,PAIR with a Star + test +$0.20 price
+Uptown,Chocolate Croissant,Bakery,PLOWHORSE,285,2.541,62.6,PAIR with a Star + test +$0.20 price
+Uptown,Chocolate Cookie,Bakery,PLOWHORSE,326,2.133,71.0,PAIR with a Star + test +$0.20 price
+Uptown,Fresh Orange Juice,Cold Drinks,PLOWHORSE,180,3.428,62.7,PAIR with a Star + test +$0.20 price
+Uptown,Lemonade,Cold Drinks,PLOWHORSE,184,3.306,74.7,PAIR with a Star + test +$0.20 price
+Uptown,Banana Bread,Bakery,PLOWHORSE,218,2.734,64.4,PAIR with a Star + test +$0.20 price
+Uptown,Frozen Yoghurt Cup,Desserts,PLOWHORSE,179,3.29,56.0,PAIR with a Star + test +$0.20 price
+Uptown,Pistachio Cookie,Bakery,PLOWHORSE,262,2.149,65.5,PAIR with a Star + test +$0.20 price
+Uptown,Almond Croissant,Bakery,PLOWHORSE,188,2.815,60.6,PAIR with a Star + test +$0.20 price
+Uptown,Americano,Hot Coffee,PLOWHORSE,218,2.316,77.0,PAIR with a Star + test +$0.20 price
+Uptown,Brownie,Desserts,PLOWHORSE,179,2.633,53.6,PAIR with a Star + test +$0.20 price
+Uptown,Still Water,Cold Drinks,PLOWHORSE,247,1.239,66.7,PAIR with a Star + test +$0.20 price
+Uptown,Sparkling Water,Cold Drinks,PLOWHORSE,208,1.325,50.5,PAIR with a Star + test +$0.20 price
+Uptown,Chicken Salad Bowl,Meals,PUZZLE,111,6.509,54.6,"REBRAND: photo, better menu spot, lunch combo"
+Uptown,Quinoa Bowl,Meals,PUZZLE,112,6.4,57.6,"REBRAND: photo, better menu spot, lunch combo"
+Uptown,Granola Yoghurt,Breakfast,PUZZLE,107,4.322,57.5,"REBRAND: photo, better menu spot, lunch combo"
+Uptown,Soup of the Day,Meals,PUZZLE,75,4.153,60.8,"REBRAND: photo, better menu spot, lunch combo"
+Uptown,Blueberry Muffin,Bakery,DOG,150,2.512,66.6,REMOVE at Uptown only (test 6 weeks); keep at other branches
+Uptown,Mint Tea,Matcha & Tea,DOG,114,2.885,82.8,MERGE with English Breakfast Tea into one 'Tea selection'; suggest Chai Latte
+Uptown,Espresso,Hot Coffee,DOG,124,1.908,75.5,KEEP (core coffee item): add a double-shot upsell instead of removing
+Uptown,English Breakfast Tea,Matcha & Tea,DOG,80,2.752,83.3,MERGE with Mint Tea into one 'Tea selection'; suggest Chai Latte

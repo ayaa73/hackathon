@@ -1,0 +1,9 @@
+branch,lever,measured_input,assumption,profit_per_year_usd
+Garden,Pairing upsell,"5,952 single-item orders in 6 months; 1-item order profit $2.73 vs 2-item $5.57",10% of single-item orders add a second item,3384
+Garden,Plowhorse +$0.20,"8,175 Plowhorse units sold in 6 months","+$0.20 per unit, sales volume unchanged",3270
+Harbour,Pairing upsell,"8,803 single-item orders in 6 months; 1-item order profit $3.94 vs 2-item $7.96",10% of single-item orders add a second item,7074
+Harbour,Plowhorse +$0.20,"11,828 Plowhorse units sold in 6 months","+$0.20 per unit, sales volume unchanged",4731
+Harbour,Puzzle push (bowls),bowl profit $7.32 per unit at Harbour,+2 bowls/day after rebranding,5341
+Uptown,Pairing upsell,"3,482 single-item orders in 6 months; 1-item order profit $3.62 vs 2-item $7.26",10% of single-item orders add a second item,2540
+Uptown,Plowhorse +$0.20,"4,445 Plowhorse units sold in 6 months","+$0.20 per unit, sales volume unchanged",1778
+Uptown,Puzzle push (bowls),bowl profit $6.45 per unit at Uptown,+2 bowls/day after rebranding,4712
