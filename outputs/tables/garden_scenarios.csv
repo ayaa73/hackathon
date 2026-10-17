@@ -1,0 +1,8 @@
+scenario,type,measured_input,assumption,profit_per_year_usd
+A. Fix sourcing to Harbour's cost level,ESTIMATE,"Garden pays $15,888 more than Harbour for the same units (6 months)",Garden buys at Harbour's unit costs; prices and volume unchanged,31775
+B. Fix half the sourcing gap,ESTIMATE,same as A,half of the cost gap is closed,15888
+C. Reprice all items to Harbour price (sensitivity +0.0),ESTIMATE,Garden prices are 4.8% below Harbour on average,each +1% price changes units by +0.0%,10006
+C. Reprice all items to Harbour price (sensitivity -0.5),ESTIMATE,Garden prices are 4.8% below Harbour on average,each +1% price changes units by -0.5%,7395
+C. Reprice all items to Harbour price (sensitivity -1.0),ESTIMATE,Garden prices are 4.8% below Harbour on average,each +1% price changes units by -1.0%,4784
+D. Reprice only the 13 thin-margin items to Harbour price (sensitivity +0.0),ESTIMATE,13 items below 40% margin at Garden,each +1% price changes units by +0.0%,3254
+D. Reprice only the 13 thin-margin items to Harbour price (sensitivity -1.0),ESTIMATE,13 items below 40% margin at Garden,each +1% price changes units by -1.0%,1937

@@ -1,0 +1,11 @@
+design,test_weeks,minimum_detectable_effect_pct,can_detect_5pct
+Before vs after (weekly),4,7.06,False
+Before vs after (weekly),6,5.73,False
+Before vs after (weekly),8,4.94,True
+Before vs after (weekly),10,4.41,True
+Before vs after (weekly),12,4.02,True
+Switchback (random ON/OFF days),4,8.61,False
+Switchback (random ON/OFF days),6,6.97,False
+Switchback (random ON/OFF days),8,6.01,False
+Switchback (random ON/OFF days),10,5.36,False
+Switchback (random ON/OFF days),12,4.88,True

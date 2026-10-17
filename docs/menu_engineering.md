@@ -4,7 +4,7 @@
 pair the low-profit best-sellers with them, rebrand the high-profit items nobody orders, and
 merge the dead weight. Give every branch its own combos and its own till rule, built from
 what that branch's customers buy. Estimated extra gross profit: **about $32,800 a year**,
-with no new customers needed. Prove it first with an 8-week test at Harbour.
+with no new customers needed. Fix Garden's 43% cost premium (~$31.8k a year on its own), and prove the menu changes with a 12-week switchback test at Harbour.
 
 > **Measured** = computed directly from the Jan-Jun 2026 transaction file (51,045 lines,
 > 33,887 orders after removing 132 duplicate rows).
@@ -174,7 +174,7 @@ What this shows, honestly:
 - **Weighting by profit captures slightly more profit per suggestion** (+$0.02 to +$0.07),
   even though customers accept it slightly less often. The gain is not yet statistically
   certain, so we use the **simplest method that did best: "popular at this branch x profit
-  at this branch"**, and let the A/B test (section 7) confirm it.
+  at this branch"**, and let the A/B test (section 8) confirm it.
 - The result is a rule simple enough for staff to remember, and different per branch.
 
 ## 5. Can the data pick the pairings for us? (model vs baseline)
@@ -203,7 +203,7 @@ same order are never treated as independent.
 **Conclusion:** the model beats the baseline (+16% relative; the gain's interval stays above zero), but
 the absolute gain is small. Customers do not yet have strong pairing habits, so **the data
 cannot pick winning pairings on its own.** Pairings must be **designed for profit** and
-**proven with an in-store A/B test** (section 7). The model is still useful as a
+**proven with an in-store A/B test** (section 8). The model is still useful as a
 till-suggestion fallback for items not in a designed pairing.
 
 ### Validation: no data leakage, stable results
@@ -226,7 +226,7 @@ borderline case: that is why its removal is a 6-week test at Uptown only, not a 
 
 **What is *not* a trained model:** the menu matrix and money estimates are descriptive
 calculations on the full six months, with no prediction involved. Their out-of-sample test
-is the in-store A/B test in section 7.
+is the in-store A/B test in section 8.
 
 ## 6. Money (estimated)
 
@@ -242,35 +242,116 @@ is the in-store A/B test in section 7.
 Assumptions can be changed at the top of [`menu_engineering/actions.py`](../menu_engineering/actions.py).
 Sensitivity: at a 5% upsell conversion the total drops to ~$26k; at 15% it rises to ~$39k.
 
-Not included: fixing Garden's ~49% higher product costs, a separate lever worth an estimated
-~$33k a year on its own.
+Not included: fixing Garden's product costs, a separate and larger lever (section 7).
 
-## 7. How to prove it: 8-week A/B test
+## 7. The Garden case: the least profitable branch
+
+Code: [`menu_engineering/garden_case.py`](../menu_engineering/garden_case.py).
+
+| (6 months, measured) | Garden | Harbour | Uptown |
+|---|---|---|---|
+| Revenue | $99,531 | $150,099 | $55,554 |
+| **Product cost** | **$52,834** | $52,596 | $20,759 |
+| Gross margin | **46.9%** | 65.0% | 62.6% |
+| Profit per order | **$4.18** | $5.97 | $5.45 |
+
+**Garden spends as much on products as Harbour while selling a third less.**
+
+**Diagnosis (measured):**
+- For the **same item**, Garden's unit cost is **+43% above Harbour's** (+49% above Uptown's),
+  on **every one of the 45 items** and in every month. The spread is extremely tight: +42.6% to +43.9%.
+- That is **$15,888 of extra product cost in six months** compared with buying at Harbour's costs.
+- A cost gap this uniform is not waste or portion size, which would differ item by item. It
+  looks like a **different supplier price list, a transfer price, or overhead loaded into
+  Garden's unit costs.** Only Stories' finance team can say which; that is the first question to ask.
+- Garden's prices are actually **~5% below Harbour's**, so Garden pays more *and* charges less.
+
+![Garden cost leak](../outputs/figures/garden_cost_leak.png)
+
+**Why it matters for the menu:** the premium is a percentage, so it hits **expensive-to-make
+items hardest**. Sandwiches (34% margin), desserts (36%) and meals (38%) fall into thin
+margins, while coffees (57%), cold drinks (53%) and matcha (50%) keep healthy margins. And
+Garden's customers love desserts: they sell **1.2-1.3x the chain average** there.
+
+**Options for Garden (estimated, per year):**
+
+| Option | Measured input | Assumption | Extra gross profit / year |
+|---|---|---|---|
+| **A. Fix sourcing to Harbour's cost level** | $15,888 extra cost in 6 months | Garden buys at Harbour's unit costs | **$31,775** |
+| B. Fix half the sourcing gap | same | half the gap closed | $15,888 |
+| C. Reprice everything to Harbour's prices (+~5%) | Garden ~5% below Harbour | volume holds / -0.5% / -1% per +1% price | $10,006 / $7,395 / $4,784 |
+| D. Reprice only the 13 thin-margin items | 13 items under 40% margin | volume holds / -1% per +1% price | $3,254 / $1,937 |
+
+![Garden scenarios](../outputs/figures/garden_scenarios.png)
+
+**Repricing cannot fix Garden on its own.** Bringing the thin items back to a 50% margin would
+need price rises of **+20% to +40%**, which customers would notice. The real fix is sourcing.
+
+**The Garden plan:**
+1. **This week, ask finance why Garden's unit costs are 43% higher than Harbour's** for
+   identical items. If it is a supplier price list, move Garden onto Harbour's suppliers.
+   If it is overhead loaded into unit cost, report it separately so menu decisions use true
+   product costs.
+2. **Steer the menu toward items that survive the premium.** Push Cold Brew (68% margin,
+   $3.46 per sale), Iced Latte, Lemonade, Peach Iced Tea and Chai Latte. These are Stars at
+   Garden. Lead every combo with them.
+3. **Sell desserts and sandwiches through combos, not alone.** Garden's history-backed combos
+   pair them with high-margin drinks: Pistachio Cookie + Iced Matcha ($4.51 profit),
+   Chocolate Croissant + Iced Matcha ($4.70), Brownie + Iced Latte ($4.21).
+4. **Garden till rule:** drink alone → suggest Butter Croissant; food alone → suggest Iced Matcha.
+5. **Modest price move:** bring Garden to Harbour's prices (+~5%) only on the thin-margin
+   food items first (option D), tested with the guardrails below.
+6. **Sparkling Water** earns only $0.80 at Garden (29% margin): reprice to Harbour's price
+   or drop it and let customers switch to Still Water or Lemonade.
+
+Full per-item list with Garden actions: [`garden_items.csv`](../outputs/tables/garden_items.csv).
+
+**Garden total:** sourcing fix (~$31.8k) + Garden's share of the menu levers (upsell $3.4k +
+Plowhorse pricing $3.3k) ≈ **$38k a year**, more than any other single branch action.
+
+## 8. How to prove it: a test design checked against history
+
+**We tested the test design first.** Using Jan-Jun 2026, when nothing was changed, any "effect"
+a method finds is a false alarm. A trustworthy method should raise false alarms ~5% of the time.
+Code: [`menu_engineering/ab_test_power.py`](../menu_engineering/ab_test_power.py).
+
+| Design | False alarms on history | Smallest effect it can detect in 8 weeks / 12 weeks |
+|---|---|---|
+| Before vs after at Harbour (rejected) | **40%** (4 of 10 fake tests) | 4.9% / 4.0% |
+| **Switchback: random ON / OFF days at Harbour** | **5.9%** (117 of 2,000 fake tests) | 6.0% / **4.9%** |
+
+The simple before-vs-after test is **not trustworthy**: Harbour was already pulling ahead of
+the other branches by about +0.2% a week, and Eid week hit Harbour differently, so it would
+"prove" effects that do not exist. The switchback design compares ON and OFF days inside the
+same weeks, so trends and holidays cancel out. Its false-alarm rate matches the expected 5%.
+See [`ab_test_power.csv`](../outputs/tables/ab_test_power.csv) and
+[`ab_test_placebo.csv`](../outputs/tables/ab_test_placebo.csv).
 
 | | |
 |---|---|
-| **Test branch** | Harbour (largest, fastest read) |
-| **Control branches** | Garden and Uptown, no menu changes |
-| **Changes at Harbour only** | New menu layout (Stars first, bowl photos), Harbour's combos, staff follow Harbour's till rule on every single-item order (drink alone → Butter Croissant; food alone → Iced Matcha), +$0.20 on Plowhorses |
-| **Duration** | 8 weeks (covers 8 Tuesdays and 8 Saturdays) |
-| **Main metric** | Gross profit per order (Harbour now **$5.97**). Success = **+5% or more** relative to the change at the control branches |
-| **Secondary** | Single-item order share (now 53.9%), bowls per day, Plowhorse units |
-| **Guardrails** | Orders/day must not fall more than 3%; Plowhorse units must not fall more than 5% |
-| **No other promotions** | during the test (they would blur the result) |
+| **Where** | Harbour (largest branch, most orders per day) |
+| **Design** | Switchback: each day randomly ON or OFF, half of each weekday ON |
+| **ON days** | "Today's combos" card with Harbour's combos; staff follow Harbour's till rule on every single-item order (drink alone → Butter Croissant; food alone → Iced Matcha) |
+| **OFF days** | Normal service |
+| **Always on** | New menu layout (Stars first, bowl photos), since a printed menu can't switch daily |
+| **Duration** | **12 weeks** to reliably detect +5% in profit per order (8 weeks only detects +6% or more) |
+| **Main metric** | Gross profit per order, ON vs OFF days, relative to Garden + Uptown (Harbour now **$5.97**) |
+| **Secondary** | Single-item order share (now 53.9%), bowls per day |
+| **Guardrails** | Orders per day on ON days not more than 3% below OFF days |
+| **Price changes** | Tested **separately** (prices can't switch daily): Plowhorse +$0.20 at one branch for 12 weeks, read with caution, since branch-level before/after comparisons drift |
 
-**Staff script (Harbour):** "Would you like a butter croissant with that? It's a combo price
-together." For a pastry ordered alone: "An iced matcha goes great with it, $10.47 for both."
+**Staff script (Harbour, ON days):** "Would you like a butter croissant with that? It's a combo
+price together." For a pastry ordered alone: "An iced matcha goes great with it, $10.47 for both."
 When rolling out to Uptown, swap in its rule (drink alone → Chicken Pesto Sandwich).
 
-**Decision at week 8:**
-- Profit per order up, orders steady: **roll out** to Uptown (sandwich-first version), then
-  Garden (after fixing its sourcing).
-- Profit up but orders down: keep pairings and menu layout, **drop the price rise**.
-- No change: revert. The cost of trying is close to zero.
+**Decision at week 12:**
+- Profit per order up on ON days, orders steady: **roll out** the combos and till rule to
+  Uptown (sandwich-first version), then Garden (after its sourcing is fixed).
+- No difference: stop the till rule; keep the menu layout. The cost of trying is close to zero.
 
 Re-run the matrix **every quarter per branch**: items move between classes as costs and tastes change.
 
-## 8. Limits and what's missing
+## 9. Limits and what's missing
 
 - **Gross profit only.** The data has product costs but no labour, rent, waste or energy
   costs, so net profit gains will be smaller than gross.
@@ -291,3 +372,7 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
   as Garden without a promo (+18.9% each), so discounts alone did not move demand.
+- **A simple before-vs-after test:** on untouched history it raised false alarms 40% of the
+  time; replaced by the switchback design (5.9%).
+- **Fixing Garden by repricing alone:** thin items would need +20% to +40% price rises; the
+  root cause is a uniform 43% cost premium, so sourcing comes first.

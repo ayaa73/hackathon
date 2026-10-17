@@ -1,0 +1,46 @@
+Product,Category,units,price,cost,revenue,gross_profit,harbour_price,harbour_cost,uptown_cost,profit_per_unit,margin_pct,cost_vs_harbour_pct,cost_vs_uptown_pct,extra_cost_vs_harbour_6mo,profit_per_unit_at_harbour_cost,thin_margin,garden_action
+Quinoa Bowl,Meals,172.0,11.65,7.04,1994.52,783.64,12.23,4.92,4.72,4.56,39.29,43.09,49.15,364.64,6.73,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Chicken Salad Bowl,Meals,179.0,12.45,8.08,2216.05,769.73,13.07,5.65,5.42,4.3,34.73,43.01,49.08,434.97,6.8,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Halloumi Wrap,Sandwiches,286.0,9.95,5.92,2832.81,1139.69,10.45,4.14,3.97,3.98,40.23,43.0,49.12,509.08,5.81,False,Keep; follow chain menu-engineering action
+Egg Sandwich,Breakfast,346.0,8.15,4.45,2806.92,1267.22,8.56,3.11,2.99,3.66,45.15,43.09,48.83,463.64,5.04,False,Keep; follow chain menu-engineering action
+Tuna Sandwich,Sandwiches,210.0,8.85,5.33,1847.84,728.54,9.29,3.73,3.58,3.47,39.43,42.9,48.88,336.0,5.12,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Cold Brew,Cold Coffee,461.0,5.15,1.66,2361.91,1596.65,5.41,1.16,1.11,3.46,67.6,43.1,49.55,230.5,3.99,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Avocado Toast,Breakfast,304.0,9.45,5.98,2850.98,1033.06,9.92,4.18,4.01,3.4,36.24,43.06,49.13,547.2,5.27,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Chicken Pesto Sandwich,Sandwiches,353.0,10.75,7.39,3769.06,1160.39,11.29,5.17,4.96,3.29,30.79,42.94,48.99,783.66,5.58,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Iced Matcha,Matcha & Tea,765.0,6.85,3.59,5211.31,2464.96,7.19,2.51,2.41,3.22,47.3,43.03,48.96,826.2,4.34,False,Keep; follow chain menu-engineering action
+Classic Matcha,Matcha & Tea,650.0,6.45,3.25,4170.08,2057.58,6.77,2.27,2.18,3.17,49.34,43.17,49.08,637.0,4.18,False,Keep; follow chain menu-engineering action
+Soup of the Day,Meals,149.0,7.15,3.99,1061.8,467.29,7.51,2.79,2.68,3.14,44.01,43.01,48.88,178.8,4.36,False,Keep; follow chain menu-engineering action
+Chai Latte,Matcha & Tea,382.0,5.25,2.12,1997.17,1187.33,5.51,1.48,1.42,3.11,59.45,43.24,49.3,244.48,3.77,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Spanish Latte,Hot Coffee,411.0,5.95,2.83,2429.52,1266.39,6.25,1.98,1.9,3.08,52.13,42.93,48.95,349.35,3.97,False,Keep; follow chain menu-engineering action
+Granola Yoghurt,Breakfast,187.0,7.85,4.75,1461.63,573.38,8.24,3.32,3.19,3.07,39.23,43.07,48.9,267.41,4.53,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Strawberry Matcha,Matcha & Tea,478.0,7.65,4.55,3639.21,1464.31,8.03,3.18,3.05,3.06,40.24,43.08,49.18,654.86,4.47,False,Keep; follow chain menu-engineering action
+Caramel Latte,Hot Coffee,369.0,5.75,2.67,2105.77,1120.54,6.04,1.87,1.8,3.04,53.21,42.78,48.33,295.2,3.88,False,Keep; follow chain menu-engineering action
+Iced Mocha,Cold Coffee,362.0,6.25,3.19,2251.18,1096.4,6.56,2.23,2.14,3.03,48.7,43.05,49.07,347.52,4.02,False,Keep; follow chain menu-engineering action
+Vanilla Latte,Hot Coffee,460.0,5.45,2.46,2493.82,1362.22,5.72,1.72,1.65,2.96,54.62,43.02,49.09,340.4,3.73,False,Keep; follow chain menu-engineering action
+Lemonade,Cold Drinks,355.0,4.65,1.67,1642.0,1049.15,4.88,1.17,1.12,2.96,63.89,42.74,49.11,177.5,3.48,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Iced Latte,Cold Coffee,813.0,5.35,2.37,4317.75,2390.94,5.62,1.66,1.59,2.94,55.37,42.77,49.06,577.23,3.69,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Coffee Frappe,Cold Coffee,321.0,6.55,3.62,2095.39,933.37,6.88,2.53,2.43,2.91,44.54,43.08,48.97,349.89,4.02,False,Keep; follow chain menu-engineering action
+Turkey & Cheese Sandwich,Sandwiches,317.0,9.65,6.75,3041.6,901.85,10.13,4.72,4.53,2.84,29.65,43.01,49.01,643.51,4.93,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Peach Iced Tea,Cold Drinks,411.0,4.45,1.64,1822.2,1148.16,4.67,1.15,1.1,2.79,63.01,42.61,49.09,201.39,3.3,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Mint Tea,Matcha & Tea,196.0,3.65,0.9,709.86,533.46,3.83,0.63,0.6,2.72,75.15,42.86,50.0,52.92,3.02,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Fresh Orange Juice,Cold Drinks,336.0,5.75,3.03,1918.87,900.79,6.04,2.12,2.04,2.68,46.94,42.92,48.53,305.76,3.63,False,Keep; follow chain menu-engineering action
+English Breakfast Tea,Matcha & Tea,135.0,3.45,0.82,462.33,351.63,3.62,0.57,0.55,2.6,76.06,43.86,49.09,33.75,2.88,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Iced Americano,Cold Coffee,506.0,3.85,1.23,1936.69,1314.31,4.04,0.86,0.83,2.6,67.86,43.02,48.19,187.22,2.99,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Flat White,Hot Coffee,445.0,4.35,1.77,1924.31,1136.66,4.57,1.24,1.19,2.55,59.07,42.74,48.74,235.85,3.11,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Cappuccino,Hot Coffee,515.0,4.05,1.6,2075.92,1251.92,4.25,1.12,1.08,2.43,60.31,42.86,48.15,247.2,2.93,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Tiramisu Cup,Desserts,451.0,6.55,4.08,2935.81,1095.73,6.88,2.85,2.74,2.43,37.32,43.16,48.91,554.73,3.7,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Cheesecake Slice,Desserts,461.0,6.75,4.4,3091.64,1063.24,7.09,3.08,2.96,2.31,34.39,42.86,48.65,608.52,3.67,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Frozen Yoghurt Cup,Desserts,484.0,6.15,3.85,2961.96,1098.56,6.46,2.69,2.58,2.27,37.09,43.12,49.22,561.44,3.46,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Banana Bread,Bakery,416.0,4.45,2.25,1839.51,903.51,4.67,1.57,1.51,2.17,49.12,43.31,49.01,282.88,2.88,False,Keep; follow chain menu-engineering action
+Americano,Hot Coffee,341.0,3.15,1.03,1069.49,718.26,3.31,0.72,0.69,2.11,67.16,43.06,49.28,105.71,2.43,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Almond Croissant,Bakery,376.0,4.85,2.73,1813.32,786.84,5.09,1.91,1.83,2.09,43.39,42.93,49.18,308.32,2.94,False,Keep; follow chain menu-engineering action
+Blueberry Muffin,Bakery,319.0,3.95,1.87,1253.79,657.26,4.15,1.31,1.26,2.06,52.42,42.75,48.41,178.64,2.64,False,Keep; follow chain menu-engineering action
+Butter Croissant,Bakery,684.0,3.65,1.63,2484.78,1369.86,3.83,1.14,1.09,2.0,55.13,42.98,49.54,335.16,2.51,False,Keep; follow chain menu-engineering action
+Chocolate Croissant,Bakery,511.0,4.25,2.26,2157.58,1002.72,4.46,1.58,1.52,1.96,46.47,43.04,48.68,347.48,2.67,False,Keep; follow chain menu-engineering action
+Cinnamon Roll,Bakery,457.0,5.15,3.2,2343.34,880.94,5.41,2.24,2.15,1.93,37.59,42.86,48.84,438.72,2.91,True,Reprice to Harbour price; pair with a high-margin drink
+Chocolate Cookie,Bakery,536.0,3.15,1.3,1681.27,984.47,3.31,0.91,0.87,1.84,58.56,42.86,49.43,209.04,2.24,False,Keep; follow chain menu-engineering action
+Pistachio Cookie,Bakery,417.0,3.45,1.69,1430.83,726.1,3.62,1.18,1.13,1.74,50.75,43.22,49.56,212.67,2.27,False,Keep; follow chain menu-engineering action
+Brownie,Desserts,553.0,5.15,3.39,2829.56,954.89,5.41,2.37,2.28,1.73,33.75,43.04,48.68,564.06,2.78,True,FIX SOURCING FIRST; reprice to Harbour price; sell only in combos with high-margin drinks
+Espresso,Hot Coffee,212.0,2.65,0.93,559.37,362.21,2.78,0.65,0.62,1.71,64.75,43.08,50.0,59.36,2.0,False,PUSH at Garden: high margin survives the cost premium; lead every combo
+Still Water,Cold Drinks,367.0,1.95,0.93,711.47,370.16,2.05,0.65,0.62,1.01,52.03,43.08,50.0,102.76,1.3,False,Keep; follow chain menu-engineering action
+Sparkling Water,Cold Drinks,336.0,2.75,1.93,918.33,269.85,2.89,1.35,1.3,0.8,29.38,42.96,48.46,194.88,1.4,True,REPRICE to Harbour price (+$0.14) or drop; earns only $0.80 at Garden

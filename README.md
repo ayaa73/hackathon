@@ -12,8 +12,12 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    **estimated ~$32.8k of extra gross profit a year**, with no new customers. Each branch gets
    its own combos and a till rule built from its own sales (e.g. Uptown: drink alone →
    suggest a Chicken Pesto Sandwich; Garden/Harbour: suggest a Butter Croissant). Tested on
-   unseen months, purchase-history models beat simple baselines only slightly, so everything
-   is proven first with an **8-week A/B test at Harbour**.
+   unseen months, purchase-history models beat simple baselines only slightly, so the changes
+   are proven with a **12-week switchback test at Harbour** (a design we checked on history:
+   5.9% false alarms vs 40% for a simple before/after test).
+   **Garden, the least profitable branch**, pays **43% more than Harbour for the same items**
+   ($15.9k extra in six months, measured). Fixing its sourcing is worth an estimated
+   **~$31.8k a year**; repricing alone can't fix it.
 2. **Holiday truck** ([full write-up](docs/truck_business_case.md)).
    Eid al-Fitr 2026 cut branch revenue by 14% for four days as customers left Beirut. A Stories
    truck that follows the holiday crowd, built on a menu of easy-to-transport best-sellers.
@@ -42,9 +46,12 @@ next to it.
 | Money estimates with assumptions | `outputs/tables/money_estimates.csv`, `outputs/figures/money_estimates.png` |
 | Pairing lift + model vs baseline | `outputs/tables/pair_lift_*.csv`, `outputs/tables/pairing_model_results.csv`, `outputs/figures/pairing_model.png` |
 | Per-branch combos + till suggestions (from purchase history), tested on May-Jun | `outputs/tables/branch_combos.csv`, `outputs/tables/till_suggestions_by_branch.csv`, `outputs/tables/branch_combos_validation.csv`, `outputs/figures/branch_combos_validation.png` |
+| Garden case: cost leak, item actions, sourcing and repricing scenarios | `outputs/tables/garden_items.csv`, `outputs/tables/garden_scenarios.csv`, `outputs/tables/branch_kpis.csv`, `outputs/figures/garden_cost_leak.png`, `outputs/figures/garden_scenarios.png` |
+| Test design checked on history (false alarms, detectable effect) | `outputs/tables/ab_test_power.csv`, `outputs/tables/ab_test_placebo.csv` |
 | Leakage + stability validation | `menu_engineering/validate.py`, `outputs/tables/matrix_stability.csv` |
 
 ![Harbour menu matrix](outputs/figures/matrix_harbour.png)
+![Garden cost leak](outputs/figures/garden_cost_leak.png)
 ![Money estimates](outputs/figures/money_estimates.png)
 
 ## Project 2: Holiday truck
@@ -60,6 +67,8 @@ python menu_engineering/menu_matrix.py      # Project 1: classify items per bran
 python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
 python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
 python menu_engineering/branch_combos.py    # Project 1: per-branch combos + till suggestions + test
+python menu_engineering/garden_case.py      # Project 1: Garden cost leak + options
+python menu_engineering/ab_test_power.py    # Project 1: test design checked on history
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
 # Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
 ```

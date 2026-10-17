@@ -1,0 +1,3 @@
+design,placebo_tests,false_alarms,false_alarm_rate_pct,note
+Before vs after (weekly),10,4,40.0,Harbour already drifts +0.21% per week vs control; Eid week is an outlier
+Switchback (random ON/OFF days),2000,117,5.9,"ON and OFF days share the same weeks, so trends and holidays cancel"
