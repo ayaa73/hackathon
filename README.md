@@ -50,8 +50,11 @@ See [docs/truck_business_case.md](docs/truck_business_case.md) and the `truck/` 
 
 ## Approaches considered and rejected
 
-See [docs/approaches_considered_and_rejected.md](docs/approaches_considered_and_rejected.md)
-(section to be filled in by the team).
+See [docs/approaches_considered_and_rejected.md](docs/approaches_considered_and_rejected.md).
+We tested whether strikes, exam periods, expatriate travel and football match nights explain
+daily sales. None gave a result strong enough to act on (only 18 March stands out, and not after
+correcting for multiple tests). Evidence: `rejected_approaches/event_tests.py` and
+`outputs/tables/rejected_event_tests.csv`.
 
 ## How to run
 
@@ -62,6 +65,7 @@ python menu_engineering/menu_matrix.py      # Project 1: classify items per bran
 python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
 python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
+python rejected_approaches/event_tests.py   # rejected ideas: strikes, exams, expats, football
 # Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
 ```
 
@@ -75,6 +79,7 @@ src/clean.py                        load_clean(): shared cleaning for both proje
 src/style.py                        shared chart style
 menu_engineering/                   Project 1 scripts
 truck/                              Project 2 scripts and inputs
+rejected_approaches/                tests for ideas we explored and dropped
 docs/menu_engineering.md            Project 1 write-up for the CEO
 docs/truck_business_case.md         Project 2 write-up for the CEO
 docs/approaches_considered_and_rejected.md  approaches we tried or considered and dropped
