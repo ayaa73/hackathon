@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent
 
 STEPS = [
     ("Data", "src/clean.py"),
+    ("Data", "src/data_quality.py"),
     ("1. Menu engineering", "menu_engineering/menu_matrix.py"),
     ("1. Menu engineering", "menu_engineering/actions.py"),
     ("1. Menu engineering", "menu_engineering/pairing_model.py"),
@@ -22,7 +23,9 @@ STEPS = [
     ("1. Menu engineering", "menu_engineering/ab_test_power.py"),
     ("1. Menu engineering", "menu_engineering/evidence_checks.py"),
     ("1. Menu engineering", "menu_engineering/validate.py"),
+    ("1. Menu engineering", "menu_engineering/decision_thresholds.py"),
     ("2. Holiday truck", "truck/holiday_dips.py"),
+    ("2. Holiday truck", "truck/fitr_alternatives.py"),
     ("2. Holiday truck", "truck/truck_menu.py"),
     ("2. Holiday truck", "truck/eid_boxes.py"),
     ("2. Holiday truck", "truck/truck_model.py"),
@@ -30,6 +33,7 @@ STEPS = [
     ("3. Morning offer", "morning/morning_demand.py"),
     ("3. Morning offer", "morning/morning_supply.py"),
     ("3. Morning offer", "morning/morning_offer.py"),
+    ("3. Morning offer", "morning/decision_thresholds.py"),
     ("4. Payday cycle", "payday/payday_cycle.py"),
     ("4. Payday cycle", "payday/month_pass.py"),
     ("Rejected ideas", "rejected_approaches/event_tests.py"),

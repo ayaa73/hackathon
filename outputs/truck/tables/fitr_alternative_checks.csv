@@ -1,0 +1,6 @@
+date,weekday,revenue,expected_revenue,gap_pct,first_order,last_order,baseline_first_order_median,baseline_last_order_median,baseline_days,baseline_days_in_war,note
+2026-03-20,Friday,1376,1745,-21.1,08:08:50,23:53:26,07:26:17,23:57:53,6,5,
+2026-03-21,Saturday,911,1172,-22.2,07:06:43,23:58:47,07:13:46,23:57:20,6,5,
+2026-03-22,Sunday,1207,1376,-12.3,07:10:26,23:57:55,07:15:33,23:55:30,6,5,
+2026-03-23,Monday,1475,1600,-7.8,07:05:10,23:51:59,07:15:30,23:57:27,6,6,
+SUMMARY,,4969,5893,-15.7,,,,,24,21,Largest change in any hour's share of orders: 1.9 points (mean 1.1); opening hours normal; 21 of 24 baseline days were wartime
