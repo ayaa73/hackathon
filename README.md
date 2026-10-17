@@ -13,7 +13,7 @@ assumptions that would change the decision, and a test Stories can run before wi
 | 1b | **Menu engineering per branch**: push Stars, pair Plowhorses with Stars, per-branch till rule | **~$32.8k** | Estimate on measured item profit | Plowhorse sales fall 7-9% after the +$0.20 rise; the test shows under +4.9% | 12-week switchback test at Harbour |
 | 1c | **Garden menu v2**: reorganized board and prices | **$6.1k-$13.6k** | Estimate | Same as 1b | After 1a is answered |
 | 2 | **Eid boxes, then one pop-up stand**; rent a truck only if the pop-up proves 80+ orders a day; don't buy one | Boxes ~break-even; pop-up **$1.6k-$3.4k** | Estimate at branch-level demand | Fewer than 34 box pre-orders; pop-up under 37 orders a day | Eid box pre-orders |
-| 3 | **Morning "coffee + any pastry" bundle** with a loyalty card | **$2.9k-$9.2k** | Estimate; costs sourced | It needs an extra staff shift (+18 orders a day to pay one); under 11% of users are new | 12-week test at Harbour with today's team |
+| 3 | **Morning "coffee + any pastry" bundle** with a loyalty card | **$2.9k-$9.2k** (at +5 orders a day per branch) | Estimate; costs sourced | It needs an extra staff shift (+18 orders a day to pay one); under 11% of users are new | 12-week test at Harbour with today's team |
 | 4 | **Move promotions to the mid-month dip** (14th-27th); test a 10%-off comeback reward | Promotions: no cost; reward: up to **~$3.3k** | Cycle measured; reward estimated | The reward lifts mid-month return by less than 4-8 points | 3-month randomized test (max cost $557) |
 
 **Gross profit only:** the data has product costs but no labour, rent or energy, so net gains
@@ -45,8 +45,8 @@ football, and options inside each project) are in
    is classified per branch (Star / Plowhorse / Puzzle / Dog); 8 items change class between
    branches and 12 between morning and night. Each branch gets its own combos and till rule
    (Uptown: drink alone → suggest a Chicken Pesto Sandwich; Garden: a Butter Croissant).
-   Members repeat items no more often than chance (15.1% vs 15.3%), so their choices can be
-   steered. On unseen months, purchase-history models beat simple baselines only slightly
+   Members repeat items no more often than chance (15.1% vs 15.3%): their choices are not
+   habits, so the menu board and the till likely have room to shape them (the test measures it). On unseen months, purchase-history models beat simple baselines only slightly
    (15.5% vs 13.4% hit rate), so changes are proven with a **switchback test** (checked on
    history: 5.9% false alarms vs 40% for before/after). **Garden** pays 43% more than Harbour
    for the same items; repricing alone can't fix that, sourcing can.
@@ -93,6 +93,8 @@ Checked by `src/data_quality.py` ([`data_quality_checks.csv`](outputs/data_quali
 pip install -r requirements.txt
 python run_all.py
 ```
+
+Tested with Python 3.13 (pandas 3.0, numpy 2.5, scipy 1.18, matplotlib 3.11).
 
 `run_all.py` runs all 26 scripts in order (about a minute) and stops if any fails, including
 if the leakage and stability checks in `menu_engineering/validate.py` don't pass. Each script
