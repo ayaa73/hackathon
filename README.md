@@ -9,9 +9,11 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    53.8% of orders contain a single item, and profit per item varies more than 5x across the
    menu. Classifying every item per branch (Star / Plowhorse / Puzzle / Dog) and acting on it
    (push Stars, pair Plowhorses with Stars, rebrand Puzzles, merge Dogs) is worth an
-   **estimated ~$32.8k of extra gross profit a year**, with no new customers. A pairing model
-   beats a simple baseline only slightly (15.5% vs 13.4%), so we recommend designed pairings
-   proven by an **8-week A/B test at Harbour**.
+   **estimated ~$32.8k of extra gross profit a year**, with no new customers. Each branch gets
+   its own combos and a till rule built from its own sales (e.g. Uptown: drink alone →
+   suggest a Chicken Pesto Sandwich; Garden/Harbour: suggest a Butter Croissant). Tested on
+   unseen months, purchase-history models beat simple baselines only slightly, so everything
+   is proven first with an **8-week A/B test at Harbour**.
 2. **Holiday truck** ([full write-up](docs/truck_business_case.md)).
    Eid al-Fitr 2026 cut branch revenue by 14% for four days as customers left Beirut. A Stories
    truck that follows the holiday crowd, built on a menu of easy-to-transport best-sellers.
@@ -39,6 +41,7 @@ next to it.
 | Four designed pairings with prices | `outputs/tables/designed_pairings.csv` |
 | Money estimates with assumptions | `outputs/tables/money_estimates.csv`, `outputs/figures/money_estimates.png` |
 | Pairing lift + model vs baseline | `outputs/tables/pair_lift_*.csv`, `outputs/tables/pairing_model_results.csv`, `outputs/figures/pairing_model.png` |
+| Per-branch combos + till suggestions (from purchase history), tested on May-Jun | `outputs/tables/branch_combos.csv`, `outputs/tables/till_suggestions_by_branch.csv`, `outputs/tables/branch_combos_validation.csv`, `outputs/figures/branch_combos_validation.png` |
 | Leakage + stability validation | `menu_engineering/validate.py`, `outputs/tables/matrix_stability.csv` |
 
 ![Harbour menu matrix](outputs/figures/matrix_harbour.png)
@@ -56,6 +59,7 @@ python src/clean.py                         # clean data + integrity checks
 python menu_engineering/menu_matrix.py      # Project 1: classify items per branch
 python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
 python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
+python menu_engineering/branch_combos.py    # Project 1: per-branch combos + till suggestions + test
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
 # Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
 ```

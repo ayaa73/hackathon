@@ -2,8 +2,9 @@
 
 **Conclusion for the CEO:** run menu engineering *per branch*, not chain-wide. Push the Stars,
 pair the low-profit best-sellers with them, rebrand the high-profit items nobody orders, and
-merge the dead weight. Estimated extra gross profit: **about $32,800 a year**, with no new
-customers needed. Prove it first with an 8-week test at Harbour.
+merge the dead weight. Give every branch its own combos and its own till rule, built from
+what that branch's customers buy. Estimated extra gross profit: **about $32,800 a year**,
+with no new customers needed. Prove it first with an 8-week test at Harbour.
 
 > **Measured** = computed directly from the Jan-Jun 2026 transaction file (51,045 lines,
 > 33,887 orders after removing 132 duplicate rows).
@@ -116,6 +117,66 @@ menu space, not money):
 
 All three branches: [`designed_pairings.csv`](../outputs/tables/designed_pairings.csv).
 
+### Per-branch combos and till suggestions, from each branch's purchase history
+
+Code: [`menu_engineering/branch_combos.py`](../menu_engineering/branch_combos.py).
+Built **separately for each branch** from what that branch's customers actually bought
+together (drink + food), and from each item's profit **at that branch**.
+
+**Till rule (what staff suggest when a customer orders one item):**
+
+| Branch | Customer orders a drink alone → suggest | Customer orders food alone → suggest |
+|---|---|---|
+| **Garden** | Butter Croissant (then Egg Sandwich, Chicken Pesto Sandwich) | Iced Matcha (then Iced Latte, Classic Matcha) |
+| **Harbour** | Butter Croissant (then Chicken Pesto Sandwich, Halloumi Wrap) | Iced Matcha (then Iced Latte, Classic Matcha) |
+| **Uptown** | **Chicken Pesto Sandwich** (then Halloumi Wrap, Turkey & Cheese) | Iced Matcha (then Iced Latte, Classic Matcha) |
+
+Uptown is different because it is the sandwich branch: sandwiches sell 1.3-1.5x the chain
+average there and earn $5.31 profit each. Full table, every item and its top-3 suggestions
+per branch: [`till_suggestions_by_branch.csv`](../outputs/tables/till_suggestions_by_branch.csv).
+
+**Menu combos per branch** (pairs this branch's customers have already bought together at
+least 15 times in six months, ranked by the profit they unlock from single-item orders;
+priced 5% below buying both):
+
+| Branch | Combo | Bought together (6 mo) | Bundle price | Bundle profit | Extra profit vs first item alone |
+|---|---|---|---|---|---|
+| Garden | Butter Croissant + Iced Latte | 33 | $8.55 | $4.55 | +$2.55 |
+| Garden | Pistachio Cookie + Iced Matcha | 31 | $9.78 | $4.51 | +$2.76 |
+| Garden | Chocolate Cookie + Classic Matcha | 34 | $9.12 | $4.57 | +$2.73 |
+| Harbour | Butter Croissant + Iced Matcha | 63 | $10.47 | $6.82 | +$4.15 |
+| Harbour | Cinnamon Roll + Strawberry Matcha | 38 | $12.77 | $7.35 | +$4.20 |
+| Harbour | Iced Latte + Chicken Salad Bowl | 17 | $17.76 | $10.45 | +$6.60 |
+| Uptown | Chocolate Croissant + Iced Matcha | 21 | $10.13 | $6.20 | +$3.66 |
+| Uptown | Butter Croissant + Iced Matcha | 22 | $9.58 | $6.08 | +$3.68 |
+| Uptown | Banana Bread + Classic Matcha | 16 | $9.94 | $6.25 | +$3.51 |
+
+All combos (up to 6 per branch): [`branch_combos.csv`](../outputs/tables/branch_combos.csv).
+
+**How the till rule was chosen (tested, not assumed).** For each branch we learned from
+Jan-Apr and tested on May-Jun drink + food orders (Garden 1,082, Harbour 1,615, Uptown 598).
+Given the first item, is the real add-on in the top-3 suggestions, and how much profit do
+the suggestions capture?
+
+| Branch | Baseline: most popular | History: most likely add-on | History x profit | **Popular x profit** |
+|---|---|---|---|---|
+| Garden | $0.64 / suggestion | $0.60 | $0.60 | **$0.65** |
+| Harbour | $0.86 | $0.83 | $0.88 | **$0.88** |
+| Uptown | $0.77 | $0.74 | $0.81 | **$0.83** |
+
+![Till suggestion validation](../outputs/figures/branch_combos_validation.png)
+
+What this shows, honestly:
+- **Item-to-item history does not beat "suggest what's popular"** at branch level: there
+  are too few orders per branch for pair-specific patterns to be reliable (every 95%
+  interval of the gain includes zero; see
+  [`branch_combos_validation.csv`](../outputs/tables/branch_combos_validation.csv)).
+- **Weighting by profit captures slightly more profit per suggestion** (+$0.02 to +$0.07),
+  even though customers accept it slightly less often. The gain is not yet statistically
+  certain, so we use the **simplest method that did best: "popular at this branch x profit
+  at this branch"**, and let the A/B test (section 7) confirm it.
+- The result is a rule simple enough for staff to remember, and different per branch.
+
 ## 5. Can the data pick the pairings for us? (model vs baseline)
 
 We checked before guessing. Code: [`menu_engineering/pairing_model.py`](../menu_engineering/pairing_model.py).
@@ -190,14 +251,16 @@ Not included: fixing Garden's ~49% higher product costs, a separate lever worth 
 |---|---|
 | **Test branch** | Harbour (largest, fastest read) |
 | **Control branches** | Garden and Uptown, no menu changes |
-| **Changes at Harbour only** | New menu layout (Stars first, bowl photos), the 4 pairings, staff suggest a pairing on every single-item order, +$0.20 on Plowhorses |
+| **Changes at Harbour only** | New menu layout (Stars first, bowl photos), Harbour's combos, staff follow Harbour's till rule on every single-item order (drink alone → Butter Croissant; food alone → Iced Matcha), +$0.20 on Plowhorses |
 | **Duration** | 8 weeks (covers 8 Tuesdays and 8 Saturdays) |
 | **Main metric** | Gross profit per order (Harbour now **$5.97**). Success = **+5% or more** relative to the change at the control branches |
 | **Secondary** | Single-item order share (now 53.9%), bowls per day, Plowhorse units |
 | **Guardrails** | Orders/day must not fall more than 3%; Plowhorse units must not fall more than 5% |
 | **No other promotions** | during the test (they would blur the result) |
 
-**Staff script:** "Would you like a croissant with your iced latte? It's $8.98 together."
+**Staff script (Harbour):** "Would you like a butter croissant with that? It's a combo price
+together." For a pastry ordered alone: "An iced matcha goes great with it, $10.47 for both."
+When rolling out to Uptown, swap in its rule (drink alone → Chicken Pesto Sandwich).
 
 **Decision at week 8:**
 - Profit per order up, orders steady: **roll out** to Uptown (sandwich-first version), then
@@ -224,5 +287,7 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
 - **Chain-wide classification only:** it misclassifies 8 items for at least one branch.
 - **A complex ML recommender:** the simple co-purchase model already shows the ceiling is low;
   a bigger model would not beat a designed, tested pairing.
+- **Item-to-item history recommendations per branch:** tested on May-Jun, they did not beat
+  the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
   as Garden without a promo (+18.9% each), so discounts alone did not move demand.

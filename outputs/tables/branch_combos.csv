@@ -1,0 +1,18 @@
+branch,combo,anchor,add_on,times_bought_together_6mo,lift,p_add_on_pct,anchor_single_item_orders_6mo,price_separate,bundle_price,bundle_profit,extra_profit_vs_anchor_alone,profit_pool_6mo_usd
+Garden,Butter Croissant + Iced Latte,Butter Croissant,Iced Latte,33,0.73,5.1,248,9.0,8.55,4.55,2.55,37.0
+Garden,Brownie + Iced Latte,Brownie,Iced Latte,26,0.71,5.1,232,10.5,9.98,4.21,2.49,35.0
+Garden,Pistachio Cookie + Iced Matcha,Pistachio Cookie,Iced Matcha,31,1.19,7.6,141,10.3,9.78,4.51,2.76,35.0
+Garden,Chocolate Cookie + Classic Matcha,Chocolate Cookie,Classic Matcha,34,1.2,6.6,155,9.6,9.12,4.57,2.73,32.0
+Garden,Cinnamon Roll + Classic Matcha,Cinnamon Roll,Classic Matcha,29,1.21,6.6,143,11.6,11.02,4.57,2.64,30.0
+Garden,Chocolate Croissant + Iced Matcha,Chocolate Croissant,Iced Matcha,27,0.86,5.6,164,11.1,10.54,4.7,2.73,30.0
+Harbour,Butter Croissant + Iced Matcha,Butter Croissant,Iced Matcha,63,0.9,5.8,392,11.02,10.47,6.82,4.15,105.0
+Harbour,Chocolate Cookie + Iced Matcha,Chocolate Cookie,Iced Matcha,44,0.9,5.8,261,10.5,9.98,6.56,4.17,70.0
+Harbour,Cinnamon Roll + Strawberry Matcha,Cinnamon Roll,Strawberry Matcha,38,1.23,5.1,273,13.44,12.77,7.35,4.2,67.0
+Harbour,Pistachio Cookie + Classic Matcha,Pistachio Cookie,Classic Matcha,43,1.24,6.9,209,10.39,9.87,6.42,4.0,64.0
+Harbour,Chocolate Croissant + Strawberry Matcha,Chocolate Croissant,Strawberry Matcha,35,1.19,4.9,242,12.49,11.87,7.11,4.25,57.0
+Harbour,Iced Latte + Chicken Salad Bowl,Iced Latte,Chicken Salad Bowl,17,0.93,1.4,499,18.69,17.76,10.45,6.6,50.0
+Uptown,Chocolate Croissant + Iced Matcha,Chocolate Croissant,Iced Matcha,21,1.2,7.5,102,10.66,10.13,6.2,3.66,32.0
+Uptown,Butter Croissant + Iced Matcha,Butter Croissant,Iced Matcha,22,0.93,6.0,127,10.08,9.58,6.08,3.68,32.0
+Uptown,Banana Bread + Classic Matcha,Banana Bread,Classic Matcha,16,1.49,7.2,70,10.46,9.94,6.25,3.51,20.0
+Uptown,Chocolate Cookie + Iced Latte,Chocolate Cookie,Iced Latte,15,0.71,5.1,105,8.16,7.75,5.29,3.16,19.0
+Uptown,Iced Matcha + Pistachio Cookie,Iced Matcha,Pistachio Cookie,16,1.0,3.9,138,9.89,9.4,5.86,1.73,12.0
