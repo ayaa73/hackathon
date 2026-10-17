@@ -1,4 +1,0 @@
-scenario,regulars_buying_pct,other_active_buying_pct,extra_visits_per_buyer_per_month,buyers_per_month,profit_per_buyer_per_month_usd,gross_profit_per_year_usd,passes_sold_per_year,prepaid_cash_per_year_usd
-Conservative,10.0,0.0,0.5,61,-1.58,-1151,728,13148
-Central,20.0,3.0,1.0,170,1.06,2166,2044,36887
-Optimistic,30.0,5.0,1.5,264,3.7,11704,3163,57096

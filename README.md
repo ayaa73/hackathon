@@ -42,13 +42,15 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
    branch's normal daily swing. Value is modest: **+5 orders per branch per office day ≈
    $2.9k-$9.2k a year** (estimate, depending on how many are new). The data shows no office
    pattern, so it is tested first: 12 weeks at Harbour on a metric checked against history.
-4. **The payday cycle and a Month Pass** ([full write-up](docs/payday_month_pass.md)).
+4. **The payday cycle** ([full write-up](docs/payday_month_pass.md)).
    Orders run **+5.1% from the 28th to the 7th** and **-4.1% from the 14th to the 27th**, in all
-   6 months, all 3 branches, members and walk-ins (p < 0.001); ticket size doesn't change. Action
-   1: move promotions into the mid-month dip (no cost). Action 2: a **Month Pass** (4 drinks for
-   the price of 3.5, sold right after payday, free pastry for mid-month visits) breaks even at
-   0.80 extra visits per pass; estimates range **-$1.2k to +$11.7k a year**, so it is proven
-   first with a **randomized trial on the 607 regular members**.
+   6 months, all 3 branches, members and walk-ins (p < 0.001); ticket size doesn't change. The
+   dip is worth ~$5.5k gross profit a year at most. Action 1: move promotions into the mid-month
+   dip (no cost). A **Month Pass was sized on real members and dropped**: only 52 members buy 3+
+   drinks in half the months, so ~13 buyers a month and -$0.5k to +$0.4k a year. Instead,
+   **test a 10%-off comeback reward** on a random half of the ~1,061 post-payday members for 3
+   cycles (worst-case cost $557): it pays only above +4-8 points of mid-month return (base
+   38.9%), up to ~+$3.3k a year.
 
 **Measured vs estimated:** every number labelled *measured* comes straight from the data.
 Every *estimate* is a measured input times a stated assumption, and the assumption is written
@@ -109,13 +111,15 @@ next to it.
 
 ![Weekday orders per hour](outputs/figures/morning_idle_hours.png)
 
-## Project 4: The payday cycle and a Month Pass
+## Project 4: The payday cycle
 
 | Output | File |
 |---|---|
 | Day-of-month cycle, robustness, value of the dip | `outputs/tables/payday_by_day_of_month.csv`, `outputs/tables/payday_robustness.csv`, `outputs/tables/payday_dip_value.csv`, `outputs/figures/payday_cycle.png` |
-| Member frequency, pass design, profit scenarios | `outputs/tables/month_pass_members.csv`, `outputs/tables/month_pass_visit_distribution.csv`, `outputs/tables/month_pass_design.csv`, `outputs/tables/month_pass_scenarios.csv`, `outputs/figures/month_pass_scenarios.png` |
-| Randomized trial design | `outputs/tables/month_pass_test_design.csv` |
+| Who exists to sell to, unit economics | `outputs/tables/month_pass_members.csv`, `outputs/tables/month_pass_unit_economics.csv` |
+| Month Pass sized on the 52-member pool | `outputs/tables/month_pass_option_a.csv` |
+| Comeback reward: base, natural return, scenarios | `outputs/tables/comeback_base.csv`, `outputs/tables/comeback_option_b.csv`, `outputs/figures/month_pass_scenarios.png` |
+| Randomized test design and worst-case cost | `outputs/tables/payday_offer_tests.csv` |
 
 ![Payday cycle](outputs/figures/payday_cycle.png)
 
@@ -143,7 +147,7 @@ python morning/morning_demand.py            # Project 3: idle mornings, who buys
 python morning/morning_supply.py            # Project 3: opening times, office days, supply check
 python morning/morning_offer.py             # Project 3: bundles, loyalty vs delivery, test
 python payday/payday_cycle.py               # Project 4: day-of-month cycle
-python payday/month_pass.py                 # Project 4: Month Pass economics + trial design
+python payday/month_pass.py                 # Project 4: Month Pass + comeback reward sized on real members
 ```
 
 All scripts run from the repository root and write to `outputs/`.

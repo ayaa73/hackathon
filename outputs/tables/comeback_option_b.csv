@@ -1,0 +1,13 @@
+option,reward,reward_cost_usd,members_given_reward_per_month,natural_return_rate_pct,natural_returners_using_reward_pct,uplift_pts,breakeven_uplift_pts,gross_profit_per_year_usd
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,100.0,2,17.5,-7195
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,100.0,5,17.5,-5804
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,100.0,10,17.5,-3486
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,50.0,2,8.8,-3134
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,50.0,5,8.8,-1743
+B. Mid-month comeback reward,Free pastry,1.64,1061,38.9,50.0,10,8.8,575
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,100.0,2,8.0,-3343
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,100.0,5,8.0,-1670
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,100.0,10,8.0,1118
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,50.0,2,4.0,-1114
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,50.0,5,4.0,559
+B. Mid-month comeback reward,10% off the order,0.9,1061,38.9,50.0,10,4.0,3347

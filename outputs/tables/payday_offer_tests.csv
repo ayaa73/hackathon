@@ -1,0 +1,4 @@
+test,per_arm,smallest_detectable_uplift_pts,worst_case_cost_usd,note
+"B. Reward to a random half of 28th-7th visitors, 1 cycle(s)",530,8.4,186.0,
+"B. Reward to a random half of 28th-7th visitors, 3 cycle(s)",1592,4.8,557.0,Compares the mid-month return rate of members who got the reward vs not
+A. Month Pass,26,,,Pool of 52 is too small for a randomized test: run as a pilot and track redemptions

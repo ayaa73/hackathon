@@ -1,9 +1,7 @@
 metric,value
-Members (customer IDs),3494.0
-Active members per month (average),2237.0
+Members (customer IDs),3494
 Median visits per member per month,1.0
-90th percentile visits per member per month,1.5
-Regulars (>= 1.5 visits a month),607.0
-Regulars' average visits per month,1.67
-Members with >= 2 visits a month,79.0
-Gross profit per member order (USD),5.28
+Member-months with 0 / 1 / 2 / 3 / 4+ drinks (%),49.3 / 26.8 / 14.1 / 6.4 / 3.5
+Members with 3+ drinks in a given month (range Jan-Jun),229-425
+Members with 3+ drinks in at least half of the months (PASS POOL),52
+Members averaging 3+ drinks a month,2
