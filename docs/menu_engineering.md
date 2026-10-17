@@ -79,7 +79,8 @@ somewhere ([`class_differences.csv`](../outputs/tables/class_differences.csv)):
 
 Why: Garden's product costs are ~49% above Uptown's for the same items while its prices are
 only ~4% higher, which pushes its desserts down into Plowhorses. Uptown sells
-sandwiches and wraps 1.3-1.5x more than the chain average, which lifts Tuna Sandwich into a Star.
+sandwiches and wraps 1.3-1.5x more than the chain average, which lifts Tuna Sandwich into a Star
+([`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)).
 
 ## 4. Actions
 
@@ -331,7 +332,8 @@ Code: [`menu_engineering/garden_case.py`](../menu_engineering/garden_case.py).
 **Why it matters for the menu:** the premium is a percentage, so it hits **expensive-to-make
 items hardest**. Sandwiches (34% margin), desserts (36%) and meals (38%) fall into thin
 margins, while coffees (57%), cold drinks (53%) and matcha (50%) keep healthy margins. And
-Garden's customers love desserts: they sell **1.2-1.3x the chain average** there.
+Garden's customers love desserts: they sell **1.2-1.3x the chain average** there
+([`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)).
 
 **Options for Garden (estimated, per year):**
 
@@ -475,7 +477,8 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
 - **Item-to-item history recommendations per branch:** tested on May-Jun, they did not beat
   the popular baseline (section 4), so the till rule uses branch popularity x profit instead.
 - **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
-  as Garden without a promo (+18.9% each), so discounts alone did not move demand.
+  as Garden without a promo (+18.9% each; $471 of discounts given; see
+  [`evidence_checks.csv`](../outputs/tables/evidence_checks.csv)), so discounts alone did not move demand.
 - **A time-of-day till rule at every branch:** it helped at Harbour but made Garden's
   suggestions worse (-$0.043 per suggestion), so it is used at Harbour only.
 - **Takeaway vs dine-in menus:** profit per order ($5.27 vs $5.29) and single-item share

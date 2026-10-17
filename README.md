@@ -50,7 +50,7 @@ next to it.
 
 - 132 exact duplicate rows removed (51,177 to 51,045 rows).
 - Revenue and gross-profit formulas verified on every row (`src/clean.py`).
-- 37% of orders have no Customer ID (walk-ins).
+- 36.5% of orders have no Customer ID (walk-ins).
 - The file contains product costs only: no labour, rent, waste or energy costs, so all profit
   figures are **gross** profit.
 
@@ -69,6 +69,7 @@ next to it.
 | Time-of-day menu (12 items change class), time-of-day till rules tested on May-Jun, steerability test (members choose like random-by-popularity) | `outputs/tables/daypart_*.csv`, `outputs/tables/steerability.csv`, `outputs/figures/daypart_class_changes.png` |
 | Garden case: cost leak, item actions, sourcing and repricing scenarios | `outputs/tables/garden_items.csv`, `outputs/tables/garden_scenarios.csv`, `outputs/tables/branch_kpis.csv`, `outputs/figures/garden_cost_leak.png`, `outputs/figures/garden_scenarios.png` |
 | Test design checked on history (false alarms, detectable effect) | `outputs/tables/ab_test_power.csv`, `outputs/tables/ab_test_placebo.csv` |
+| Evidence checks for every supporting fact quoted in the docs | `outputs/tables/evidence_checks.csv` |
 | Leakage + stability validation | `menu_engineering/validate.py`, `outputs/tables/matrix_stability.csv` |
 
 ![Harbour menu matrix](outputs/figures/matrix_harbour.png)
@@ -112,6 +113,7 @@ python menu_engineering/daypart.py          # Project 1: time-of-day menu + stee
 python menu_engineering/garden_case.py      # Project 1: Garden cost leak + options
 python menu_engineering/garden_menu.py      # Project 1: Garden menu v2 (board, prices, impact)
 python menu_engineering/ab_test_power.py    # Project 1: test design checked on history
+python menu_engineering/evidence_checks.py  # Project 1: computes every supporting fact quoted in the docs
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
 python truck/holiday_dips.py                # Project 2: holiday dips (local baseline)
 python truck/truck_menu.py                  # Project 2: truck menu economics

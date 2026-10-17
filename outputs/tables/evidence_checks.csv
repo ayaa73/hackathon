@@ -1,0 +1,14 @@
+claim,value,method
+Orders without a Customer ID (%),36.5,share of transactions whose Customer ID is empty
+"Garden price vs Uptown, same items (%)",4.2,mean over 45 items of (branch average / Uptown average) - 1
+"Harbour price vs Uptown, same items (%)",9.4,mean over 45 items of (branch average / Uptown average) - 1
+"Garden unit cost vs Uptown, same items (%)",49.0,mean over 45 items of (branch average / Uptown average) - 1
+"Harbour unit cost vs Uptown, same items (%)",4.2,mean over 45 items of (branch average / Uptown average) - 1
+"Garden price vs Harbour, same items (%)",-4.8,mean over 45 items of (Garden / Harbour) - 1
+Uptown: Sandwiches sales index vs chain (range across items),1.34-1.51,item's share of the branch's units / item's share of chain units (1.00 = chain average)
+Garden: Desserts sales index vs chain (range across items),1.16-1.33,item's share of the branch's units / item's share of chain units (1.00 = chain average)
+"15% discount lines: branches, categories, dates","['Harbour']; ['Cold Coffee', 'Desserts']; 2026-03-12 to 2026-05-19",all rows with Discount Rate = 0.15
+Discount given in the 15% promo (USD),471.0,quantity x list price x 15% over promo rows
+"Harbour: iced coffee + dessert gross profit per day, promo window vs before (%)",18.9,"gross profit per trading day in Mar 12-May 19 vs Jan 1-Mar 11, same categories"
+"Garden: iced coffee + dessert gross profit per day, promo window vs before (%)",18.9,"gross profit per trading day in Mar 12-May 19 vs Jan 1-Mar 11, same categories"
+"Uptown: iced coffee + dessert gross profit per day, promo window vs before (%)",7.0,"gross profit per trading day in Mar 12-May 19 vs Jan 1-Mar 11, same categories"
