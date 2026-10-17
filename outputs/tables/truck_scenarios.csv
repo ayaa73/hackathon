@@ -1,28 +1,127 @@
-option,option_label,orders_scenario,orders_per_day,days_scenario,days_per_year,revenue,product_gross_profit,operating_cost,net_profit,upfront,first_year_cash,payback_years,breakeven_orders_per_day,within_2_years
-rent,1 Rent pilot,low,100,holidays_only,18,13481.2800,8722.0800,7020,1702.0800,1500,202.0800,0.8813,80.4854,True
-rent,1 Rent pilot,low,100,holidays_plus_summer_weekends,44,32954.2400,21320.6400,17160,4160.6400,1500,2660.6400,0.3605,80.4854,True
-rent,1 Rent pilot,low,100,holidays_weekends_events,80,59916.8000,38764.8000,31200,7564.8000,1500,6064.8000,0.1983,80.4854,True
-rent,1 Rent pilot,mid,200,holidays_only,18,26962.5600,17444.1600,7020,10424.1600,1500,8924.1600,0.1439,80.4854,True
-rent,1 Rent pilot,mid,200,holidays_plus_summer_weekends,44,65908.4800,42641.2800,17160,25481.2800,1500,23981.2800,0.0589,80.4854,True
-rent,1 Rent pilot,mid,200,holidays_weekends_events,80,119833.6000,77529.6000,31200,46329.6000,1500,44829.6000,0.0324,80.4854,True
-rent,1 Rent pilot,high,300,holidays_only,18,40443.8400,26166.2400,7020,19146.2400,1500,17646.2400,0.0783,80.4854,True
-rent,1 Rent pilot,high,300,holidays_plus_summer_weekends,44,98862.7200,63961.9200,17160,46801.9200,1500,45301.9200,0.0320,80.4854,True
-rent,1 Rent pilot,high,300,holidays_weekends_events,80,179750.4000,116294.4000,31200,85094.4000,1500,83594.4000,0.0176,80.4854,True
-buy_used,2 Buy used,low,100,holidays_only,18,13481.2800,8722.0800,3600,5122.0800,51300,-46177.9200,10.0155,41.2746,False
-buy_used,2 Buy used,low,100,holidays_plus_summer_weekends,44,32954.2400,21320.6400,8800,12520.6400,51300,-38779.3600,4.0972,41.2746,False
-buy_used,2 Buy used,low,100,holidays_weekends_events,80,59916.8000,38764.8000,16000,22764.8000,51300,-28535.2000,2.2535,41.2746,False
-buy_used,2 Buy used,mid,200,holidays_only,18,26962.5600,17444.1600,3600,13844.1600,51300,-37455.8400,3.7055,41.2746,False
-buy_used,2 Buy used,mid,200,holidays_plus_summer_weekends,44,65908.4800,42641.2800,8800,33841.2800,51300,-17458.7200,1.5159,41.2746,True
-buy_used,2 Buy used,mid,200,holidays_weekends_events,80,119833.6000,77529.6000,16000,61529.6000,51300,10229.6000,0.8337,41.2746,True
-buy_used,2 Buy used,high,300,holidays_only,18,40443.8400,26166.2400,3600,22566.2400,51300,-28733.7600,2.2733,41.2746,False
-buy_used,2 Buy used,high,300,holidays_plus_summer_weekends,44,98862.7200,63961.9200,8800,55161.9200,51300,3861.9200,0.9300,41.2746,True
-buy_used,2 Buy used,high,300,holidays_weekends_events,80,179750.4000,116294.4000,16000,100294.4000,51300,48994.4000,0.5115,41.2746,True
-buy_new,3 Buy new,low,100,holidays_only,18,13481.2800,8722.0800,3600,5122.0800,59299,-54176.9200,11.5771,41.2746,False
-buy_new,3 Buy new,low,100,holidays_plus_summer_weekends,44,32954.2400,21320.6400,8800,12520.6400,59299,-46778.3600,4.7361,41.2746,False
-buy_new,3 Buy new,low,100,holidays_weekends_events,80,59916.8000,38764.8000,16000,22764.8000,59299,-36534.2000,2.6049,41.2746,False
-buy_new,3 Buy new,mid,200,holidays_only,18,26962.5600,17444.1600,3600,13844.1600,59299,-45454.8400,4.2833,41.2746,False
-buy_new,3 Buy new,mid,200,holidays_plus_summer_weekends,44,65908.4800,42641.2800,8800,33841.2800,59299,-25457.7200,1.7523,41.2746,True
-buy_new,3 Buy new,mid,200,holidays_weekends_events,80,119833.6000,77529.6000,16000,61529.6000,59299,2230.6000,0.9637,41.2746,True
-buy_new,3 Buy new,high,300,holidays_only,18,40443.8400,26166.2400,3600,22566.2400,59299,-36732.7600,2.6278,41.2746,False
-buy_new,3 Buy new,high,300,holidays_plus_summer_weekends,44,98862.7200,63961.9200,8800,55161.9200,59299,-4137.0800,1.0750,41.2746,True
-buy_new,3 Buy new,high,300,holidays_weekends_events,80,179750.4000,116294.4000,16000,100294.4000,59299,40995.4000,0.5912,41.2746,True
+option,option_label,travel_day,orders_scenario,orders_label,orders_per_day,demand_kind,days_scenario,days_per_year,revenue,product_gross_profit,operating_cost,depreciation,net_profit,cash_profit,upfront,first_year_cash,payback_years,breakeven_orders_per_day,within_2_years
+rent,1 Rent,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,7020.0000,0.0000,-3936.4472,-3936.4472,1500,-5436.4472,inf,80.3726,False
+rent,1 Rent,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,17160.0000,0.0000,-9622.4266,-9622.4266,1500,-11122.4266,inf,80.3726,False
+rent,1 Rent,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,31200.0000,0.0000,-17495.3211,-17495.3211,1500,-18995.3211,inf,80.3726,False
+rent,1 Rent,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,7020.0000,0.0000,-1633.1926,-1633.1926,1500,-3133.1926,inf,80.3726,False
+rent,1 Rent,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,17160.0000,0.0000,-3992.2485,-3992.2485,1500,-5492.2485,inf,80.3726,False
+rent,1 Rent,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,31200.0000,0.0000,-7258.6337,-7258.6337,1500,-8758.6337,inf,80.3726,False
+rent,1 Rent,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,7020.0000,0.0000,862.1206,862.1206,1500,-637.8794,1.7399,80.3726,True
+rent,1 Rent,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,17160.0000,0.0000,2107.4059,2107.4059,1500,607.4059,0.7118,80.3726,True
+rent,1 Rent,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,31200.0000,0.0000,3831.6471,3831.6471,1500,2331.6471,0.3915,80.3726,True
+rent,1 Rent,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,7020.0000,0.0000,4922.5029,4922.5029,1500,3422.5029,0.3047,80.3726,True
+rent,1 Rent,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,17160.0000,0.0000,12032.7849,12032.7849,1500,10532.7849,0.1247,80.3726,True
+rent,1 Rent,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,31200.0000,0.0000,21877.7908,21877.7908,1500,20377.7908,0.0686,80.3726,True
+rent,1 Rent,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,7020.0000,0.0000,9837.2376,9837.2376,1500,8337.2376,0.1525,80.3726,True
+rent,1 Rent,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,17160.0000,0.0000,24046.5808,24046.5808,1500,22546.5808,0.0624,80.3726,True
+rent,1 Rent,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,31200.0000,0.0000,43721.0560,43721.0560,1500,42221.0560,0.0343,80.3726,True
+rent,1 Rent,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,7020.0000,0.0000,10448.6400,10448.6400,1500,8948.6400,0.1436,80.3726,True
+rent,1 Rent,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,17160.0000,0.0000,25541.1200,25541.1200,1500,24041.1200,0.0587,80.3726,True
+rent,1 Rent,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,31200.0000,0.0000,46438.4000,46438.4000,1500,44938.4000,0.0323,80.3726,True
+rent,1 Rent,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,7020.0000,0.0000,19182.9600,19182.9600,1500,17682.9600,0.0782,80.3726,True
+rent,1 Rent,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,17160.0000,0.0000,46891.6800,46891.6800,1500,45391.6800,0.0320,80.3726,True
+rent,1 Rent,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,31200.0000,0.0000,85257.6000,85257.6000,1500,83757.6000,0.0176,80.3726,True
+buy_used,2 Buy used,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,8300.0000,10260.0000,-15476.4472,-5216.4472,51300,-56516.4472,inf,212.4951,False
+buy_used,2 Buy used,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,13500.0000,10260.0000,-16222.4266,-5962.4266,51300,-57262.4266,inf,111.2851,False
+buy_used,2 Buy used,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,20700.0000,10260.0000,-17255.3211,-6995.3211,51300,-58295.3211,inf,79.7543,False
+buy_used,2 Buy used,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,8300.0000,10260.0000,-13173.1926,-2913.1926,51300,-54213.1926,inf,212.4951,False
+buy_used,2 Buy used,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,13500.0000,10260.0000,-10592.2485,-332.2485,51300,-51632.2485,inf,111.2851,False
+buy_used,2 Buy used,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,20700.0000,10260.0000,-7018.6337,3241.3663,51300,-48058.6337,15.8267,79.7543,False
+buy_used,2 Buy used,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,8300.0000,10260.0000,-10677.8794,-417.8794,51300,-51717.8794,inf,212.4951,False
+buy_used,2 Buy used,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,13500.0000,10260.0000,-4492.5941,5767.4059,51300,-45532.5941,8.8948,111.2851,False
+buy_used,2 Buy used,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,20700.0000,10260.0000,4071.6471,14331.6471,51300,-36968.3529,3.5795,79.7543,False
+buy_used,2 Buy used,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,8300.0000,10260.0000,-6617.4971,3642.5029,51300,-47657.4971,14.0837,212.4951,False
+buy_used,2 Buy used,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,13500.0000,10260.0000,5432.7849,15692.7849,51300,-35607.2151,3.2690,111.2851,False
+buy_used,2 Buy used,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,20700.0000,10260.0000,22117.7908,32377.7908,51300,-18922.2092,1.5844,79.7543,True
+buy_used,2 Buy used,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,8300.0000,10260.0000,-1702.7624,8557.2376,51300,-42742.7624,5.9949,212.4951,False
+buy_used,2 Buy used,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,13500.0000,10260.0000,17446.5808,27706.5808,51300,-23593.4192,1.8515,111.2851,True
+buy_used,2 Buy used,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,20700.0000,10260.0000,43961.0560,54221.0560,51300,2921.0560,0.9461,79.7543,True
+buy_used,2 Buy used,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,8300.0000,10260.0000,-1091.3600,9168.6400,51300,-42131.3600,5.5952,212.4951,False
+buy_used,2 Buy used,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,13500.0000,10260.0000,18941.1200,29201.1200,51300,-22098.8800,1.7568,111.2851,True
+buy_used,2 Buy used,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,20700.0000,10260.0000,46678.4000,56938.4000,51300,5638.4000,0.9010,79.7543,True
+buy_used,2 Buy used,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,8300.0000,10260.0000,7642.9600,17902.9600,51300,-33397.0400,2.8654,212.4951,False
+buy_used,2 Buy used,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,13500.0000,10260.0000,40291.6800,50551.6800,51300,-748.3200,1.0148,111.2851,True
+buy_used,2 Buy used,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,20700.0000,10260.0000,85497.6000,95757.6000,51300,44457.6000,0.5357,79.7543,True
+buy_new,3 Buy new,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,8300.0000,11859.8000,-17076.2472,-5216.4472,59299,-64515.4472,inf,230.8113,False
+buy_new,3 Buy new,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,13500.0000,11859.8000,-17822.2266,-5962.4266,59299,-65261.4266,inf,118.7781,False
+buy_new,3 Buy new,False,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,20700.0000,11859.8000,-18855.1211,-6995.3211,59299,-66294.3211,inf,83.8755,False
+buy_new,3 Buy new,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,8300.0000,11859.8000,-14772.9926,-2913.1926,59299,-62212.1926,inf,230.8113,False
+buy_new,3 Buy new,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,13500.0000,11859.8000,-12192.0485,-332.2485,59299,-59631.2485,inf,118.7781,False
+buy_new,3 Buy new,False,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,20700.0000,11859.8000,-8618.4337,3241.3663,59299,-56057.6337,18.2944,83.8755,False
+buy_new,3 Buy new,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,8300.0000,11859.8000,-12277.6794,-417.8794,59299,-59716.8794,inf,230.8113,False
+buy_new,3 Buy new,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,13500.0000,11859.8000,-6092.3941,5767.4059,59299,-53531.5941,10.2817,118.7781,False
+buy_new,3 Buy new,False,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,20700.0000,11859.8000,2471.8471,14331.6471,59299,-44967.3529,4.1376,83.8755,False
+buy_new,3 Buy new,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,8300.0000,11859.8000,-8217.2971,3642.5029,59299,-55656.4971,16.2797,230.8113,False
+buy_new,3 Buy new,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,13500.0000,11859.8000,3832.9849,15692.7849,59299,-43606.2151,3.7787,118.7781,False
+buy_new,3 Buy new,False,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,20700.0000,11859.8000,20517.9908,32377.7908,59299,-26921.2092,1.8315,83.8755,True
+buy_new,3 Buy new,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,8300.0000,11859.8000,-3302.5624,8557.2376,59299,-50741.7624,6.9297,230.8113,False
+buy_new,3 Buy new,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,13500.0000,11859.8000,15846.7808,27706.5808,59299,-31592.4192,2.1402,118.7781,False
+buy_new,3 Buy new,False,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,20700.0000,11859.8000,42361.2560,54221.0560,59299,-5077.9440,1.0937,83.8755,True
+buy_new,3 Buy new,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,8300.0000,11859.8000,-2691.1600,9168.6400,59299,-50130.3600,6.4676,230.8113,False
+buy_new,3 Buy new,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,13500.0000,11859.8000,17341.3200,29201.1200,59299,-30097.8800,2.0307,118.7781,False
+buy_new,3 Buy new,False,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,20700.0000,11859.8000,45078.6000,56938.4000,59299,-2360.6000,1.0415,83.8755,True
+buy_new,3 Buy new,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,8300.0000,11859.8000,6043.1600,17902.9600,59299,-41396.0400,3.3122,230.8113,False
+buy_new,3 Buy new,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,13500.0000,11859.8000,38691.8800,50551.6800,59299,-8747.3200,1.1730,118.7781,True
+buy_new,3 Buy new,False,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,20700.0000,11859.8000,83897.8000,95757.6000,59299,36458.6000,0.6193,83.8755,True
+rent,1 Rent,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,9180.0000,0.0000,-6096.4472,-6096.4472,1500,-7596.4472,inf,105.1026,False
+rent,1 Rent,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,22440.0000,0.0000,-14902.4266,-14902.4266,1500,-16402.4266,inf,105.1026,False
+rent,1 Rent,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,40800.0000,0.0000,-27095.3211,-27095.3211,1500,-28595.3211,inf,105.1026,False
+rent,1 Rent,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,9180.0000,0.0000,-3793.1926,-3793.1926,1500,-5293.1926,inf,105.1026,False
+rent,1 Rent,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,22440.0000,0.0000,-9272.2485,-9272.2485,1500,-10772.2485,inf,105.1026,False
+rent,1 Rent,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,40800.0000,0.0000,-16858.6337,-16858.6337,1500,-18358.6337,inf,105.1026,False
+rent,1 Rent,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,9180.0000,0.0000,-1297.8794,-1297.8794,1500,-2797.8794,inf,105.1026,False
+rent,1 Rent,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,22440.0000,0.0000,-3172.5941,-3172.5941,1500,-4672.5941,inf,105.1026,False
+rent,1 Rent,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,40800.0000,0.0000,-5768.3529,-5768.3529,1500,-7268.3529,inf,105.1026,False
+rent,1 Rent,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,9180.0000,0.0000,2762.5029,2762.5029,1500,1262.5029,0.5430,105.1026,True
+rent,1 Rent,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,22440.0000,0.0000,6752.7849,6752.7849,1500,5252.7849,0.2221,105.1026,True
+rent,1 Rent,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,40800.0000,0.0000,12277.7908,12277.7908,1500,10777.7908,0.1222,105.1026,True
+rent,1 Rent,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,9180.0000,0.0000,7677.2376,7677.2376,1500,6177.2376,0.1954,105.1026,True
+rent,1 Rent,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,22440.0000,0.0000,18766.5808,18766.5808,1500,17266.5808,0.0799,105.1026,True
+rent,1 Rent,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,40800.0000,0.0000,34121.0560,34121.0560,1500,32621.0560,0.0440,105.1026,True
+rent,1 Rent,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,9180.0000,0.0000,8288.6400,8288.6400,1500,6788.6400,0.1810,105.1026,True
+rent,1 Rent,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,22440.0000,0.0000,20261.1200,20261.1200,1500,18761.1200,0.0740,105.1026,True
+rent,1 Rent,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,40800.0000,0.0000,36838.4000,36838.4000,1500,35338.4000,0.0407,105.1026,True
+rent,1 Rent,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,9180.0000,0.0000,17022.9600,17022.9600,1500,15522.9600,0.0881,105.1026,True
+rent,1 Rent,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,22440.0000,0.0000,41611.6800,41611.6800,1500,40111.6800,0.0360,105.1026,True
+rent,1 Rent,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,40800.0000,0.0000,75657.6000,75657.6000,1500,74157.6000,0.0198,105.1026,True
+buy_used,2 Buy used,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,10460.0000,10260.0000,-17636.4472,-7376.4472,51300,-58676.4472,inf,237.2251,False
+buy_used,2 Buy used,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,18780.0000,10260.0000,-21502.4266,-11242.4266,51300,-62542.4266,inf,136.0152,False
+buy_used,2 Buy used,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,30300.0000,10260.0000,-26855.3211,-16595.3211,51300,-67895.3211,inf,104.4844,False
+buy_used,2 Buy used,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,10460.0000,10260.0000,-15333.1926,-5073.1926,51300,-56373.1926,inf,237.2251,False
+buy_used,2 Buy used,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,18780.0000,10260.0000,-15872.2485,-5612.2485,51300,-56912.2485,inf,136.0152,False
+buy_used,2 Buy used,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,30300.0000,10260.0000,-16618.6337,-6358.6337,51300,-57658.6337,inf,104.4844,False
+buy_used,2 Buy used,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,10460.0000,10260.0000,-12837.8794,-2577.8794,51300,-53877.8794,inf,237.2251,False
+buy_used,2 Buy used,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,18780.0000,10260.0000,-9772.5941,487.4059,51300,-50812.5941,105.2511,136.0152,False
+buy_used,2 Buy used,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,30300.0000,10260.0000,-5528.3529,4731.6471,51300,-46568.3529,10.8419,104.4844,False
+buy_used,2 Buy used,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,10460.0000,10260.0000,-8777.4971,1482.5029,51300,-49817.4971,34.6036,237.2251,False
+buy_used,2 Buy used,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,18780.0000,10260.0000,152.7849,10412.7849,51300,-40887.2151,4.9266,136.0152,False
+buy_used,2 Buy used,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,30300.0000,10260.0000,12517.7908,22777.7908,51300,-28522.2092,2.2522,104.4844,False
+buy_used,2 Buy used,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,10460.0000,10260.0000,-3862.7624,6397.2376,51300,-44902.7624,8.0191,237.2251,False
+buy_used,2 Buy used,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,18780.0000,10260.0000,12166.5808,22426.5808,51300,-28873.4192,2.2875,136.0152,False
+buy_used,2 Buy used,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,30300.0000,10260.0000,34361.0560,44621.0560,51300,-6678.9440,1.1497,104.4844,True
+buy_used,2 Buy used,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,10460.0000,10260.0000,-3251.3600,7008.6400,51300,-44291.3600,7.3195,237.2251,False
+buy_used,2 Buy used,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,18780.0000,10260.0000,13661.1200,23921.1200,51300,-27378.8800,2.1445,136.0152,False
+buy_used,2 Buy used,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,30300.0000,10260.0000,37078.4000,47338.4000,51300,-3961.6000,1.0837,104.4844,True
+buy_used,2 Buy used,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,10460.0000,10260.0000,5482.9600,15742.9600,51300,-35557.0400,3.2586,237.2251,False
+buy_used,2 Buy used,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,18780.0000,10260.0000,35011.6800,45271.6800,51300,-6028.3200,1.1332,136.0152,True
+buy_used,2 Buy used,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,30300.0000,10260.0000,75897.6000,86157.6000,51300,34857.6000,0.5954,104.4844,True
+buy_new,3 Buy new,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_only,18,4766.0221,3083.5528,10460.0000,11859.8000,-19236.2472,-7376.4472,59299,-66675.4472,inf,255.5414,False
+buy_new,3 Buy new,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_plus_summer_weekends,44,11650.2762,7537.5734,18780.0000,11859.8000,-23102.2266,-11242.4266,59299,-70541.4266,inf,143.5082,False
+buy_new,3 Buy new,True,uptown_avg,Uptown avg,35.3039,MEASURED,holidays_weekends_events,80,21182.3204,13704.6789,30300.0000,11859.8000,-28455.1211,-16595.3211,59299,-75894.3211,inf,108.6055,False
+buy_new,3 Buy new,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_only,18,8325.9945,5386.8074,10460.0000,11859.8000,-16932.9926,-5073.1926,59299,-64372.1926,inf,255.5414,False
+buy_new,3 Buy new,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_plus_summer_weekends,44,20352.4309,13167.7515,18780.0000,11859.8000,-17472.0485,-5612.2485,59299,-64911.2485,inf,143.5082,False
+buy_new,3 Buy new,True,garden_avg,Garden avg,61.6740,MEASURED,holidays_weekends_events,80,37004.4199,23941.3663,30300.0000,11859.8000,-18218.4337,-6358.6337,59299,-65657.6337,inf,108.6055,False
+buy_new,3 Buy new,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_only,18,12182.8177,7882.1206,10460.0000,11859.8000,-14437.6794,-2577.8794,59299,-61876.8794,inf,255.5414,False
+buy_new,3 Buy new,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_plus_summer_weekends,44,29780.2210,19267.4059,18780.0000,11859.8000,-11372.3941,487.4059,59299,-58811.5941,121.6625,143.5082,False
+buy_new,3 Buy new,True,harbour_avg,Harbour avg,90.2431,MEASURED,holidays_weekends_events,80,54145.8564,35031.6471,30300.0000,11859.8000,-7128.1529,4731.6471,59299,-54567.3529,12.5324,108.6055,False
+buy_new,3 Buy new,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_only,18,18458.6538,11942.5029,10460.0000,11859.8000,-10377.2971,1482.5029,59299,-57816.4971,39.9992,255.5414,False
+buy_new,3 Buy new,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_plus_summer_weekends,44,45121.1538,29192.7849,18780.0000,11859.8000,-1447.0151,10412.7849,59299,-48886.2151,5.6948,143.5082,False
+buy_new,3 Buy new,True,harbour_tuesday,Harbour Tuesday,136.7308,MEASURED,holidays_weekends_events,80,82038.4615,53077.7908,30300.0000,11859.8000,10917.9908,22777.7908,59299,-36521.2092,2.6034,108.6055,False
+buy_new,3 Buy new,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_only,18,26055.0000,16857.2376,10460.0000,11859.8000,-5462.5624,6397.2376,59299,-52901.7624,9.2695,255.5414,False
+buy_new,3 Buy new,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_plus_summer_weekends,44,63690.0000,41206.5808,18780.0000,11859.8000,10566.7808,22426.5808,59299,-36872.4192,2.6441,143.5082,False
+buy_new,3 Buy new,True,best_branch_day,Best day ever,193.0000,MEASURED,holidays_weekends_events,80,115800.0000,74921.0560,30300.0000,11859.8000,32761.2560,44621.0560,59299,-14677.9440,1.3289,108.6055,True
+buy_new,3 Buy new,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_only,18,27000.0000,17468.6400,10460.0000,11859.8000,-4851.1600,7008.6400,59299,-52290.3600,8.4608,255.5414,False
+buy_new,3 Buy new,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,66000.0000,42701.1200,18780.0000,11859.8000,12061.3200,23921.1200,59299,-35377.8800,2.4789,143.5082,False
+buy_new,3 Buy new,True,stretch_200,Stretch 200,200.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,120000.0000,77638.4000,30300.0000,11859.8000,35478.6000,47338.4000,59299,-11960.6000,1.2527,108.6055,True
+buy_new,3 Buy new,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_only,18,40500.0000,26202.9600,10460.0000,11859.8000,3883.1600,15742.9600,59299,-43556.0400,3.7667,255.5414,False
+buy_new,3 Buy new,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_plus_summer_weekends,44,99000.0000,64051.6800,18780.0000,11859.8000,33411.8800,45271.6800,59299,-14027.3200,1.3098,143.5082,True
+buy_new,3 Buy new,True,stretch_300,Stretch 300,300.0000,STRETCH - above any day Stories has recorded,holidays_weekends_events,80,180000.0000,116457.6000,30300.0000,11859.8000,74297.8000,86157.6000,59299,26858.6000,0.6883,108.6055,True
