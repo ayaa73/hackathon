@@ -1,10 +1,16 @@
 item,kind,branch,mix,list_price,box_price,box_cost,box_profit,margin_pct
-Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Garden,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,25.5000,22.9500,13.3700,9.5800,41.7429
-Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Harbour,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,26.7700,24.0930,9.3500,14.7430,61.1920
-Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Uptown,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,24.4700,22.0230,8.9700,13.0530,59.2699
-Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Garden,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,50.3000,45.2700,26.8400,18.4300,40.7113
-Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Harbour,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,52.8100,47.5290,18.7700,28.7590,60.5083
-Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Uptown,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,48.2600,43.4340,18.0100,25.4240,58.5348
-Ma'amoul (date / pistachio / walnut),ESTIMATE,Chain analogy,priced like Pistachio Cookie; cost ratio copied from that item (0.380),3.5051,3.5051,1.3314,2.1737,62.0148
-Pistachio baklava,ESTIMATE,Chain analogy,priced like Cinnamon Roll; cost ratio copied from that item (0.479),5.2449,5.2449,2.5127,2.7321,52.0917
-Rose-pistachio latte,ESTIMATE,Chain analogy,priced like Spanish Latte; cost ratio copied from that item (0.372),6.0588,6.0588,2.2531,3.8057,62.8125
+Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Garden,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,25.5000,22.9500,13.370000000000001,9.579999999999998,41.742919389978205
+Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Harbour,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,26.7700,24.0930,9.350000000000001,14.742999999999999,61.192047482671306
+Box of 6,"MEASURED mix, ESTIMATE 10% box discount",Uptown,1 Butter Croissant; 1 Cinnamon Roll; 1 Chocolate Croissant; 1 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant,24.4700,22.0230,8.97,13.053000000000003,59.26985424329111
+Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Garden,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,50.3000,45.2700,26.840000000000003,18.43,40.71128782858405
+Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Harbour,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,52.8100,47.5290,18.77,28.758999999999997,60.50832123545624
+Family box of 12,"MEASURED mix, ESTIMATE 10% box discount",Uptown,2 Butter Croissant; 2 Cinnamon Roll; 2 Chocolate Croissant; 2 Chocolate Cookie; 1 Banana Bread; 1 Almond Croissant; 1 Brownie; 1 Pistachio Cookie,48.2600,43.4340,18.009999999999998,25.424000000000007,58.534788414606076
+Ma'amoul (date / pistachio / walnut),ESTIMATE,Chain analogy,priced like Pistachio Cookie; cost ratio copied from that item (0.380),3.5051,3.5051,1.3314274447949528,2.1736908517350155,62.01476434866543
+Pistachio baklava,ESTIMATE,Chain analogy,priced like Cinnamon Roll; cost ratio copied from that item (0.479),5.2449,5.2449,2.5127272727272727,2.7321398601398608,52.09168871064085
+Rose-pistachio latte,ESTIMATE,Chain analogy,priced like Spanish Latte; cost ratio copied from that item (0.372),6.0588,6.0588,2.2531234042553194,3.8056936170212756,62.8124863922597
+"Hallab large pistachio ma'amoul, 12-piece box",RETAIL BENCHMARK,Hallab international shop,$3.00 per piece. Not a Stories cost.,36.0000,3.0000,,,
+"Hallab large walnut ma'amoul, 12-piece box",RETAIL BENCHMARK,Hallab international shop,$2.33 per piece. Not a Stories cost.,28.0000,2.3333,,,
+"Hallab large dates ma'amoul, 12-piece box",RETAIL BENCHMARK,Hallab international shop,$2.00 per piece. Not a Stories cost.,24.0000,2.0000,,,
+"Hallab pistachio ma'amoul, per kilo, Mar 2024",RETAIL BENCHMARK,Beirut.com phone survey,"Per kilo, not per piece. Size is not the cookie analogy.",22.0000,22.0000,,,
+"Hallab walnut ma'amoul, per kilo, Mar 2024",RETAIL BENCHMARK,Beirut.com phone survey,"Per kilo, not per piece. Size is not the cookie analogy.",17.0000,17.0000,,,
+"Hallab dates ma'amoul, per kilo, Mar 2024",RETAIL BENCHMARK,Beirut.com phone survey,"Per kilo, not per piece. Size is not the cookie analogy.",15.0000,15.0000,,,

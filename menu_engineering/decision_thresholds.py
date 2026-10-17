@@ -77,7 +77,7 @@ def main() -> None:
     a = g[g.iloc[:, 0].astype(str).str.startswith("A")].iloc[0, -1]
     add("Garden sourcing", "The 43% premium is a supplier price Stories can renegotiate",
         f"${a:,.0f} a year recovered",
-        "$0 cash if the premium is overhead or a transfer price loaded into unit cost",
+        "$0 cash if the premium is a markup in the export, overhead or a transfer price loaded into unit cost",
         "Not a saving: report true product cost and re-run Garden's menu matrix on it")
 
     out = pd.DataFrame(rows)
