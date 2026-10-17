@@ -1,0 +1,17 @@
+Product,group,prep,storage,avg_price,avg_unit_cost,profit_per_unit,margin_pct,units,chain_sales_mix_share
+Cold Brew,drink,batch-brewed,chilled,5.2478,1.3056,3.9422,75.1212,1494,0.0277
+Iced Latte,drink,espresso,chilled,5.4497,1.8701,3.5797,65.6851,2617,0.0485
+Iced Matcha,drink,espresso,chilled,6.9627,2.8492,4.1134,59.0784,2314,0.0429
+Classic Matcha,drink,espresso,chilled,6.5608,2.5800,3.9807,60.6750,1956,0.0363
+Iced Americano,drink,espresso,chilled,3.9176,0.9770,2.9406,75.0618,1542,0.0286
+Americano,drink,espresso,ambient,3.2053,0.8094,2.3959,74.7471,1124,0.0208
+Cappuccino,drink,espresso,chilled,4.1189,1.2607,2.8582,69.3931,1678,0.0311
+Spanish Latte,drink,espresso,chilled,6.0588,2.2531,3.8057,62.8125,1232,0.0228
+Lemonade,drink,batch-brewed,chilled,4.7270,1.3299,3.3971,71.8653,1040,0.0193
+Peach Iced Tea,drink,batch-brewed,chilled,4.5158,1.3084,3.2074,71.0252,1186,0.0220
+Still Water,drink,packaged,ambient,1.9804,0.7326,1.2479,63.0102,1189,0.0220
+Butter Croissant,food,packaged,ambient,3.7168,1.2837,2.4332,65.4635,2230,0.0413
+Chocolate Cookie,food,packaged,ambient,3.2015,1.0277,2.1738,67.8994,1662,0.0308
+Pistachio Cookie,food,packaged,ambient,3.5051,1.3314,2.1737,62.0148,1330,0.0247
+Brownie,food,packaged,ambient,5.2362,2.7874,2.4488,46.7663,1317,0.0244
+Banana Bread,food,packaged,ambient,4.5282,1.7826,2.7456,60.6330,1257,0.0233
