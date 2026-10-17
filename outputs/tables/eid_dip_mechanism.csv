@@ -1,0 +1,9 @@
+metric,actual,expected,kind,note,gap,gap_pct
+orders,560.0000,656.1667,MEASURED,Count of transactions.,-96.1667,-14.6558
+items,879.0000,1049.6667,MEASURED,Sum of quantity.,-170.6667,-16.2591
+revenue,4969.5200,5892.0950,MEASURED,Sum of line revenue.,-922.5750,-15.6578
+ticket_per_order,8.8741,8.9796,MEASURED,Revenue / orders. The basket price.,-0.1054,-1.1741
+items_per_order,1.5696,1.5997,MEASURED,Items / orders. The basket size.,-0.0301,-1.8786
+named_customer_return_fitr,0.1001,,MEASURED,173 of 1729 identified customers from the prior 21 days also bought on Fitr.,,
+named_customer_return_6_9_mar,0.1150,,MEASURED,"193 of 1678 identified customers from the prior 21 days also bought on 6-9 Mar, a normal Fri-Mon.",,
+rows_with_no_customer_id,0.3653,,MEASURED,Share of lines with a blank customer id. The return rates cover the rest only.,,

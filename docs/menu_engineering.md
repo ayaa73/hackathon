@@ -2,8 +2,10 @@
 
 **Conclusion for the CEO:** run menu engineering *per branch*, not chain-wide. Push the Stars,
 pair the low-profit best-sellers with them, rebrand the high-profit items nobody orders, and
-merge the dead weight. Estimated extra gross profit: **about $32,800 a year**, with no new
-customers needed. Prove it first with an 8-week test at Harbour.
+merge the dead weight. If the three money levers each land on their own, estimated extra
+gross profit is **about $32,800 a year**. They can hit the same order, and the bowl push
+may need new lunch traffic, so that figure is not the forecast for one combined programme.
+Prove the package first with an 8-week test at Harbour.
 
 > **Measured** = computed directly from the Jan-Jun 2026 transaction file (51,045 lines,
 > 33,887 orders after removing 132 duplicate rows).
@@ -80,6 +82,14 @@ Why: Garden's product costs are ~49% above Uptown's for the same items while its
 only ~4% higher, which pushes its desserts down into Plowhorses. Uptown sells
 sandwiches and wraps 1.3-1.5x more than the chain average, which lifts Tuna Sandwich into a Star.
 
+The cost gap is a data-quality check, not yet a sourcing project. Each branch-item has **one**
+unit cost for the whole half-year (135 branch-items, zero with a second cost). Garden's cost
+is **1.48 to 1.50 times** Uptown's on all 45 items (median 1.49). Garden's price is about
+**1.04 times** Uptown's. A ratio that flat is what a markup in the export looks like, and it
+is also what a standing contract looks like. Ask finance for one Garden invoice and one
+Uptown invoice on the same item. The Garden dessert classes, and the separate ~$33k figure
+in section 6, stand only if the invoice matches the file.
+
 ## 4. Actions
 
 Full list per branch and item: [`outputs/tables/menu_actions.csv`](../outputs/tables/menu_actions.csv).
@@ -103,7 +113,7 @@ menu space, not money):
 **Branch-specific moves:**
 - **Harbour & Uptown:** push Tiramisu and Cheesecake (Stars there).
 - **Uptown:** sandwich-first menu board; Tuna Sandwich is a Star there.
-- **Garden:** push Lemonade and Peach Iced Tea. **Fix sourcing before repricing desserts.**
+- **Garden:** push Lemonade and Peach Iced Tea. Confirm the cost field with an invoice before repricing desserts or opening a sourcing project.
 
 ### Four designed pairings (Star + Plowhorse, priced 5% below buying both)
 
@@ -181,8 +191,14 @@ is the in-store A/B test in section 7.
 Assumptions can be changed at the top of [`menu_engineering/actions.py`](../menu_engineering/actions.py).
 Sensitivity: at a 5% upsell conversion the total drops to ~$26k; at 15% it rises to ~$39k.
 
-Not included: fixing Garden's ~49% higher product costs, a separate lever worth an estimated
-~$33k a year on its own.
+The **$32,830** adds the three rows. A guest who takes a pairing and also pays +$0.20 is in
+two of them. The bowl row is extra items, and those bowls may be new lunch traffic. If the
+price rise cuts volume, drop the **$9,779**. What remains is still an estimate, and it still
+waits on the test. Pairings and the price test use people who already order. The "no new
+customers" claim does not cover the bowls.
+
+Not included: closing Garden's cost gap, a separate lever worth an estimated ~$33k a year
+only if the cost field matches an invoice (section 3).
 
 ## 7. How to prove it: 8-week A/B test
 
@@ -199,9 +215,11 @@ Not included: fixing Garden's ~49% higher product costs, a separate lever worth 
 
 **Staff script:** "Would you like a croissant with your iced latte? It's $8.98 together."
 
-**Decision at week 8:**
-- Profit per order up, orders steady: **roll out** to Uptown (sandwich-first version), then
-  Garden (after fixing its sourcing).
+**Decision at week 8.** The week-8 result says whether the package worked. It does not say
+which of the four changes did the work.
+- Profit per order up, orders steady: **roll the layout and the pairings** out to Uptown
+  (sandwich-first version). Run the +$0.20 on its own for another 4 weeks before keeping it.
+  Garden waits until finance confirms the cost field.
 - Profit up but orders down: keep pairings and menu layout, **drop the price rise**.
 - No change: revert. The cost of trying is close to zero.
 
@@ -216,6 +234,10 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
 - **Bundles shift some sales**: a customer who would have bought both items anyway now pays
   5% less. The test's profit-per-order metric captures this.
 - **Six months of data** cover winter to early summer only.
+- **Four changes move together** in the Harbour test. The decision rule above separates the
+  price rise. It does not separate the board, the photos, and the staff script.
+- **Garden's costs may be a field, not a supplier.** One unit cost per item, 48–50% above
+  Uptown on every item. Confirm with an invoice before anyone chases the ~$33k.
 
 ## Approaches we rejected
 
@@ -224,5 +246,7 @@ Re-run the matrix **every quarter per branch**: items move between classes as co
 - **Chain-wide classification only:** it misclassifies 8 items for at least one branch.
 - **A complex ML recommender:** the simple co-purchase model already shows the ceiling is low;
   a bigger model would not beat a designed, tested pairing.
-- **Discount-led pairing promos:** Harbour's 15% promo (Mar 12-May 19) produced the same growth
-  as Garden without a promo (+18.9% each), so discounts alone did not move demand.
+- **Discount-led pairing promos.** Harbour ran a 15% promo from 12 Mar to 19 May, and in that
+  comparison its orders grew about as much as Garden's, which had no promo (+18.9% each).
+  That is one uncontrolled comparison. It is a reason to try designed pairings before another
+  discount. It is not proof that discounts do nothing.

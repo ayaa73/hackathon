@@ -1,0 +1,9 @@
+metric,value,kind,note
+harbour_orders_per_open_hour,5.4794,MEASURED,Harbour's average orders per day divided by the hours that had at least one order.
+harbour_typical_peak_hour,12.0000,MEASURED,Median of Harbour's busiest hour each day.
+chain_record_hour,27.0000,MEASURED,2026-03-03 Harbour hour 21.
+eight_hours_at_harbour_pace,43.8350,ESTIMATE,ASSUMPTION: a 8-hour shift at Harbour's average pace.
+eight_hours_at_typical_peak,96.0000,ESTIMATE,"ASSUMPTION: the typical Harbour peak hour, held for all 8 hours."
+eight_hours_at_record_hour,216.0000,ESTIMATE,"ASSUMPTION: the record hour, held for all 8 hours. A ceiling, not a plan."
+rent_breakeven_orders_per_day,80.3726,ESTIMATE,From truck_model.py. Daily rent cost / product profit per order.
+buy_used_two_year_orders_per_day,183.3676,ESTIMATE,Orders/day that repay a used trailer in 2 years over 44 days.

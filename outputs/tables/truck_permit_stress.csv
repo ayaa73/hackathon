@@ -1,0 +1,5 @@
+case,demand,orders_per_day,upfront,cash_profit_44_days,payback_years,kind,note
+permit_floor_800,harbour_avg,90.2431,51300,5767.4059,8.8948,ESTIMATE,Zion permit range is about $800 to $17k+. Lebanon is still ASSUMPTION - verify locally.
+permit_floor_800,best_branch_day,193.0000,51300,27706.5808,1.8515,ESTIMATE,Zion permit range is about $800 to $17k+. Lebanon is still ASSUMPTION - verify locally.
+permit_ceiling_17000,harbour_avg,90.2431,67500,5767.4059,11.7037,ESTIMATE,Zion permit range is about $800 to $17k+. Lebanon is still ASSUMPTION - verify locally.
+permit_ceiling_17000,best_branch_day,193.0000,67500,27706.5808,2.4362,ESTIMATE,Zion permit range is about $800 to $17k+. Lebanon is still ASSUMPTION - verify locally.

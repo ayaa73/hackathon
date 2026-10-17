@@ -48,6 +48,12 @@ LIMITED = [
     ("Rose-pistachio latte", "Spanish Latte"),
 ]
 
+# Retail benchmarks. Not Stories prices. See docs/truck_sources.md.
+# Hallab international shop, box of 12 large pieces.
+HALLAB_LARGE_12 = {"pistachio": 36.0, "walnut": 28.0, "dates": 24.0}
+# Beirut.com phone survey, 28 Mar 2024, Hallab per kilo.
+HALLAB_2024_PER_KG = {"pistachio": 22.0, "walnut": 17.0, "dates": 15.0}
+
 
 def item_economics(df: pd.DataFrame) -> pd.DataFrame:
     rows = (
@@ -209,7 +215,32 @@ def main() -> None:
     mixes = {name: allocate(score, pieces) for name, pieces in BOX_SIZES.items()}
     boxes = build_boxes(econ, mixes)
     limited = limited_edition(df)
-    table = pd.concat([boxes, limited], ignore_index=True)
+    benchmarks = []
+    for filling, box_price in HALLAB_LARGE_12.items():
+        benchmarks.append({
+            "item": f"Hallab large {filling} ma'amoul, 12-piece box",
+            "kind": "RETAIL BENCHMARK",
+            "branch": "Hallab international shop",
+            "mix": f"${box_price / 12:.2f} per piece. Not a Stories cost.",
+            "list_price": box_price,
+            "box_price": box_price / 12,
+            "box_cost": pd.NA,
+            "box_profit": pd.NA,
+            "margin_pct": pd.NA,
+        })
+    for filling, kilo in HALLAB_2024_PER_KG.items():
+        benchmarks.append({
+            "item": f"Hallab {filling} ma'amoul, per kilo, Mar 2024",
+            "kind": "RETAIL BENCHMARK",
+            "branch": "Beirut.com phone survey",
+            "mix": "Per kilo, not per piece. Size is not the cookie analogy.",
+            "list_price": kilo,
+            "box_price": kilo,
+            "box_cost": pd.NA,
+            "box_profit": pd.NA,
+            "margin_pct": pd.NA,
+        })
+    table = pd.concat([boxes, limited, pd.DataFrame(benchmarks)], ignore_index=True)
     goal = targets(df, boxes)
 
     # Where a box earns less. Measured, not typed in.

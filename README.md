@@ -7,15 +7,16 @@ Harbour, Uptown; 45 menu items; 33,887 orders).
 
 1. **Menu engineering per branch** ([full write-up](docs/menu_engineering.md)).
    53.8% of orders contain a single item, and profit per item varies more than 5x across the
-   menu. Classifying every item per branch (Star / Plowhorse / Puzzle / Dog) and acting on it
-   (push Stars, pair Plowhorses with Stars, rebrand Puzzles, merge Dogs) is worth an
-   **estimated ~$32.8k of extra gross profit a year**, with no new customers. A pairing model
-   beats a simple baseline only slightly (15.5% vs 13.4%), so we recommend designed pairings
-   proven by an **8-week A/B test at Harbour**.
-2. **Holiday truck** ([full write-up](docs/truck_business_case.md)).
-   Eid al-Fitr 2026 cut branch revenue by 14% for four days as customers left Beirut. A Stories
-   truck that follows the holiday crowd, built on a menu of easy-to-transport best-sellers.
-   *(Section owned by teammate B.)*
+   menu. Classify every item per branch (Star / Plowhorse / Puzzle / Dog), then push Stars,
+   pair Plowhorses with Stars, rebrand Puzzles, and merge Dogs. If the three levers
+   each land on their own, the estimate is **~$32.8k of extra gross profit a year**. They can
+   overlap, and the bowl push may need new lunch orders. A pairing model beats a simple
+   baseline only slightly (15.5% vs 13.4%), so the pairings are designed, then proven by an
+   **8-week test at Harbour**.
+2. **Should Stories go to the customer?** ([full write-up](docs/truck_business_case.md)).
+   Eid al-Fitr was **$923 (−15.7%)** under a local baseline. The gap is fewer orders, not
+   proof that customers left Beirut. Start with Eid boxes, then one pop-up. Rent a truck only
+   if that pop-up holds about **80 orders a day**. Do not buy one on this file.
 
 **Measured vs estimated:** every number labelled *measured* comes straight from the data.
 Every *estimate* is a measured input times a stated assumption, and the assumption is written
@@ -57,7 +58,14 @@ python menu_engineering/menu_matrix.py      # Project 1: classify items per bran
 python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
 python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
 python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
-# Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
+python truck/holiday_dips.py                # Project 2: local holiday baseline
+python truck/dip_mechanism.py               # Project 2: orders vs basket, named-customer return
+python truck/truck_menu.py                  # Project 2: truck menu economics
+python truck/truck_model.py                 # Project 2: rent vs buy at measured demand
+python truck/eid_boxes.py                   # Project 2: boxes, targets, retail benchmarks
+python truck/service_capacity.py            # Project 2: 8-hour cap and permit stress
+python truck/channel_comparison.py          # Project 2: boxes, pop-up, rent, buy
+python truck/score_pilot.py                 # Project 2: score truck/pilot_log.csv (empty until a test)
 ```
 
 All scripts run from the repository root and write to `outputs/`.
