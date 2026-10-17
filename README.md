@@ -39,6 +39,7 @@ next to it.
 | Four designed pairings with prices | `outputs/tables/designed_pairings.csv` |
 | Money estimates with assumptions | `outputs/tables/money_estimates.csv`, `outputs/figures/money_estimates.png` |
 | Pairing lift + model vs baseline | `outputs/tables/pair_lift_*.csv`, `outputs/tables/pairing_model_results.csv`, `outputs/figures/pairing_model.png` |
+| Leakage + stability validation | `menu_engineering/validate.py`, `outputs/tables/matrix_stability.csv` |
 
 ![Harbour menu matrix](outputs/figures/matrix_harbour.png)
 ![Money estimates](outputs/figures/money_estimates.png)
@@ -55,6 +56,7 @@ python src/clean.py                         # clean data + integrity checks
 python menu_engineering/menu_matrix.py      # Project 1: classify items per branch
 python menu_engineering/actions.py          # Project 1: actions, pairings, money estimates
 python menu_engineering/pairing_model.py    # Project 1: lift + model vs baseline
+python menu_engineering/validate.py         # Project 1: leakage + stability checks (must print "All checks passed")
 # Project 2 scripts: see truck/ (run in the order listed in docs/truck_business_case.md)
 ```
 

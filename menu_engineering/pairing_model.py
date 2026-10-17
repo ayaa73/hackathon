@@ -67,26 +67,38 @@ def evaluate(train: pd.DataFrame, test: pd.DataFrame, cat: pd.Series) -> pd.Data
     def top(counter, exclude):
         return [x for x, _ in counter.most_common(TOP_K + 1) if x != exclude][:TOP_K]
 
-    hits = {"Baseline: most popular": [], "Model 1: co-purchase": [], "Model 2: category co-purchase": []}
+    names = ["Baseline: most popular", "Model 1: co-purchase", "Model 2: category co-purchase"]
+    # One row per test order: hits (0, 1 or 2) when predicting each item from the other.
+    hits = []
     for items in test["items"]:
         if len(items) != 2:
             continue
-        for a, c in (items, items[::-1]):  # predict each item from the other
-            hits["Baseline: most popular"].append(c in top(pop, a))
-            hits["Model 1: co-purchase"].append(c in top(co[a], a))
-            hits["Model 2: category co-purchase"].append(c in top(cat_co[cat[a]], a))
+        row = [0, 0, 0]
+        for a, c in (items, items[::-1]):
+            row[0] += c in top(pop, a)
+            row[1] += c in top(co[a], a)
+            row[2] += c in top(cat_co[cat[a]], a)
+        hits.append(row)
+    hits = np.array(hits)
+    n = len(hits)
 
+    # Bootstrap by ORDER (both predictions from one order stay together, so the
+    # interval is not artificially narrow).
     rng = np.random.default_rng(42)
+    boots = np.array([hits[rng.integers(0, n, n)].sum(axis=0) / (2 * n) for _ in range(N_BOOT)])
+    rate = hits.sum(axis=0) / (2 * n)
     rows = []
-    for name, h in hits.items():
-        h = np.array(h)
-        boots = [h[rng.integers(0, len(h), len(h))].mean() for _ in range(N_BOOT)]
-        rows.append({"method": name, "test_predictions": len(h), "top3_hit_rate_pct": round(h.mean() * 100, 1),
-                     "ci95_low_pct": round(np.percentile(boots, 2.5) * 100, 1),
-                     "ci95_high_pct": round(np.percentile(boots, 97.5) * 100, 1)})
+    for i, name in enumerate(names):
+        gain = (boots[:, i] - boots[:, 0]) * 100
+        rows.append({"method": name, "test_orders": n, "test_predictions": 2 * n,
+                     "top3_hit_rate_pct": round(rate[i] * 100, 1),
+                     "ci95_low_pct": round(np.percentile(boots[:, i], 2.5) * 100, 1),
+                     "ci95_high_pct": round(np.percentile(boots[:, i], 97.5) * 100, 1),
+                     "gain_vs_baseline_pts": round((rate[i] - rate[0]) * 100, 2),
+                     "gain_ci95_low_pts": round(np.percentile(gain, 2.5), 2),
+                     "gain_ci95_high_pts": round(np.percentile(gain, 97.5), 2)})
     out = pd.DataFrame(rows)
-    base = out.loc[0, "top3_hit_rate_pct"]
-    out["relative_gain_vs_baseline_pct"] = ((out.top3_hit_rate_pct / base - 1) * 100).round(1)
+    out["relative_gain_vs_baseline_pct"] = ((out.top3_hit_rate_pct / out.loc[0, "top3_hit_rate_pct"] - 1) * 100).round(1)
     return out
 
 

@@ -128,19 +128,44 @@ category pair is Sandwiches + Cold Drinks (**1.00**).
 **Recommender test:** trained on Jan-Apr, tested on May-Jun orders it never saw (11,250
 predictions from 2-item orders). Given one item, is the other in our top-3 suggestions?
 
-| Method | Top-3 hit rate | 95% interval |
-|---|---|---|
-| Baseline: 3 most popular items | 13.4% | 12.7-14.0% |
-| Model 1: items bought with this item | 14.6% | 13.9-15.2% |
-| **Model 2: items bought with this item's category** | **15.5%** | 14.9-16.2% |
+| Method | Top-3 hit rate | 95% interval | Gain vs baseline (95% interval) |
+|---|---|---|---|
+| Baseline: 3 most popular items | 13.4% | 12.7-14.1% | — |
+| Model 1: items bought with this item | 14.6% | 13.8-15.3% | +1.2 pts (+0.5 to +1.9) |
+| **Model 2: items bought with this item's category** | **15.5%** | 14.8-16.2% | **+2.1 pts (+1.5 to +2.7)** |
+
+Intervals are bootstrapped **by order** (5,625 test orders), so the two predictions from the
+same order are never treated as independent.
 
 ![Pairing model](../outputs/figures/pairing_model.png)
 
-**Conclusion:** the model beats the baseline (+16% relative, intervals don't overlap), but
+**Conclusion:** the model beats the baseline (+16% relative; the gain's interval stays above zero), but
 the absolute gain is small. Customers do not yet have strong pairing habits, so **the data
 cannot pick winning pairings on its own.** Pairings must be **designed for profit** and
 **proven with an in-store A/B test** (section 7). The model is still useful as a
 till-suggestion fallback for items not in a designed pairing.
+
+### Validation: no data leakage, stable results
+
+Code: [`menu_engineering/validate.py`](../menu_engineering/validate.py) (fails loudly if any check breaks).
+
+| Check | Result |
+|---|---|
+| Time split | Train Jan 1-Apr 30 (9,445 multi-item orders), test May 1-Jun 30 (6,186). No date overlap |
+| Shared transactions | 0 transactions in both sets; no transaction spans two dates |
+| Leakage test | Model rebuilt from a copy of the data with May-Jun **deleted** gives **identical** test results |
+| What the model uses | Only train-period counts + each product's category (fixed menu metadata, not learned) |
+| Matrix stability | Classified on Jan-Mar, re-classified on Apr-Jun: **100%** of chain classes unchanged; 95.6-97.8% per branch |
+
+Items that moved between halves (watch these in the quarterly re-run): Halloumi Wrap at
+Garden and Harbour (on the Star/Puzzle line), Tiramisu Cup and Blueberry Muffin at Uptown.
+The teas, Espresso and bowls keep their class in both halves, so those actions are robust.
+Blueberry Muffin at Uptown was a Plowhorse in Jan-Mar and a Dog in Apr-Jun, so it is a
+borderline case: that is why its removal is a 6-week test at Uptown only, not a permanent cut.
+
+**What is *not* a trained model:** the menu matrix and money estimates are descriptive
+calculations on the full six months, with no prediction involved. Their out-of-sample test
+is the in-store A/B test in section 7.
 
 ## 6. Money (estimated)
 
