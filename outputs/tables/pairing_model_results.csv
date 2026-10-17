@@ -1,0 +1,4 @@
+method,test_predictions,top3_hit_rate_pct,ci95_low_pct,ci95_high_pct,relative_gain_vs_baseline_pct
+Baseline: most popular,11250,13.4,12.7,14.0,0.0
+Model 1: co-purchase,11250,14.6,13.9,15.2,9.0
+Model 2: category co-purchase,11250,15.5,14.9,16.2,15.7

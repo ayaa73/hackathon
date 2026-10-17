@@ -1,0 +1,154 @@
+a,b,orders_together,lift
+Sparkling Water,Turkey & Cheese Sandwich,37,1.234
+Chocolate Cookie,Mint Tea,31,1.113
+Halloumi Wrap,Sparkling Water,30,1.11
+Cinnamon Roll,Strawberry Matcha,65,1.103
+Peach Iced Tea,Turkey & Cheese Sandwich,36,1.085
+Halloumi Wrap,Still Water,32,1.066
+Chicken Pesto Sandwich,Peach Iced Tea,38,1.047
+Chicken Pesto Sandwich,Still Water,38,1.043
+Halloumi Wrap,Peach Iced Tea,31,1.037
+Chocolate Croissant,Strawberry Matcha,62,1.032
+Almond Croissant,Classic Matcha,63,1.026
+Banana Bread,Strawberry Matcha,50,1.017
+Iced Matcha,Pistachio Cookie,82,1.004
+Almond Croissant,Vanilla Latte,43,0.999
+Chai Latte,Cinnamon Roll,43,0.966
+Cinnamon Roll,Classic Matcha,76,0.962
+Almond Croissant,Strawberry Matcha,44,0.96
+Chocolate Croissant,Iced Matcha,89,0.947
+Blueberry Muffin,Iced Matcha,52,0.925
+Chocolate Croissant,Classic Matcha,74,0.919
+Still Water,Turkey & Cheese Sandwich,30,0.9
+Butter Croissant,Classic Matcha,103,0.879
+Chocolate Cookie,Iced Matcha,89,0.872
+Classic Matcha,Pistachio Cookie,61,0.872
+Chocolate Cookie,Classic Matcha,76,0.869
+Chicken Salad Bowl,Iced Latte,32,0.863
+Butter Croissant,Iced Matcha,114,0.834
+Americano,Banana Bread,31,0.827
+Butter Croissant,Chai Latte,54,0.818
+Chai Latte,Chocolate Croissant,37,0.815
+Blueberry Muffin,Cappuccino,33,0.804
+Chocolate Cookie,Iced Americano,54,0.793
+Cinnamon Roll,Iced Matcha,73,0.792
+Caramel Latte,Cinnamon Roll,34,0.77
+Banana Bread,Classic Matcha,50,0.759
+Almond Croissant,Iced Americano,36,0.752
+Chai Latte,Chocolate Cookie,37,0.751
+Butter Croissant,Strawberry Matcha,65,0.744
+Butter Croissant,Spanish Latte,54,0.734
+Chocolate Croissant,Iced Mocha,33,0.729
+Almond Croissant,Iced Matcha,52,0.726
+Cappuccino,Pistachio Cookie,43,0.721
+Chocolate Cookie,Strawberry Matcha,47,0.721
+Butter Croissant,Flat White,58,0.716
+Caramel Latte,Chocolate Croissant,32,0.711
+Chocolate Cookie,Vanilla Latte,43,0.702
+Chicken Pesto Sandwich,Cold Brew,32,0.699
+Cinnamon Roll,Vanilla Latte,38,0.686
+Cappuccino,Egg Sandwich,30,0.685
+Pistachio Cookie,Spanish Latte,30,0.683
+Spanish Latte,Vanilla Latte,31,0.681
+Chocolate Cookie,Spanish Latte,37,0.674
+Chocolate Croissant,Cold Brew,41,0.673
+Flat White,Spanish Latte,30,0.669
+Americano,Cinnamon Roll,30,0.668
+Cappuccino,Classic Matcha,58,0.658
+Caramel Latte,Chocolate Cookie,32,0.655
+Cappuccino,Spanish Latte,36,0.651
+Chocolate Croissant,Flat White,36,0.647
+Cheesecake Slice,Strawberry Matcha,30,0.645
+Banana Bread,Cold Brew,32,0.642
+Butter Croissant,Caramel Latte,42,0.642
+Cappuccino,Cheesecake Slice,34,0.64
+Cold Brew,Vanilla Latte,35,0.638
+Butter Croissant,Iced Mocha,42,0.638
+Chocolate Croissant,Spanish Latte,32,0.633
+Butter Croissant,Cold Brew,56,0.632
+Cinnamon Roll,Spanish Latte,31,0.625
+Almond Croissant,Iced Latte,50,0.623
+Cappuccino,Still Water,33,0.622
+Chocolate Croissant,Vanilla Latte,35,0.62
+Cinnamon Roll,Cold Brew,37,0.619
+Brownie,Iced Latte,56,0.617
+Butter Croissant,Iced Americano,56,0.614
+Pistachio Cookie,Strawberry Matcha,32,0.613
+Pistachio Cookie,Vanilla Latte,30,0.612
+Iced Latte,Tuna Sandwich,30,0.611
+Butter Croissant,Iced Latte,93,0.608
+Chocolate Cookie,Still Water,32,0.607
+Banana Bread,Iced Americano,31,0.604
+Classic Matcha,Halloumi Wrap,30,0.602
+Chocolate Croissant,Iced Latte,63,0.599
+Banana Bread,Iced Matcha,46,0.598
+Brownie,Iced Americano,32,0.591
+Banana Bread,Cappuccino,33,0.588
+Cinnamon Roll,Flat White,32,0.586
+Butter Croissant,Vanilla Latte,48,0.585
+Chocolate Cookie,Iced Latte,66,0.578
+Cheesecake Slice,Iced Latte,47,0.577
+Chocolate Cookie,Cold Brew,38,0.574
+Iced Latte,Pistachio Cookie,52,0.569
+Cinnamon Roll,Iced Americano,35,0.569
+Iced Matcha,Sparkling Water,36,0.55
+Butter Croissant,Coffee Frappe,31,0.549
+Banana Bread,Iced Latte,47,0.546
+Brownie,Iced Matcha,44,0.543
+Cappuccino,Chocolate Croissant,37,0.539
+Chocolate Cookie,Flat White,32,0.529
+Americano,Butter Croissant,35,0.525
+Cappuccino,Chocolate Cookie,39,0.523
+Iced Americano,Iced Latte,55,0.523
+Avocado Toast,Iced Latte,32,0.521
+Iced Latte,Vanilla Latte,49,0.518
+Classic Matcha,Still Water,32,0.514
+Cheesecake Slice,Classic Matcha,32,0.513
+Chicken Pesto Sandwich,Classic Matcha,31,0.512
+Classic Matcha,Iced Americano,40,0.497
+Frozen Yoghurt Cup,Iced Latte,38,0.495
+Butter Croissant,Turkey & Cheese Sandwich,31,0.495
+Blueberry Muffin,Iced Latte,31,0.493
+Iced Matcha,Strawberry Matcha,44,0.489
+Cappuccino,Vanilla Latte,30,0.486
+Americano,Iced Latte,37,0.482
+Chocolate Croissant,Iced Americano,30,0.478
+Cinnamon Roll,Iced Latte,49,0.475
+Iced Matcha,Iced Mocha,32,0.472
+Chicken Pesto Sandwich,Iced Latte,37,0.469
+Iced Latte,Strawberry Matcha,47,0.467
+Frozen Yoghurt Cup,Iced Matcha,32,0.467
+Iced Latte,Iced Mocha,35,0.461
+Cappuccino,Cinnamon Roll,31,0.461
+Iced Latte,Tiramisu Cup,32,0.46
+Cappuccino,Iced Matcha,47,0.457
+Flat White,Iced Latte,42,0.45
+Iced Matcha,Vanilla Latte,38,0.449
+Classic Matcha,Flat White,32,0.448
+Classic Matcha,Cold Brew,35,0.447
+Iced Latte,Peach Iced Tea,36,0.444
+Iced Latte,Still Water,36,0.443
+Chai Latte,Iced Matcha,30,0.441
+Iced Matcha,Still Water,32,0.44
+Chicken Pesto Sandwich,Iced Matcha,31,0.439
+Fresh Orange Juice,Iced Latte,30,0.438
+Iced Latte,Spanish Latte,37,0.437
+Iced Latte,Turkey & Cheese Sandwich,31,0.429
+Classic Matcha,Vanilla Latte,31,0.428
+Cappuccino,Iced Latte,49,0.426
+Iced Matcha,Spanish Latte,32,0.423
+Cold Brew,Iced Latte,43,0.421
+Chai Latte,Iced Latte,32,0.421
+Iced Matcha,Peach Iced Tea,30,0.414
+Butter Croissant,Cappuccino,41,0.411
+Iced Latte,Sparkling Water,30,0.41
+Brownie,Butter Croissant,32,0.406
+Cold Brew,Iced Matcha,37,0.405
+Classic Matcha,Strawberry Matcha,30,0.389
+Iced Latte,Iced Matcha,61,0.387
+Iced Americano,Iced Matcha,36,0.383
+Butter Croissant,Pistachio Cookie,30,0.378
+Butter Croissant,Chocolate Croissant,34,0.373
+Classic Matcha,Iced Latte,49,0.363
+Butter Croissant,Chocolate Cookie,35,0.353
+Classic Matcha,Iced Matcha,38,0.315

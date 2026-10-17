@@ -1,0 +1,37 @@
+a,b,orders_together,lift
+Cold Drinks,Sandwiches,532,0.996
+Cold Drinks,Meals,192,0.931
+Bakery,Matcha & Tea,1994,0.877
+Bakery,Hot Coffee,1580,0.656
+Bakery,Cold Coffee,1323,0.605
+Breakfast,Meals,55,0.583
+Cold Coffee,Meals,165,0.573
+Meals,Sandwiches,83,0.56
+Hot Coffee,Meals,176,0.555
+Breakfast,Cold Drinks,188,0.552
+Desserts,Meals,97,0.545
+Breakfast,Sandwiches,132,0.54
+Breakfast,Hot Coffee,281,0.537
+Breakfast,Desserts,156,0.531
+Hot Coffee,Sandwiches,434,0.529
+Cold Drinks,Hot Coffee,603,0.527
+Cold Coffee,Desserts,468,0.523
+Breakfast,Cold Coffee,242,0.509
+Cold Coffee,Sandwiches,376,0.504
+Desserts,Sandwiches,232,0.504
+Cold Drinks,Desserts,307,0.478
+Desserts,Matcha & Tea,444,0.477
+Cold Coffee,Cold Drinks,490,0.472
+Cold Coffee,Hot Coffee,745,0.467
+Desserts,Hot Coffee,459,0.465
+Matcha & Tea,Sandwiches,355,0.458
+Cold Drinks,Matcha & Tea,483,0.447
+Hot Coffee,Matcha & Tea,729,0.439
+Breakfast,Matcha & Tea,215,0.435
+Cold Coffee,Matcha & Tea,651,0.432
+Matcha & Tea,Meals,128,0.427
+Bakery,Sandwiches,472,0.42
+Bakery,Meals,180,0.415
+Bakery,Desserts,530,0.393
+Bakery,Breakfast,280,0.391
+Bakery,Cold Drinks,590,0.377
