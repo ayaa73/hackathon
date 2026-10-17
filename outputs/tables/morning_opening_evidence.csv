@@ -1,0 +1,4 @@
+branch,days_trading,days_in_period,earliest_first_order,median_first_order,days_first_order_before_8am_pct
+Garden,181,181,07:00,07:32,74.6
+Harbour,181,181,07:00,07:24,79.6
+Uptown,181,181,07:00,07:50,55.2

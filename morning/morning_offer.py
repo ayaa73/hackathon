@@ -13,7 +13,7 @@
 
 Everything not computed from the data is an ASSUMPTION at the top of this file.
 
-Run from the repo root (after morning_demand.py):  python morning/morning_offer.py
+Run from the repo root (after morning_demand.py and morning_supply.py):  python morning/morning_offer.py
 """
 import sys
 from pathlib import Path
@@ -34,16 +34,26 @@ from morning.morning_demand import BRANCHES, DRINKS, add_parts, orders  # noqa: 
 TABLES = ROOT / "outputs" / "tables"
 FIGS = ROOT / "outputs" / "figures"
 
-# ---- Assumptions (verify locally) ------------------------------------------------
-BUNDLE_DISCOUNT = 0.10           # bundle priced 10% below buying the items separately
-WEEKDAYS_PER_YEAR = 255          # Mon-Fri minus ~5 public holidays (office days)
-DELIVERY_COST = 2.00             # USD Stories pays a rider/aggregator per delivery
-FREE_DELIVERIES_PER_NEW_CUSTOMER = 3
-LOYALTY_EVERY_N = 6              # loyalty card: 6th morning bundle free
-INCREMENTAL_SHARE = 0.70         # share of offer orders that are genuinely new (scenarios)
-EXTRA_ORDERS_PER_BRANCH_DAY = [5, 10, 20]
+# ---- Inputs and assumptions --------------------------------------------------------
+# Sources are listed in docs/morning_sources.md. DESIGN = a choice we make, not a fact.
+BUNDLE_DISCOUNT = 0.10           # DESIGN: bundle 10% below buying the items separately
+# Office days per year: MEASURED from the calendar (Mon-Fri minus HolidayDB weekday
+# public holidays, Jan-Jun 2026, x2); computed by morning_supply.py.
+OFFICE_DAYS_FILE = "morning_office_days.csv"
+# Delivery cost per order, SOURCED: courier services such as Wakilni charge restaurants
+# "typically 2 to 6 USD per delivery in Beirut" (Voxire, May 2026).
+COURIER_COST = {"low": 2.0, "mid": 4.0, "high": 6.0}
+# Delivery apps, SOURCED: Toters / Talabat commission 22-30% of order value (Voxire, May 2026).
+APP_COMMISSION = {"strong brand": 0.22, "standard": 0.30}
+FREE_DELIVERIES_PER_NEW_CUSTOMER = 3   # DESIGN
+LOYALTY_EVERY_N = 6              # DESIGN: 6th morning bundle free (a free item is the most common
+                                 # reward: 48% of food & drink programs on Square Loyalty)
+NEW_CUSTOMER_SHARES = [0.3, 0.5, 0.7]  # ASSUMPTION range: share of offer orders that are new
+EXTRA_ORDERS_PER_BRANCH_DAY = [2, 5, 10]  # ASSUMPTION range; +2/day = what the test can detect
 UPSELL_CONVERSION = [0.10, 0.20, 0.30]
+WORKABLE_NEW_SHARE_PCT = 35      # DESIGN: a channel is "workable" if it pays with 35% new customers or fewer
 BUNDLES = {
+    "Coffee + any pastry": None,  # flexible: priced at each branch's morning hot-coffee and bakery mix
     "Quick morning": ["Vanilla Latte", "Butter Croissant"],
     "Office breakfast": ["Spanish Latte", "Egg Sandwich"],
     "Office pack (4+4)": ["Cappuccino", "Flat White", "Vanilla Latte", "Spanish Latte",
@@ -62,11 +72,21 @@ def morning_matrix(df: pd.DataFrame) -> pd.DataFrame:
 def bundle_table(df: pd.DataFrame) -> pd.DataFrame:
     price = df.groupby(["Branch", "Product"])["Unit Price (USD)"].mean()
     cost = df.groupby(["Branch", "Product"])["Unit Cost (USD)"].mean()
+    morning = df[df.daypart == "morning"]
     rows = []
     for b in BRANCHES:
         for name, items in BUNDLES.items():
-            sep = sum(price[(b, i)] for i in items)
-            c = sum(cost[(b, i)] for i in items)
+            if items is None:  # morning-mix-weighted hot coffee + bakery item at this branch
+                sep = c = 0.0
+                for cat in ("Hot Coffee", "Bakery"):
+                    m = morning[(morning.Branch == b) & (morning.Category == cat)]
+                    w = m.groupby("Product").Quantity.sum()
+                    sep += (price[b].reindex(w.index) * w).sum() / w.sum()
+                    c += (cost[b].reindex(w.index) * w).sum() / w.sum()
+                items = ["any hot coffee", "any bakery item (weighted by morning sales)"]
+            else:
+                sep = sum(price[(b, i)] for i in items)
+                c = sum(cost[(b, i)] for i in items)
             bp = sep * (1 - BUNDLE_DISCOUNT)
             rows.append({"branch": b, "bundle": name, "items": " + ".join(items),
                          "price_separate": round(sep, 2), "bundle_price": round(bp, 2),
@@ -97,13 +117,15 @@ def upsell_ceiling(df: pd.DataFrame, tx: pd.DataFrame, bundles: pd.DataFrame) ->
 def channel_economics(bundles: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for name, g in bundles.groupby("bundle", sort=False):
-        profit = g.bundle_profit.mean()
-        cost = g.bundle_cost.mean()
-        loyalty_cost = cost / LOYALTY_EVERY_N
-        for channel, per_order_cost in [("Walk-in + loyalty card (6th free)", loyalty_cost),
-                                        (f"Delivery, first {FREE_DELIVERIES_PER_NEW_CUSTOMER} free", DELIVERY_COST),
-                                        ("Delivery, customer pays the fee", 0.0)]:
-            rows.append({"bundle": name, "channel": channel, "bundle_profit": round(profit, 2),
+        profit, cost, price = g.bundle_profit.mean(), g.bundle_cost.mean(), g.bundle_price.mean()
+        channels = [("Walk-in + loyalty card (6th free)", cost / LOYALTY_EVERY_N, "DESIGN; cost = product cost of 1 bundle in 6")]
+        for lvl, c in COURIER_COST.items():
+            channels.append((f"Own courier, free delivery (${c:.0f}, {lvl})", c, "SOURCED range $2-6 (Voxire)"))
+        for lvl, r in APP_COMMISSION.items():
+            channels.append((f"Delivery app commission {r:.0%} ({lvl})", price * r, "SOURCED 22-30% (Voxire)"))
+        for channel, per_order_cost, basis in channels:
+            rows.append({"bundle": name, "channel": channel, "basis": basis,
+                         "bundle_price": round(price, 2), "bundle_profit": round(profit, 2),
                          "channel_cost_per_order": round(per_order_cost, 2),
                          "net_profit_per_new_order": round(profit - per_order_cost, 2),
                          "min_share_of_orders_that_must_be_new_pct":
@@ -112,28 +134,33 @@ def channel_economics(bundles: pd.DataFrame) -> pd.DataFrame:
 
 
 def scenarios(bundles: pd.DataFrame, tx: pd.DataFrame, df: pd.DataFrame) -> pd.DataFrame:
-    quick = bundles[bundles.bundle == "Quick morning"].set_index("branch").bundle_profit
-    loyalty_cost = bundles[bundles.bundle == "Quick morning"].set_index("branch").bundle_cost / LOYALTY_EVERY_N
+    office_days = int(pd.read_csv(TABLES / OFFICE_DAYS_FILE).office_days_per_year.iloc[0])
+    flex = bundles[bundles.bundle == "Coffee + any pastry"].set_index("branch")
     wd = tx[~tx.weekend]
     n_wd = df[~df.weekend].Date.nunique()
     rows = []
-    for extra in EXTRA_ORDERS_PER_BRANCH_DAY:
-        total = 0.0
-        for b in BRANCHES:
-            per_order = INCREMENTAL_SHARE * quick[b] - loyalty_cost[b]
-            yearly = extra * WEEKDAYS_PER_YEAR * per_order
-            total += yearly
-            w = wd[wd.branch == b]
-            morning_ph = (w.hour.between(7, 10)).sum() / n_wd / 4
-            night_ph = (w.hour.between(19, 23)).sum() / n_wd / 5
-            rows.append({"extra_bundle_orders_per_branch_per_weekday": extra, "branch": b,
-                         "morning_orders_per_hour_now": round(morning_ph, 2),
-                         "morning_orders_per_hour_after": round(morning_ph + extra / 4, 2),
-                         "night_orders_per_hour_now": round(night_ph, 2),
-                         "within_night_capacity": morning_ph + extra / 4 <= night_ph,
-                         "gross_profit_per_year_usd": round(yearly)})
-        rows.append({"extra_bundle_orders_per_branch_per_weekday": extra, "branch": "ALL",
-                     "gross_profit_per_year_usd": round(total)})
+    for new_share in NEW_CUSTOMER_SHARES:
+        for extra in EXTRA_ORDERS_PER_BRANCH_DAY:
+            total = 0.0
+            for b in BRANCHES:
+                # every offer order pays the loyalty cost; only the new share adds profit
+                per_order = new_share * flex.loc[b, "bundle_profit"] - flex.loc[b, "bundle_cost"] / LOYALTY_EVERY_N
+                yearly = extra * office_days * per_order
+                total += yearly
+                w = wd[wd.branch == b]
+                morning_ph = w.hour.between(7, 10).sum() / n_wd / 4
+                night_ph = w.hour.between(19, 23).sum() / n_wd / 5
+                rows.append({"new_customer_share": new_share, "extra_orders_per_branch_per_office_day": extra,
+                             "branch": b, "office_days_per_year": office_days,
+                             "morning_orders_per_day_now": round(morning_ph * 4, 1),
+                             "morning_orders_increase_pct": round(extra / (morning_ph * 4) * 100),
+                             "morning_orders_per_hour_after": round(morning_ph + extra / 4, 2),
+                             "night_orders_per_hour_now": round(night_ph, 2),
+                             "within_night_pace": morning_ph + extra / 4 <= night_ph,
+                             "gross_profit_per_year_usd": round(yearly)})
+            rows.append({"new_customer_share": new_share, "extra_orders_per_branch_per_office_day": extra,
+                         "branch": "ALL", "office_days_per_year": office_days,
+                         "gross_profit_per_year_usd": round(total)})
     return pd.DataFrame(rows)
 
 
@@ -166,36 +193,46 @@ def test_design(tx: pd.DataFrame, test_branch: str = "Harbour") -> pd.DataFrame:
 
 def plot(sc: pd.DataFrame, ch: pd.DataFrame, path: Path) -> None:
     style.apply()
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.6), gridspec_kw={"width_ratios": [1, 1.25]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.5, 4.8), gridspec_kw={"width_ratios": [1, 1.3]})
     tot = sc[sc.branch == "ALL"]
-    x = np.arange(len(tot))
-    bars = ax1.bar(x, tot.gross_profit_per_year_usd, color=style.SERIES[0], width=0.55,
-                   edgecolor=style.SURFACE, linewidth=2)
-    for bar, v in zip(bars, tot.gross_profit_per_year_usd):
-        ax1.text(bar.get_x() + bar.get_width() / 2, v * 1.02, f"${v:,.0f}", ha="center", va="bottom",
-                 fontsize=10, weight="bold", color=style.INK)
-    ax1.set_xticks(x, [f"+{e} per branch\nper weekday" for e in tot.extra_bundle_orders_per_branch_per_weekday])
-    ax1.set_ylim(0, tot.gross_profit_per_year_usd.max() * 1.18)
+    x = np.arange(len(EXTRA_ORDERS_PER_BRANCH_DAY))
+    w = 0.26
+    for j, share in enumerate(NEW_CUSTOMER_SHARES):
+        t = tot[tot.new_customer_share == share].set_index("extra_orders_per_branch_per_office_day").loc[EXTRA_ORDERS_PER_BRANCH_DAY]
+        bars = ax1.bar(x + (j - 1) * w, t.gross_profit_per_year_usd, w, color=style.SERIES[j],
+                       edgecolor=style.SURFACE, linewidth=2, label=f"{share:.0%} of offer orders new")
+        for bar, v in zip(bars, t.gross_profit_per_year_usd):
+            ax1.text(bar.get_x() + bar.get_width() / 2, max(v, 0) + 300, f"${v / 1000:.1f}k", ha="center",
+                     fontsize=7.5, color=style.INK_2)
+    ax1.set_xticks(x, [f"+{e}" for e in EXTRA_ORDERS_PER_BRANCH_DAY])
+    ax1.set_xlabel("Extra morning orders per branch per office day")
     ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
-    ax1.set_title("Extra gross profit per year\n(Quick morning bundle, loyalty card)", fontsize=11)
+    ax1.set_title("Extra gross profit per year, 3 branches\n(coffee + any pastry, loyalty card)", fontsize=11, pad=26)
+    ax1.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3, fontsize=7.5)
     ax1.grid(axis="x", visible=False)
 
-    q = ch[ch.bundle.isin(["Quick morning", "Office pack (4+4)"])]
-    labels = [f"{r.bundle}\n{r.channel}" for _, r in q.iterrows()]
+    q = ch[ch.bundle.isin(["Coffee + any pastry", "Office pack (4+4)"])].copy()
+    q["label"] = q.bundle + ": " + q.channel
     y = np.arange(len(q))[::-1]
-    colors = [style.SERIES[2] if v <= 15 else style.SERIES[1] for v in q.min_share_of_orders_that_must_be_new_pct]
-    ax2.barh(y, q.min_share_of_orders_that_must_be_new_pct, color=colors, height=0.6,
-             edgecolor=style.SURFACE, linewidth=2)
+    vals = q.min_share_of_orders_that_must_be_new_pct.clip(upper=120)
+    colors = [style.SERIES[2] if v <= WORKABLE_NEW_SHARE_PCT else style.SERIES[1] for v in vals]
+    ax2.barh(y, vals, color=colors, height=0.62, edgecolor=style.SURFACE, linewidth=2)
     for yi, v in zip(y, q.min_share_of_orders_that_must_be_new_pct):
-        ax2.text(v + 0.8, yi, f"{v:.0f}%", va="center", fontsize=9, weight="bold", color=style.INK)
-    ax2.set_yticks(y, labels, fontsize=8)
-    ax2.set_xlim(0, max(q.min_share_of_orders_that_must_be_new_pct.max() * 1.3, 10))
+        ax2.text(min(v, 120) + 1.2, yi, f"{v:.0f}%" + (" (never pays)" if v > 100 else ""), va="center",
+                 fontsize=8, weight="bold", color=style.INK)
+    ax2.axvline(100, color=style.MUTED, ls="--", lw=1)
+    ax2.axvline(WORKABLE_NEW_SHARE_PCT, color=style.SERIES[2], ls=":", lw=1)
+    ax2.text(WORKABLE_NEW_SHARE_PCT + 1, -0.85, f"workable: needs {WORKABLE_NEW_SHARE_PCT}% new or less",
+             fontsize=7.5, color=style.INK_2)
+    ax2.set_yticks(y, q.label, fontsize=7.5)
+    ax2.set_xlim(0, 150)
+    ax2.set_ylim(-1.2, len(q) - 0.4)
     ax2.set_xlabel("Share of offer orders that must be NEW customers to break even (%)")
-    ax2.set_title("Free delivery only pays on big orders", fontsize=11)
+    ax2.set_title("Free delivery only pays on office packs", fontsize=11)
     ax2.grid(axis="y", visible=False)
-    fig.text(0.01, -0.02, "ESTIMATE. Assumptions at the top of morning/morning_offer.py: 10% bundle discount, "
-             f"${DELIVERY_COST:.2f} per delivery, 6th bundle free, {INCREMENTAL_SHARE:.0%} of orders new, "
-             f"{WEEKDAYS_PER_YEAR} weekdays.", fontsize=8, color=style.MUTED)
+    fig.text(0.01, -0.03, "ESTIMATE. Office days and delivery costs sourced (docs/morning_sources.md); "
+             "bundle discount and loyalty reward are design choices; the share of new customers is unknown, so 3 values are shown.",
+             fontsize=8, color=style.MUTED)
     fig.tight_layout()
     fig.savefig(path, bbox_inches="tight")
     plt.close(fig)

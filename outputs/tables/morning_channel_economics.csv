@@ -1,10 +1,25 @@
-bundle,channel,bundle_profit,channel_cost_per_order,net_profit_per_new_order,min_share_of_orders_that_must_be_new_pct
-Quick morning,Walk-in + loyalty card (6th free),4.99,0.54,4.45,10.8
-Quick morning,"Delivery, first 3 free",4.99,2.0,2.99,40.1
-Quick morning,"Delivery, customer pays the fee",4.99,0.0,4.99,0.0
-Office breakfast,Walk-in + loyalty card (6th free),6.98,0.96,6.02,13.7
-Office breakfast,"Delivery, first 3 free",6.98,2.0,4.98,28.7
-Office breakfast,"Delivery, customer pays the fee",6.98,0.0,6.98,0.0
-Office pack (4+4),Walk-in + loyalty card (6th free),19.22,2.29,16.93,11.9
-Office pack (4+4),"Delivery, first 3 free",19.22,2.0,17.22,10.4
-Office pack (4+4),"Delivery, customer pays the fee",19.22,0.0,19.22,0.0
+bundle,channel,basis,bundle_price,bundle_profit,channel_cost_per_order,net_profit_per_new_order,min_share_of_orders_that_must_be_new_pct
+Coffee + any pastry,Walk-in + loyalty card (6th free),DESIGN; cost = product cost of 1 bundle in 6,7.78,4.62,0.53,4.09,11.4
+Coffee + any pastry,"Own courier, free delivery ($2, low)",SOURCED range $2-6 (Voxire),7.78,4.62,2.0,2.62,43.3
+Coffee + any pastry,"Own courier, free delivery ($4, mid)",SOURCED range $2-6 (Voxire),7.78,4.62,4.0,0.62,86.6
+Coffee + any pastry,"Own courier, free delivery ($6, high)",SOURCED range $2-6 (Voxire),7.78,4.62,6.0,-1.38,129.9
+Coffee + any pastry,Delivery app commission 22% (strong brand),SOURCED 22-30% (Voxire),7.78,4.62,1.71,2.91,37.1
+Coffee + any pastry,Delivery app commission 30% (standard),SOURCED 22-30% (Voxire),7.78,4.62,2.33,2.29,50.5
+Quick morning,Walk-in + loyalty card (6th free),DESIGN; cost = product cost of 1 bundle in 6,8.22,4.99,0.54,4.45,10.8
+Quick morning,"Own courier, free delivery ($2, low)",SOURCED range $2-6 (Voxire),8.22,4.99,2.0,2.99,40.1
+Quick morning,"Own courier, free delivery ($4, mid)",SOURCED range $2-6 (Voxire),8.22,4.99,4.0,0.99,80.2
+Quick morning,"Own courier, free delivery ($6, high)",SOURCED range $2-6 (Voxire),8.22,4.99,6.0,-1.01,120.3
+Quick morning,Delivery app commission 22% (strong brand),SOURCED 22-30% (Voxire),8.22,4.99,1.81,3.18,36.2
+Quick morning,Delivery app commission 30% (standard),SOURCED 22-30% (Voxire),8.22,4.99,2.46,2.52,49.4
+Office breakfast,Walk-in + loyalty card (6th free),DESIGN; cost = product cost of 1 bundle in 6,12.73,6.98,0.96,6.02,13.7
+Office breakfast,"Own courier, free delivery ($2, low)",SOURCED range $2-6 (Voxire),12.73,6.98,2.0,4.98,28.7
+Office breakfast,"Own courier, free delivery ($4, mid)",SOURCED range $2-6 (Voxire),12.73,6.98,4.0,2.98,57.3
+Office breakfast,"Own courier, free delivery ($6, high)",SOURCED range $2-6 (Voxire),12.73,6.98,6.0,0.98,86.0
+Office breakfast,Delivery app commission 22% (strong brand),SOURCED 22-30% (Voxire),12.73,6.98,2.8,4.18,40.1
+Office breakfast,Delivery app commission 30% (standard),SOURCED 22-30% (Voxire),12.73,6.98,3.82,3.16,54.7
+Office pack (4+4),Walk-in + loyalty card (6th free),DESIGN; cost = product cost of 1 bundle in 6,32.96,19.22,2.29,16.93,11.9
+Office pack (4+4),"Own courier, free delivery ($2, low)",SOURCED range $2-6 (Voxire),32.96,19.22,2.0,17.22,10.4
+Office pack (4+4),"Own courier, free delivery ($4, mid)",SOURCED range $2-6 (Voxire),32.96,19.22,4.0,15.22,20.8
+Office pack (4+4),"Own courier, free delivery ($6, high)",SOURCED range $2-6 (Voxire),32.96,19.22,6.0,13.22,31.2
+Office pack (4+4),Delivery app commission 22% (strong brand),SOURCED 22-30% (Voxire),32.96,19.22,7.25,11.97,37.7
+Office pack (4+4),Delivery app commission 30% (standard),SOURCED 22-30% (Voxire),32.96,19.22,9.89,9.33,51.4
